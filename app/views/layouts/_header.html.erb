@@ -1,0 +1,39 @@
+<div>
+    <nav class="navbar navbar-default navigation-clean-button">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Course Bay</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <%if current_user%>
+                        <li role="presentation"><a href="/"><%=image_tag current_user.image_url, class: "image_table_display_circle"%> </a></li>
+                    <%else %>
+                        <li role="presentation"><a href="/">Home</a></li>
+                    <%end %>
+                    
+                    <li role="presentation"><a href="/news">News</a></li>
+                    <li role="presentation"><a href="/contact">Contact us</a></li>
+                    <li role="presentation"><a href="/about">About us</a></li>
+
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#">First Item</a></li>
+                            <li role="presentation"><a href="#">Second Item</a></li>
+                            <li role="presentation"><a href="#">Third Item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="navbar-text navbar-right actions">
+                <!-- <a class="navbar-link login" href="#">Log In</a>  -->
+                <!-- <a class="btn btn-default action-button" role="button" href="">Sign Up</a></p> -->
+                <%if current_user%>
+                    <%= link_to "log out!",destroy_user_session_path, method: 'DELETE', class: "btn btn-large btn-primary" %>
+                <%else %>
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-default action-button" %>
+                <%end %>
+
+            </div>
+        </div>
+    </nav>
+</div>

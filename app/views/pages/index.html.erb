@@ -1,0 +1,66 @@
+
+<%#= link_to "log out!",destroy_user_session_path, method: 'DELETE', class: "btn btn-large btn-primary" %>
+
+<ul class="nav nav-tabs nav-justified">
+  <li class="active"><a data-toggle="tab" href="#images">All Images</a></li>
+  <li><a data-toggle="tab" href="#favourite">Favourite Images</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="images" class="tab-pane fade in active">
+  	<div class="table-responsive">
+	    <table class="table table-bordered table-hover">
+		  <thead>
+		    <tr>
+		      <th>Image</th>
+		      <th>Favourite</th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @images.each_with_index do |image,index| %>
+		      <tr>
+		        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
+		        <td> 
+		        	<%if @favourite_images.include?(image)%>
+		        		<input type="checkbox" id="img_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>)" data-on="Yes" data-off="No" checked></td>
+		        	<%else%>
+		        		<input type="checkbox" id="img_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>)" data-on="Yes" data-off="No"></td>
+		        	<%end%>
+		        
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+
+	<%= form_for @image do |f| %>
+	  <p>
+	    <label>My Image</label>
+	    <%= f.file_field :image %>
+	    <%= f.submit :Save %>
+	  </p>
+	<% end %>
+  </div>
+  <div id="favourite" class="tab-pane fade">
+    <h3>Favourite Images</h3>
+    <div class="table-responsive">
+	    <table class="table table-bordered table-hover">
+		  <thead>
+		    <tr>
+		      <th>Image</th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @favourite_images.each_with_index do |image,index| %>
+		      <tr>
+		        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
+
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+  </div>
+</div>

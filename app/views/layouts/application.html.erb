@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CourseBay</title>
+    <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/custom.css">
+    <link rel="stylesheet" href="assets/Basic-Header.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+     
+    <script src="assets/custom.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <%= javascript_include_tag 'application' %>
+
+  </head>
+
+
+  <body>
+  	<%= render 'layouts/header' %>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+    <%= yield %>
+    
+  </body>
+</html>
