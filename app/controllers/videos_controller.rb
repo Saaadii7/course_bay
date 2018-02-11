@@ -1,14 +1,14 @@
-class ImagesController < ApplicationController
+class VideosController < ApplicationController
 
 	def create
-		if params[:image][:image]
-			params[:image][:image].each do |img|
-				Image.create(image: img)
+		if params[:video][:video]
+			params[:video][:video].each do |vid|
+				Video.create(video: vid)
 			end 
 		end
 		# @image = Image.create(image_params)
 		respond_to do |format|
-	        format.html { redirect_to authenticated_root_path, notice: 'Image was successfully created.' }
+	        format.html { redirect_to authenticated_root_path, notice: 'Video was successfully created.' }
 	        # format.json { render :show, status: :created, location: @image }
 	    end
 	end

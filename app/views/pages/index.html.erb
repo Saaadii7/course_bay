@@ -27,7 +27,6 @@
 		        	<%else%>
 		        		<input type="checkbox" id="img_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>)" data-on="Yes" data-off="No"></td>
 		        	<%end%>
-		        
 		      </tr>
 		    <% end %>
 		  </tbody>
@@ -36,11 +35,30 @@
 
 	<%= form_for @image do |f| %>
 	  <p>
-	    <label>My Image</label>
-	    <%= f.file_field :image %>
+	    <label>For Images</label>
+	    <%= f.file_field :image , multiple: true, accept: 'image/png,image/gif,image/jpeg'%>
 	    <%= f.submit :Save %>
 	  </p>
 	<% end %>
+
+	<%= form_for @document do |f| %>
+	  <p>
+	    <label>For Documents</label>
+	    <%= f.file_field :document , multiple: true, accept: 'application/pdf, application/docx'%>
+	    <%= f.submit :Save %>
+	  </p>
+	<% end %>
+
+	<%= form_for @sound do |f| %>
+	  <p>
+	    <label>For Sounds</label>
+	    <%= f.file_field :sound , multiple: true, accept: 'audio/3gp, audio/mp3'%>
+	    <%= f.submit :Save %>
+	  </p>
+	<% end %>
+
+	
+
   </div>
   <div id="favourite" class="tab-pane fade">
     <h3>Favourite Images</h3>

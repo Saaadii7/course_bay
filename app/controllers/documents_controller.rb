@@ -1,14 +1,14 @@
-class ImagesController < ApplicationController
+class DocumentsController < ApplicationController
 
 	def create
-		if params[:image][:image]
-			params[:image][:image].each do |img|
-				Image.create(image: img)
+		if params[:document][:document]
+			params[:document][:document].each do |doc|
+				Document.create(document: doc)
 			end 
 		end
 		# @image = Image.create(image_params)
 		respond_to do |format|
-	        format.html { redirect_to authenticated_root_path, notice: 'Image was successfully created.' }
+	        format.html { redirect_to authenticated_root_path, notice: 'Document was successfully created.' }
 	        # format.json { render :show, status: :created, location: @image }
 	    end
 	end
@@ -35,5 +35,4 @@ private
 	def image_params
 		params.require(:image).permit(:image)
 	end
-
 end
