@@ -3,82 +3,148 @@
 
 <ul class="nav nav-tabs nav-justified">
   <li class="active"><a data-toggle="tab" href="#images">All Images</a></li>
+  <li><a data-toggle="tab" href="#documents">All Documents</a></li>
+  <li><a data-toggle="tab" href="#sounds">All Sounds</a></li>
   <li><a data-toggle="tab" href="#favourite">Favourite Images</a></li>
 </ul>
 
 <div class="tab-content">
-  <div id="images" class="tab-pane fade in active">
-  	<div class="table-responsive">
-	    <table class="table table-bordered table-hover">
-		  <thead>
-		    <tr>
-		      <th>Image</th>
-		      <th>Favourite</th>
-		    </tr>
-		  </thead>
+	<div id="images" class="tab-pane fade in active">
+	  	<div class="table-responsive">
+		    <table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>Image</th>
+			      <th>Favourite</th>
+			    </tr>
+			  </thead>
 
-		  <tbody>
-		    <% @images.each_with_index do |image,index| %>
-		      <tr>
-		        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
-		        <td> 
-		        	<%if @favourite_images.include?(image)%>
-		        		<input type="checkbox" id="img_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>)" data-on="Yes" data-off="No" checked></td>
-		        	<%else%>
-		        		<input type="checkbox" id="img_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>)" data-on="Yes" data-off="No"></td>
-		        	<%end%>
-		      </tr>
-		    <% end %>
-		  </tbody>
-		</table>
+			  <tbody>
+			    <% @images.each_with_index do |image,index| %>
+			      <tr>
+			        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
+			        <td> 
+			        	<%if @favourite_images.include?(image)%>
+			        		<input type="checkbox" id="img_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>)" data-on="Yes" data-off="No" checked></td>
+			        	<%else%>
+			        		<input type="checkbox" id="img_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>)" data-on="Yes" data-off="No"></td>
+			        	<%end%>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+
+		<%= form_for @image do |f| %>
+		  <p>
+		    <label>For Images</label>
+		    <%= f.file_field :image , multiple: true, accept: 'image/png,image/gif,image/jpeg'%>
+		    <%= f.submit :Save %>
+		  </p>
+		<% end %>
+
 	</div>
 
-	<%= form_for @image do |f| %>
-	  <p>
-	    <label>For Images</label>
-	    <%= f.file_field :image , multiple: true, accept: 'image/png,image/gif,image/jpeg'%>
-	    <%= f.submit :Save %>
-	  </p>
-	<% end %>
+	<div id="documents" class="tab-pane">
+	  	<div class="table-responsive">
+		    <table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>Documents</th>
+			      <th>Favourite</th>
+			    </tr>
+			  </thead>
 
-	<%= form_for @document do |f| %>
-	  <p>
-	    <label>For Documents</label>
-	    <%= f.file_field :document , multiple: true, accept: 'application/pdf, application/docx'%>
-	    <%= f.submit :Save %>
-	  </p>
-	<% end %>
+			  <tbody>
+			    <% @documents.each_with_index do |document,index| %>
+			      <tr>
+			        <td>
+			        	<!-- <iframe src="<%=document.document_url%>"></iframe> -->
+			        	<object width="400" height="400" >
+			        		<embed src="<%=document.document_url%>"></embed>
+			        	</object>
+			        </td>
+			        <td> 
+			        	<%if @favourite_documents.include?(document)%>
+			        		<input type="checkbox" id="img_<%=document.id%>" onclick="favourite_toggle(<%=document.id%>)" data-on="Yes" data-off="No" checked></td>
+			        	<%else%>
+			        		<input type="checkbox" id="img_<%=document.id%>" onclick="favourite_toggle(<%=document.id%>)" data-on="Yes" data-off="No"></td>
+			        	<%end%>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
 
-	<%= form_for @sound do |f| %>
-	  <p>
-	    <label>For Sounds</label>
-	    <%= f.file_field :sound , multiple: true, accept: 'audio/3gp, audio/mp3'%>
-	    <%= f.submit :Save %>
-	  </p>
-	<% end %>
+		<%= form_for @document do |f| %>
+		  <p>
+		    <label>For Documents</label>
+		    <%= f.file_field :document , multiple: true, accept: 'application/pdf, application/docx'%>
+		    <%= f.submit :Save %>
+		  </p>
+		<% end %>	
 
-	
-
-  </div>
-  <div id="favourite" class="tab-pane fade">
-    <h3>Favourite Images</h3>
-    <div class="table-responsive">
-	    <table class="table table-bordered table-hover">
-		  <thead>
-		    <tr>
-		      <th>Image</th>
-		    </tr>
-		  </thead>
-
-		  <tbody>
-		    <% @favourite_images.each_with_index do |image,index| %>
-		      <tr>
-		        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
-
-		      </tr>
-		    <% end %>
-		  </tbody>
-		</table>
 	</div>
-  </div>
+
+	<div id="sounds" class="tab-pane">
+	  	<div class="table-responsive">
+		    <table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>Sounds</th>
+			      <th>Favourite</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @sounds.each_with_index do |sound,index| %>
+			      <tr>
+			        <td>
+			        	<audio id="<%=sound.id%>" controls>
+						 <source src='<%=sound.sound_url%>' type="audio/mpeg">
+						</audio>
+					</td>
+			        <td> 
+			        	<%if @favourite_sounds.include?(sound)%>
+			        		<input type="checkbox" id="img_<%=sound.id%>" onclick="favourite_toggle(<%=sound.id%>)" data-on="Yes" data-off="No" checked></td>
+			        	<%else%>
+			        		<input type="checkbox" id="img_<%=sound.id%>" onclick="favourite_toggle(<%=sound.id%>)" data-on="Yes" data-off="No"></td>
+			        	<%end%>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+		<%= form_for @sound do |f| %>
+		  <p>
+		    <label>For Sounds</label>
+		    <%= f.file_field :sound , multiple: true, accept: 'audio/3gp, audio/mp3'%>
+		    <%= f.submit :Save %>
+		  </p>
+		<% end %>
+
+	</div>
+
+	<div id="favourite" class="tab-pane fade">
+	    <h3>Favourite Images</h3>
+	    <div class="table-responsive">
+		    <table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>Image</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @favourite_images.each_with_index do |image,index| %>
+			      <tr>
+			        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
+
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+
 </div>
