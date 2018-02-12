@@ -14,25 +14,24 @@ class SoundsController < ApplicationController
 	end
 
 	def favourite_toggle
-		@image = Image.find_by_id(params[:image_id])
+		@sound = Sound.find_by_id(params[:element_id])
 		if params[:favourite] == "true"
-			current_user.favourite_images << @image
+			current_user.favourite_sounds << @sound
 			respond_to do |format|
-		        format.html { redirect_to authenticated_root_path, notice: 'Image become Favourite.' }
+		        format.html { redirect_to authenticated_root_path, notice: 'Sound become Favourite.' }
 		        # format.json { render :show, status: :created, location: @image }
 		    end
 		else
-			current_user.favourite_images.delete(@image)
+			current_user.favourite_sounds.delete(@sound)
 			respond_to do |format|
-		        format.html { redirect_to authenticated_root_path, notice: 'Image deleted from Favourites.' }
+		        format.html { redirect_to authenticated_root_path, notice: 'Sound deleted from Favourites.' }
 		        # format.json { render :show, status: :created, location: @image }
 		    end
 		end
 	end
 
-
 private
 	def image_params
-		params.require(:image).permit(:image)
+		# params.require(:image).permit(:image)
 	end
 end

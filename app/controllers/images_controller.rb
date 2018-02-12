@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
 	end
 
 	def favourite_toggle
-		@image = Image.find_by_id(params[:image_id])
+		@image = Image.find_by_id(params[:element_id])
 		if params[:favourite] == "true"
 			current_user.favourite_images << @image
 			respond_to do |format|
@@ -30,10 +30,9 @@ class ImagesController < ApplicationController
 		end
 	end
 
-
 private
 	def image_params
-		params.require(:image).permit(:image)
+		# params.require(:image).permit(:image)
 	end
 
 end

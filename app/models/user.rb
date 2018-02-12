@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :favourite_documents, :class_name => "Document"
   has_and_belongs_to_many :favourite_sounds, :class_name => "Sound"
 
-  # has_and_belongs_to_many :favourite_videos, :class_name => "Video", dependent: :destroy
+  has_and_belongs_to_many :favourite_videos, :class_name => "Video", dependent: :destroy
 
 
   # before_action :authenticate_user!

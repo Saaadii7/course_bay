@@ -1,15 +1,9 @@
 
-function favourite_toggle(image_id){
+function favourite_toggle(element_id,controller){
 	// console.log($("#img_"+image_id).prop('checked'),image_id);
 	$.ajax({
 	    type:'POST', 
-	    url: '/images/favourite_toggle', 
-	    data: { image_id: image_id, favourite: $("#img_"+image_id).prop('checked')}
+	    url: "/"+controller+"/favourite_toggle", 
+	    data: { element_id: element_id, favourite: $("#"+controller+"_"+element_id).prop('checked')}
 	 }); 
-	
 }
-function playAudio(audio) {
- 	console.log(audio)
-    audio.play(); 
-} 
-
