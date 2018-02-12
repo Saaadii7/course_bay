@@ -59,10 +59,13 @@
 			    <% @documents.each_with_index do |document,index| %>
 			      <tr>
 			        <td>
+			        	<%= link_to document.document.file.filename, document.document_url, :target => "_blank"  %>
+			        	    <!-- <iframe src="localhost:3000/<%=document.document_url%>&embedded=true"  style="position: absolute;width:150px; height: 150px;border: none;"></iframe> -->
+
 			        	<!-- <iframe src="<%=document.document_url%>"></iframe> -->
-			        	<object width="400" height="400" >
+			        	<!-- <object width="400" height="400" >
 			        		<embed src="<%=document.document_url%>"></embed>
-			        	</object>
+			        	</object> -->
 			        </td>
 			        <td> 
 			        	<%if @favourite_documents.include?(document)%>
