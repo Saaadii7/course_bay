@@ -1,0 +1,24 @@
+<div class="container_contact">
+ 
+
+  <%= form_tag("/card_pay", method: "post") do %>
+    
+    <div class="field">
+      <%= label_tag(:card_number, "Card Number:") %>
+      <%= text_field_tag(:card_number) %>
+    </div>
+
+    <div class="field">
+      <%= label_tag(:expiry, "Expiry") %>
+      <%= date_field_tag(:expiry) %>
+    </div>
+
+    <div class="field">
+      <%= label_tag(:cvc, "CVC:") %>
+      <%= text_field_tag(:cvc) %>
+    </div>
+
+    <%= submit_tag("Pay Now!") %>
+  <% end %>
+
+</div>

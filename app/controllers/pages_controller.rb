@@ -23,4 +23,7 @@ class PagesController < ApplicationController
 	def about 
 	end
 
+	def pay 
+	end
+
 end
