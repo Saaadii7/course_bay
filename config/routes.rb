@@ -7,17 +7,29 @@ Rails.application.routes.draw do
   	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	# root to: "home#index"
 	
-	resources :images, only: [:new, :create, :destroy]
-	resources :documents, only: [:new, :create, :destroy]
-	resources :sounds, only: [:new, :create, :destroy]
-	resources :videos, only: [:new, :create, :destroy]
+	resources :images, only: [:new, :create, :destroy] do
+		collection do
+			post 'favourite_toggle' 
+		end
+	end
+	resources :documents, only: [:new, :create, :destroy] do
+		collection do
+			post 'favourite_toggle' 
+		end
+	end
+	resources :sounds, only: [:new, :create, :destroy] do
+		collection do
+			post 'favourite_toggle' 
+		end
+	end
+	resources :videos, only: [:new, :create, :destroy] do
+		collection do
+			post 'favourite_toggle' 
+		end
+	end
     
-
-    post '/images/favourite_toggle', to: 'images#favourite_toggle'
-    post '/documents/favourite_toggle', to: 'documents#favourite_toggle'
-    post '/sounds/favourite_toggle', to: 'sounds#favourite_toggle'
-    post '/videos/favourite_toggle', to: 'videos#favourite_toggle'
-
+    get '/contact', to: 'pages#contact'
+    get '/about', to: 'pages#about'
 
   	devise_scope :user do
 	  authenticated :user do

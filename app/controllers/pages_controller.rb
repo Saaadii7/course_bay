@@ -17,4 +17,10 @@ class PagesController < ApplicationController
 		@favourite_videos = current_user.favourite_videos
 	end 
 
+	def contact
+	end
+
+	def about 
+	end
+
 end
