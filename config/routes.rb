@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   	devise_for :users, controllers: {
         registrations: 'users/registrations'
       }
-
-
-  	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-	# root to: "home#index"
 	
 	resources :images, only: [:new, :create, :destroy] do
 		collection do
@@ -30,6 +26,10 @@ Rails.application.routes.draw do
     
     get '/contact', to: 'pages#contact'
     get '/about', to: 'pages#about'
+    get '/pay', to: 'pages#pay'
+
+    post '/card_pay', to: 'stripe#card_pay'
+
 
   	devise_scope :user do
 	  authenticated :user do
