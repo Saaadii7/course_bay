@@ -25,6 +25,22 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
+  # Rails.application.config.middleware.use ExceptionNotification::Rack,
+  # :email => {
+  #   :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
+  #   :email_prefix => "READING LAB ERRORS ",
+  #   :sender_address => 'saaadii7@gmail.com',
+  #   :exception_recipients => 'saad.mahmood@gems.techverx.com'
+  # }
+  config.action_mailer.smtp_settings = {  
+    address: "smtp.gmail.com",
+      port: 587,
+        domain: 'gmail.com',
+          authentication: "plain",
+            enable_starttls_auto: true, 
+              user_name: "life_care@gmail.com", 
+                password: "Some_password"  }
+  
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
