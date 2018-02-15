@@ -1,23 +1,18 @@
 <div class="container_contact">
-  <form action="action_page.php">
 
-    <label for="fname">Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+  <%= form_tag("/send_email", method: "post") do %>
+    
+    <div class="field">
+      <%= label_tag(:email, "Email Address:") %>
+      <%= email_field_tag(:email) %>
+    </div>
 
-    <label for="lname">Email Address</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <div class="field">
+      <%= label_tag(:subject, "Subject:") %>
+      <%= text_field_tag(:subject) %>
+    </div>
 
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">Canada</option>
-      <option value="usa">USA</option>
-    </select>
+    <%= submit_tag("Email Us Now!") %>
+  <% end %>
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-    <input type="submit" value="Submit">
-
-  </form>
 </div>

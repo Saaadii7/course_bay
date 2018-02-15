@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get '/pay', to: 'pages#pay'
 
     post '/card_pay', to: 'stripe#card_pay'
+    post '/send_email', to: 'email#send_email'
 
 
   	devise_scope :user do
