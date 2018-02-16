@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :transactions
+  has_many :emails
   # has_and_belongs_to_many :images 
   has_and_belongs_to_many :favourite_images, :class_name => "Image"
   has_and_belongs_to_many :favourite_documents, :class_name => "Document"

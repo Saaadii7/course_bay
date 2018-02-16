@@ -1,5 +1,5 @@
 class NoticeMailer < ApplicationMailer
-	default from: "saad.mahmood@gems.techverx.com"
+	default from: Rails.application.secrets.account_email
 
 	def send_email(email,subject)
 		@email = email

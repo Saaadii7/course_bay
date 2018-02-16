@@ -40,8 +40,8 @@ Rails.application.configure do
         domain: 'gmail.com',
           authentication: "plain",
             enable_starttls_auto: true,
-              user_name: "saad.mahmood@gems.techverx.com", 
-                password: "mslz1911149"  
+              user_name: Rails.application.secrets.account_email, 
+                password: Rails.application.secrets.account_email_pass  
               }
   
 
