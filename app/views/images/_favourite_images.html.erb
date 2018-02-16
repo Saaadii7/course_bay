@@ -1,0 +1,16 @@
+ <table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Image</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% favourite_images.each_with_index do |image,index| %>
+      <tr id = "img_<%=image.id%>">
+        <td ><%= image_tag image.image_url, class: "image_table_display"%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

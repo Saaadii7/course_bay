@@ -1,1 +1,1 @@
-$("#img_<%=@image.id%>").html("<%= escape_javascript(render partial: "image", locals: {image: @image}) %>");
+$("#favourite_images_table").html("<%= escape_javascript(render partial: "favourite_images", locals: {favourite_images: @favourite_images}) %>");
