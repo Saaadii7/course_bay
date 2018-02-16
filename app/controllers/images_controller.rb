@@ -15,17 +15,18 @@ class ImagesController < ApplicationController
 
 	def favourite_toggle
 		@image = Image.find_by_id(params[:element_id])
+		@favourite_images = current_user.favourite_images
 		if params[:favourite] == "true"
-			current_user.favourite_images << @image
+			@favourite_images << @image
 			respond_to do |format|
-		        format.html { redirect_to authenticated_root_path, notice: 'Image become Favourite.' }
-		        # format.json { render :show, status: :created, location: @image }
+		        # format.html { redirect_to authenticated_root_path, notice: 'Image become Favourite.' }
+		        format.js
 		    end
 		else
-			current_user.favourite_images.delete(@image)
+			@favourite_images.delete(@image)
 			respond_to do |format|
-		        format.html { redirect_to authenticated_root_path, notice: 'Image deleted from Favourites.' }
-		        # format.json { render :show, status: :created, location: @image }
+		        # format.html { redirect_to authenticated_root_path, notice: 'Image deleted from Favourites.' }
+		        format.js
 		    end
 		end
 	end

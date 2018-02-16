@@ -22,15 +22,7 @@
 
 			  <tbody>
 			    <% @images.each_with_index do |image,index| %>
-			      <tr>
-			        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
-			        <td> 
-			        	<%if @favourite_images.include?(image)%>
-			        		<input type="checkbox" id="images_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>,'images')" data-on="Yes" data-off="No" checked></td>
-			        	<%else%>
-			        		<input type="checkbox" id="images_<%=image.id%>" onclick="favourite_toggle(<%=image.id%>,'images')" data-on="Yes" data-off="No"></td>
-			        	<%end%>
-			      </tr>
+			      	<%= render :partial => 'images/image', :locals => {:image => image} %>
 			    <% end %>
 			  </tbody>
 			</table>
@@ -177,8 +169,10 @@
 
 			  <tbody>
 			    <% @favourite_images.each_with_index do |image,index| %>
-			      <tr>
-			        <td><%= image_tag image.image_url, class: "image_table_display"%></td>
+			      <tr id = "img_<%=image.id%>">
+			        <td ><%= image_tag image.image_url, class: "image_table_display"%>
+			        	
+			        </td>
 
 			      </tr>
 			    <% end %>
