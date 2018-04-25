@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CourseBay</title>
+    <title><%= yield(:title) %></title>
+    <!-- <title>Home || Daily Spanz || Responsive HTML 5 Template</title> -->
     <%= csrf_meta_tags %>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- For IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Favicon -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    
+    <link rel="stylesheet" href="assets/custom.css">
+    <link rel="stylesheet" href="assets/custom.css">
+
     <link rel="stylesheet" href="assets/custom.css">
     <link rel="stylesheet" href="assets/Basic-Header.css">
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    
+    <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> -->
+    
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <!-- master stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Responsive stylesheet -->
+    <link rel="stylesheet" href="assets/css/responsive.css">
      
     <script src="assets/custom.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -20,11 +41,69 @@
 
 
   <body>
-  	<%= render 'layouts/header' %>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-
+	  <%= render 'layouts/header' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+    <!-- main jQuery -->
+    <script src="assets/js/jquery-latest.js"></script>
+    <!-- Wow Script -->
+    <script src="assets/js/wow.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- bx slider -->
+    <script src="assets/js/jquery.bxslider.min.js"></script>
+    <!-- count to -->
+    <script src="assets/js/jquery.countTo.js"></script>
+    <!-- owl carousel -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- validate -->
+    <script src="assets/js/validation.js"></script>
+    <!-- mixit up -->
+    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <!-- easing -->
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <!-- gmap helper -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
+    <!--gmap script-->
+    <script src="assets/js/gmaps.js"></script>
+    <script src="assets/js/map-helper.js"></script>
+    <!-- fancy box -->
+    <script src="assets/js/jquery.fancybox.pack.js"></script>
+    <script src="assets/js/jquery.appear.js"></script>
+    <!-- isotope script-->
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/jquery.prettyPhoto.js"></script> 
+    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+    <!-- jQuery timepicker js -->
+    <script src="assets/timePicker.js"></script>
+    <!-- Bootstrap select picker js -->
+    <script src="assets/bootstrap-select.js"></script>                               
+    <!-- Bootstrap bootstrap touchspin js -->
+    <!-- jQuery ui js -->
+    <script src="assets/jquery-ui.js"></script>
+    <!-- Language Switche  -->
+    <script src="assets/jquery.polyglot.language.switcher.js"></script>
+    <!-- Html 5 light box script-->
+    <script src="assets/html5lightbox.js"></script>
+
+    <!-- revolution slider js -->
+    <script src="assets/js/jquery.themepunch.tools.min.js"></script>
+    <script src="assets/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="assets/js/extensions/revolution.extension.video.min.js"></script>
+    <!-- thm custom script -->
+    <script src="assets/js/custom.js"></script>
   </body>
 </html>
