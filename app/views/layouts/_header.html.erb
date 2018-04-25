@@ -1,40 +1,136 @@
-<div>
-    <nav class="navbar navbar-default navigation-clean-button">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Life Care</a>
+
+ <!--Start top bar area-->
+<section class="top-bar-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                <div class="top-left">
+                    <ul>
+                        <li><span class="flaticon-technology"></span>Phone: (020) 4567 89012</li>
+                        <li><span class="flaticon-note"></span>Email: Mail@dailyspanz.com</li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <%if current_user%>
-                        <li role="presentation"><a href="/"><%=image_tag current_user.image_url, class: "image_table_display_circle"%> </a></li>
-                    <%else %>
-                        <li role="presentation"><a href="/">Home</a></li>
-                    <%end %>
-                    
-                    <!-- <li role="presentation"><a href="/news">News</a></li> -->
-                    <li role="presentation"><a href="/contact">Contact us</a></li>
-                    <li role="presentation"><a href="/about">About us</a></li>
-                    <li role="presentation"><a href="/pay">Pay us</a></li>
-
-                    <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="presentation"><a href="#">First Item</a></li>
-                            <li role="presentation"><a href="#">Second Item</a></li>
-                            <li role="presentation"><a href="#">Third Item</a></li>
-                        </ul>
-                    </li> -->
-                </ul>
-                <p class="navbar-text navbar-right actions">
-                <!-- <a class="navbar-link login" href="#">Log In</a>  -->
-                <!-- <a class="btn btn-default action-button" role="button" href="">Sign Up</a></p> -->
-                <%if current_user%>
-                    <%= link_to "log out!",destroy_user_session_path, method: 'DELETE', class: "btn btn-large btn-primary" %>
-                <%else %>
-                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-default action-button" %>
-                <%end %>
-
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                <div class="top-right clearfix">
+                    <ul class="location">
+                        <li><span class="flaticon-location"></span>121, Park Drive,Newyork 10012, USA</li>
+                    </ul>
+                    <ul class="social-links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
-</div>
+    </div>
+</section>
+<!--End top bar area-->       
+
+<!--Start mainmenu area-->
+<section class="mainmenu-area stricky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!--Start logo-->
+                <div class="logo">
+                    <a href="index.html">
+                       <img class="logo-image" src="assets/resources/logo.png" alt="">
+                    </a>
+                </div>
+                <!--End logo-->
+                <!--Start mainmenu-->
+                <nav class="main-menu clearfix">
+                    <div class="navbar-header">     
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse clearfix">
+                        <!--Start nav container nav left-->
+                        <div class="nav-container nav-left">
+                            <ul class="navigation clearfix">
+                                <li class="current"><a href="index.html">Home</a></li>
+                                <li class="dropdown"><a href="about.html">About Us</a>
+                                    <ul>
+                                        <li><a href="about.html">About Daily Spanz</a></li>
+                                        <li><a href="testimonials.html">Testimonials</a></li>
+                                        <li><a href="faq.html">FAQ’s</a></li>
+                                        <li><a href="appointment.html">Make an Appointment</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="procedures.html">Procedures</a>
+                                    <ul>
+                                        <li><a href="massage-therapy.html">Massage Therapy</a></li>
+                                        <li><a href="facial-treatments.html">Facial Treatments</a></li>
+                                        <li><a href="pedicure-menicure.html">Pedicure & Menicure</a></li>
+                                        <li><a href="salt-oil-bath.html">Salt and Oil Bath</a></li>
+                                        <li><a href="perfect-makeup.html">Perfect Makeup</a></li>
+                                        <li><a href="hair-treatments.html">Hair Treatments</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="therapists.html">Therapists</a></li>
+                            </ul>    
+                        </div>
+                        <!--End nav container nav left-->
+                        <!--Start nav container nav right-->
+                        <div class="nav-container nav-right">
+                            <ul class="navigation clearfix">
+                                <li class="dropdown"><a href="blog-default.html">Blog</a>
+                                    <ul>
+                                        <li><a href="blog-default.html">Blog Default</a></li>
+                                        <li><a href="blog-large.html">Blog Large</a></li>
+                                        <li><a href="blog-single.html">Blog Single Post</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="gallery-grid.html">Gallery</a>
+                                    <ul>
+                                        <li><a href="gallery-grid.html">Gallery Grid View</a></li>
+                                        <li><a href="gallery-without-grid.html">Gallery Without Grid</a></li>
+                                        <li><a href="gallery-single.html">Gallery Single</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="shop.html">Shop</a>
+                                    <ul>
+                                        <li><a href="shop.html">Shop Products</a></li>
+                                        <li><a href="shop-single.html">Products Single</a></li>
+                                        <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="account.html">My Account</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>    
+                        </div>
+                        <!--End nav container nav right-->
+                    </div>
+                </nav>
+                <!--End mainmenu-->
+                <!--Start outer serach box-->
+                <div class="outer-search-box">
+                    <div class="seach-toggle"><i class="fa fa-search"></i></div>
+                    <ul class="search-box">
+                        <li>
+                            <form method="post" action="index.html">
+                                <div class="form-group">
+                                    <input type="search" name="search" placeholder="Search Here" required>
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <!--End outer serach box-->
+                <div class="arrow">
+                    <img src="assets/resources/arrow.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End mainmenu area-->

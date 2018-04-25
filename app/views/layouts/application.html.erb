@@ -11,40 +11,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Favicon -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
-
-    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-    
-    <link rel="stylesheet" href="assets/custom.css">
-    <link rel="stylesheet" href="assets/custom.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
 
     <link rel="stylesheet" href="assets/custom.css">
     <link rel="stylesheet" href="assets/Basic-Header.css">
-    
-    <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> -->
-    
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+
+    <%#= stylesheet_link_tag    'application', media: 'all' %>
     <!-- master stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Responsive stylesheet -->
     <link rel="stylesheet" href="assets/css/responsive.css">
      
     <script src="assets/custom.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <%= javascript_include_tag 'application' %>
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/bootstrap-toggle.min.js"></script>
+    <%#= javascript_include_tag 'application' %>
 
   </head>
 
 
   <body>
-	  <%= render 'layouts/header' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="boxed_wrapper">
+
+      <!--Start Preloader -->
+      <div class="preloader"></div>
+      <!--End Preloader --> 
+  	  <%= render 'layouts/header' %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
     
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
@@ -68,7 +67,7 @@
     <!-- easing -->
     <script src="assets/js/jquery.easing.min.js"></script>
     <!-- gmap helper -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A&sensor=true"></script>
     <!--gmap script-->
     <script src="assets/js/gmaps.js"></script>
     <script src="assets/js/map-helper.js"></script>

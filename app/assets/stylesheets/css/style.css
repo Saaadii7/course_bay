@@ -57,24 +57,24 @@
 @import url('jquery.fancybox.css');
 @import url('prettyPhoto.css');
 /*** Flaticon css ***/
-@import url(../fonts/flaticon/flaticon.css);
+@import url(../flaticon/flaticon.css);
 /*** Price filter***/
-@import url(../assets/price-filter/nouislider.css);
-@import url(../assets/price-filter/nouislider.pips.css);
+@import url(../nouislider.css);
+@import url(../nouislider.pips.css);
 /*** single shop slide ***/
 @import url(flexslider.css);
 /*** Time picker css ***/
-@import url(../assets/timepicker/timePicker.css);
+@import url(../timePicker.css);
 /*** Jquery ui css ***/
-@import url(../assets/jquery-ui-1.11.4/jquery-ui.css);
+@import url(../jquery-ui.css);
 /*** Revolution slider ***/
-@import url(../assets/revolution/css/settings.css);
-@import url(../assets/revolution/css/layers.css);
-@import url(../assets/revolution/css/navigation.css);
+@import url(../css/settings.css);
+@import url(../css/layers.css);
+@import url(../css/navigation.css);
 /*** Bootstrap select picker css ***/
-@import url(../assets/bootstrap-sl-1.12.1/bootstrap-select.css);
+@import url(../bootstrap-select.css);
 /*** Language Switcher ***/
-@import url(../assets/language-switcher/polyglot-language-switcher.css);
+@import url(../polyglot-language-switcher.css);
 
 
 
@@ -262,7 +262,7 @@ button{
     background-color:rgba(255,255,255,1); 
     background-position:center center; 
     background-repeat:no-repeat; 
-    background-image:url(../images/icon/preloader.gif);
+    background-image:url(../icon/preloader.gif);
 }
 
 
@@ -703,7 +703,7 @@ select:focus {
   width: 34px;
   height: 30px;
   border: 2px solid #ffffff;
-  background: url(../images/icon/submenu-icon.png) center center no-repeat;
+  background: url(../icon/submenu-icon.png) center center no-repeat;
   background-size: 20px;
   cursor: pointer;
   z-index: 5;
