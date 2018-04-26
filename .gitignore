@@ -18,7 +18,7 @@ config/database.yml
 /node_modules
 /yarn-error.log
 test/
-public/
+
 *.rbc
 capybara-*.html
 .rspec
