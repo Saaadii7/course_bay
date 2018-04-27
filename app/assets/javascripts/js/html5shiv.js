@@ -231,11 +231,11 @@
     if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
       data.hasCSS = !!addStyleSheet(ownerDocument,
         // corrects block display not defined in IE6/7/8/9
-        'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
+        'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block;}' +
         // adds styling not present in IE6/7/8/9
-        'mark{background:#FF0;color:#000}' +
+        'mark{background:#FF0;color:#000;}' +
         // hides non-rendered elements
-        'template{display:none}'
+        'template{display:none;}'
       );
     }
     if (!supportsUnknownElements) {

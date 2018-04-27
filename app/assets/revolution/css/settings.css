@@ -242,14 +242,14 @@ website:   	http://www.themepunch.com
 .tp-hide-revslider,
 .tp-caption.tp-hidden-caption {	
 	visibility:hidden !important; 
-	display:none !important
+	display:none !important;
 }
 
 .rev_slider embed,
 .rev_slider iframe,
 .rev_slider object,
 .rev_slider video {
-	max-width: none !important
+	max-width: none !important;
 }
 
 
@@ -401,13 +401,13 @@ img.tp-slider-alternative-image	{
 .tp-video-play-button i 				{	width:50px;height:50px; display:inline-block; text-align: center; vertical-align: top; line-height: 50px !important; font-size: 40px !important;}									
 .tp-caption:hover .tp-video-play-button	{	opacity: 1;}
 .tp-caption .tp-revstop					{	display:none; border-left:5px solid #fff !important; border-right:5px solid #fff !important;margin-top:15px !important;line-height: 20px !important;vertical-align: top; font-size:25px !important;}
-.videoisplaying .revicon-right-dir		{	display:none}
-.videoisplaying .tp-revstop				{	display:inline-block}
+.videoisplaying .revicon-right-dir		{	display:none;}
+.videoisplaying .tp-revstop				{	display:inline-block;}
 
-.videoisplaying  .tp-video-play-button			{	display:none}
-.tp-caption:hover .tp-video-play-button 		{ 	display:block}
+.videoisplaying  .tp-video-play-button			{	display:none;}
+.tp-caption:hover .tp-video-play-button 		{ 	display:block;}
 
-.fullcoveredvideo .tp-video-play-button			{	display:none !important}
+.fullcoveredvideo .tp-video-play-button			{	display:none !important;}
 
 
 .fullscreenvideo .fullscreenvideo video 		{	object-fit:contain !important;}

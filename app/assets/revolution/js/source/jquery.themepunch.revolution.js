@@ -1113,9 +1113,9 @@ var initSlider = function (container,opt) {
 					 linktoslide==="next" ? '[{"event":"click","action":"jumptoslide","slide":"next","delay":"0.2"}]' : '[{"event":"click","action":"jumptoslide","slide":"'+linktoslide+'","delay":"0.2"}]'
 			
 			apptxt = linktoslide=="no" ? apptxt +' data-start="0">' : apptxt + 'data-actions='+"'"+jts + "'"+' data-start="0">';
-			apptxt = apptxt + '<a style="width:100%;height:100%;display:block"';					
+			apptxt = apptxt + '<a style="width:100%;height:100%;display:block;"';					
 			apptxt = link!="slide" ? apptxt + ' target="'+target+'" href="'+link+'"' : apptxt;
-			apptxt = apptxt + '><span style="width:100%;height:100%;display:block"></span></a></div>';
+			apptxt = apptxt + '><span style="width:100%;height:100%;display:block;"></span></a></div>';
 			li.append(apptxt);
 		}			
 	});
