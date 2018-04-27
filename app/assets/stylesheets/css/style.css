@@ -641,7 +641,6 @@ select:focus {
 }
 .main-menu .navigation > li > ul > li > a {
     width: 100%;
-    display: block;
     background: none;
     padding: 16px 0px 14px 20px;
     color: #303030;
@@ -2619,7 +2618,6 @@ select:focus {
 }
 
 .single-team-member .text-holder {
-    display: block;
     border: 1px solid #f4f4f4;
     border-top: none;
     display: block;
@@ -5400,7 +5398,6 @@ select:focus {
 .cart-bottom .calculate-shipping .ui-state-default .ui-icon {}
 .cart-bottom .calculate-shipping .ui-selectmenu-button span.ui-icon {
     border-left: 2px solid #f7f7f7;
-    display: block;
     float: right;
     height: 41px;
     text-indent: 0;

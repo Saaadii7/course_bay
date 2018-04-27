@@ -2551,7 +2551,7 @@ padding: 9px 10px; }
 
 .zeus .tp-tab:hover .tp-tab-title,
 .zeus .tp-tab.selected .tp-tab-title {
- color: #000;
+  color: #000;
   background:rgba(255,255,255,1); 
 }
 
