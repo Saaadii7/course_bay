@@ -28,6 +28,7 @@
     <script src="assets/jquery.min.js"></script>
     <script src="assets/bootstrap.min.js"></script>
     <script src="assets/bootstrap-toggle.min.js"></script>
+    
     <%#= javascript_include_tag 'application' %>
 
   </head>
@@ -39,9 +40,7 @@
       <!--Start Preloader -->
       <div class="preloader"></div>
       <!--End Preloader --> 
-  	  <%= render 'layouts/header' %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <%= render 'layouts/header' %>
       <%= yield %>
     </div>
     

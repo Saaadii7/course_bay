@@ -11,13 +11,20 @@ class PagesController < ApplicationController
 		@sounds = Sound.all
 		@videos = Video.all
 
-		@favourite_images = current_user.favourite_images
-		@favourite_documents = current_user.favourite_documents
-		@favourite_sounds = current_user.favourite_sounds
-		@favourite_videos = current_user.favourite_videos
+		# @favourite_images = current_user.favourite_images
+		# @favourite_documents = current_user.favourite_documents
+		# @favourite_sounds = current_user.favourite_sounds
+		# @favourite_videos = current_user.favourite_videos
+
+		@favourite_images = []
+		@favourite_documents = []
+		@favourite_sounds = []
+		@favourite_videos = []
+		
 	end 
 
-	def home 
+	def home
+		@documents  = Document.all
 	end
 
 	def contact

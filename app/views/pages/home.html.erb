@@ -379,6 +379,79 @@
 </section>  
 <!--End Procedures area-->
 
+
+<!--Start Docs area-->
+    <section class="procedures-area">
+        <div class="iconbox-left-top">
+            <span class="flaticon-light"></span>
+        </div>
+        <div class="iconbox-left-bottom">
+            <span class="flaticon-flower"></span>
+        </div>
+        <div class="iconbox-right-top">
+            <span class="flaticon-nature"></span>
+        </div>
+        <div class="iconbox-right-bottom">
+            <span class="flaticon-left"></span>
+        </div>
+        <div class="container">
+            <div class="sec-title text-center">
+                <h1>Our Documents</h1>
+                <div class="border mar0auto">
+                    <span class="flaticon-shape"></span>
+                </div>
+            </div>
+            <div id="owl-demo" class="owl-carousel">
+
+                <% @documents.each_with_index do |document,index| %>
+                    <div class="item">
+                        <div class="doc-thumb">
+                            <div class="custom-icon-holder">
+                                <i class="fa fa-file"></i>
+                            </div>
+                            <p><%= link_to document.document.file.filename, document.document_url, :target => "_blank" ,:class => "doc-text-color"%></p>
+                        </div>
+                    </div>
+                <%end%>
+
+
+                <!-- <div class="item">
+                    <div class="doc-thumb">
+                        <div class="custom-icon-holder">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <p>Doc Name</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="doc-thumb">
+                        <div class="custom-icon-holder">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <p>Doc Name</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="doc-thumb">
+                        <div class="custom-icon-holder">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <p>Doc Name</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="doc-thumb">
+                        <div class="custom-icon-holder">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <p>Doc Name</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!--End Docs area-->
+
 <!--Start slogan area-->
 <section class="slogan-area" style="background-image:url(assets/resources/slogan-bg.jpg);">
     <div class="container">

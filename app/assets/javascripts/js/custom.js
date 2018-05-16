@@ -614,3 +614,28 @@ jQuery(window).on('load', function() {
 });
 
 
+
+//Product slider
+$(document).ready(function () {
+    var owl = $("#owl-demo");
+
+    owl.owlCarousel({
+
+        items: 4, //10 items above 1000px browser width
+        itemsDesktop: [1000, 4], //5 items between 1000px and 901px
+        itemsDesktopSmall: [900, 4], // 3 items betweem 900px and 601px
+        itemsTablet: [600, 3], //2 items between 600 and 0;
+        itemsTablet: [500, 2], //2 items between 500 and 0;
+        dots: true,
+
+    });
+
+    // Custom Navigation Events
+    $(".next2").click(function () {
+        owl.trigger('owl.next');
+    })
+    $(".prev2").click(function () {
+        owl.trigger('owl.prev');
+    });
+
+});

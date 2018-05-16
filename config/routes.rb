@@ -27,10 +27,10 @@ Rails.application.routes.draw do
     get '/contact', to: 'pages#contact'
     get '/about', to: 'pages#about'
     get '/pay', to: 'pages#pay'
+    get '/index', to: 'pages#index'
 
     post '/card_pay', to: 'stripe#card_pay'
     post '/send_email', to: 'email#send_email'
-
 
   	devise_scope :user do
 	  authenticated :user do
