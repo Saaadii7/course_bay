@@ -5,11 +5,13 @@ class PagesController < ApplicationController
 		@document = Document.new
 		@sound = Sound.new
 		@video = Video.new
+		@service = Service.new
 
 		@images = Image.all
 		@documents = Document.all
 		@sounds = Sound.all
 		@videos = Video.all
+		@services = Service.all
 
 		# @favourite_images = current_user.favourite_images
 		# @favourite_documents = current_user.favourite_documents
@@ -25,6 +27,7 @@ class PagesController < ApplicationController
 
 	def home
 		@documents  = Document.all
+		@services = Service.all
 	end
 
 	def contact

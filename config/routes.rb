@@ -23,6 +23,10 @@ Rails.application.routes.draw do
 			post 'favourite_toggle' 
 		end
 	end
+	resources :services, only: [:new, :create, :destroy] do
+		collection do
+		end
+	end
     
     get '/contact', to: 'pages#contact'
     get '/about', to: 'pages#about'

@@ -9,6 +9,7 @@
   <li><a data-toggle="tab" href="#documents">All Documents</a></li>
   <li><a data-toggle="tab" href="#sounds">All Sounds</a></li>
   <li><a data-toggle="tab" href="#videos">All Videos</a></li>
+  <li><a data-toggle="tab" href="#services">All Services</a></li>
   <li><a data-toggle="tab" href="#favourite">Favourite Images</a></li>
 </ul>
 
@@ -154,6 +155,52 @@
 		  <p>
 		    <label>For Videos</label>
 		    <%= f.file_field :video , multiple: true, accept: 'video/mp4'%>
+		    <%= f.submit :Save %>
+		  </p>
+		<% end %>
+
+	</div>
+	<div id="services" class="tab-pane">
+	  	<div class="table-responsive">
+		    <table class="table table-bordered table-hover">
+			  <thead>
+			    <tr>
+			      <th>Name</th>
+			      <th>Hover Name</th>
+			      <th>Description</th>
+			      <th>Minilogo</th>
+			      <th>Picture</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @services.each_with_index do |service,index| %>
+			    	<tr>
+				    	<td><%= service.name %></td>
+				    	<td><%= service.hover_name %></td>
+				    	<td><%= service.description %></td>
+				    	<td><%= service.minilogo %></td>
+				    	<td><%= image_tag service.picture_url, class: "image_table_display"%></td>
+				      	<%#= render :partial => 'images/image', :locals => {:image => image} %>
+			    	</tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+
+		<%= form_for @service do |f| %>
+		  <p>
+		    <label>For Service</label><br>
+		    <%= f.label :name %>
+		    <%= f.text_field :name %>
+		    <%= f.label :hover_name %>
+		    <%= f.text_field :hover_name %>
+		    <%= f.label :description %>
+		    <%= f.text_field :description %>
+		    <%= f.label :minilogo %>
+		    <%= f.text_field :minilogo %>
+		    <%= f.label :picture %>
+		    <%= f.file_field :picture , accept: 'image/png,image/gif,image/jpeg'%>
 		    <%= f.submit :Save %>
 		  </p>
 		<% end %>

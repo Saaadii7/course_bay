@@ -13,6 +13,8 @@
 class Video < ApplicationRecord
 	mount_uploader :video,VideoUploader
  	has_and_belongs_to_many :users
+	belongs_to :service
+ 	
 
  	def set_success(format, opts)
 		self.success = true

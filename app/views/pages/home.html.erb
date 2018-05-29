@@ -244,45 +244,49 @@
     </div>
     <div class="container">
         <div class="sec-title text-center">
-            <h1>Our Procedures</h1>
+            <h1>Our Services</h1>
             <div class="border mar0auto">
                 <span class="flaticon-shape"></span>    
             </div>
         </div>
         <div class="row">
             <!--Start single item-->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-item">
-                    <div class="img-holder">
-                        <img src="assets/procedures/1.png" alt="Awesome Image">
-                        <div class="overlay-style-one">
-                            <div class="box">
-                                <div class="content">
-                                    <div class="icon-holder">
-                                        <span class="flaticon-hands"></span>    
+
+            <% @services.each_with_index do |service,index| %>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="single-item">
+                        <div class="img-holder">
+                            <%= image_tag service.picture_url, class: "image_table_display"%>
+                            <div class="overlay-style-one">
+                                <div class="box">
+                                    <div class="content">
+                                        <div class="icon-holder">
+                                            <span class="<%= service.minilogo %>"></span>    
+                                        </div>
                                     </div>
-                                </div>
-                            </div>  
-                        </div>    
-                    </div>
-                    <div class="text-holder text-center">
-                        <div class="show-content">
-                            <div class="iocn-holder">
-                                <span class="flaticon-hands"></span>      
-                            </div>
-                            <h3>Hot Stone Massage</h3>
+                                </div>  
+                            </div>    
                         </div>
-                        <div class="hover-content">
-                            <h3>Hot Stone Massage</h3>
-                            <span class="border"></span>
-                            <p>Facials are the second most popular spa treatment.</p>
+                        <div class="text-holder text-center">
+                            <div class="show-content">
+                                <div class="iocn-holder">
+                                    <span class="<%= service.minilogo %>"></span>      
+                                </div>
+                                <h3><%= service.name %></h3>
+                            </div>
+                            <div class="hover-content">
+                                <h3><%= service.hover_name %></h3>
+                                <span class="border"></span>
+                                <p><%= service.description %></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <%end%>
+            
             <!--End single item-->
             <!--Start single item-->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="single-item">
                     <div class="img-holder">
                         <img src="assets/procedures/2.png" alt="Awesome Image">
@@ -310,10 +314,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!--End single item-->
             <!--Start single item-->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="single-item">
                     <div class="img-holder">
                         <img src="assets/procedures/3.png" alt="Awesome Image">
@@ -341,10 +345,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!--End single item-->
             <!--Start single item-->
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="single-item">
                     <div class="img-holder">
                         <img src="assets/procedures/4.png" alt="Awesome Image">
@@ -372,12 +376,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!--End single item-->
         </div>
     </div>
 </section>  
 <!--End Procedures area-->
+
 
 <!--Start Docs area-->
     <section class="procedures-area">
@@ -401,7 +406,6 @@
                 </div>
             </div>
             <div id="owl-demo" class="owl-carousel">
-
                 <% @documents.each_with_index do |document,index| %>
                     <div class="item">
                         <div class="doc-thumb">
