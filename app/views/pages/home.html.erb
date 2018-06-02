@@ -412,7 +412,9 @@
                                 <i class="fa fa-file"></i>
                             </div>
                             <p><%= link_to document.document.file.filename, document.document_url, :target => "_blank" ,:class => "doc-text-color"%></p>
-                            <p class = "doc-text-color"><%= document.service.name%></p>
+                            <% if document.service%>
+                                <p class = "doc-text-color"><%= document.service.name%></p>
+                            <% end%>
                         </div>
                     </div>
                 <%end%>
