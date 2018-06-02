@@ -13,6 +13,7 @@ gem 'carrierwave', '~> 1.0'
 # gem 'rails-uploader'
 gem 'ffmpeg'
 gem 'streamio-ffmpeg'
+gem 'mini_magick'
 gem 'carrierwave-video'
 
 gem 'devise'

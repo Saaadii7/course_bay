@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
-	mount_uploader :picture,VideoUploader
+	mount_uploader :picture,FileUploader
 
 	has_many :images
 	has_many :videos
