@@ -412,6 +412,7 @@
                                 <i class="fa fa-file"></i>
                             </div>
                             <p><%= link_to document.document.file.filename, document.document_url, :target => "_blank" ,:class => "doc-text-color"%></p>
+                            <p class = "doc-text-color"><%= document.service.name%></p>
                         </div>
                     </div>
                 <%end%>
@@ -711,7 +712,7 @@
                                 <span class="flaticon-location"></span>
                             </div>
                             <div class="text-holder">
-                                <h5><span>Address:</span> 121, Park Drive, Varick<br> Str New York, NY 10012, USA</h5>
+                                <h5><span>Address:</span> <%= ADDRESS%></h5>
                             </div>
                         </li>
                         <li>
@@ -719,7 +720,7 @@
                                 <span class="flaticon-technology"></span>
                             </div>
                             <div class="text-holder">
-                                <h5><span>Phone:</span> (123) 0200 12345 &<br>1800-45-678-9012</h5>
+                                <h5><span>Phone:</span> <%= PHONE%></h5>
                             </div>
                         </li>
                         <li>
@@ -727,7 +728,7 @@
                                 <span class="flaticon-note"></span>
                             </div>
                             <div class="text-holder">
-                                <h5><span>Email:</span> Mailus@dailySpanz.com</h5>
+                                <h5><span>Email:</span> <%= EMAIL%></h5>
                             </div>
                         </li>
                         <li>
@@ -971,7 +972,7 @@
                                 <span class="flaticon-location"></span>
                             </div>
                             <div class="text-holder">
-                                <h5>Address: 121, Park Drive, Varick<br>Str, New York, NY 10012, USA</h5>
+                                <h5>Address: <%= ADDRESS%></h5>
                             </div>
                         </li>
                         <li>
@@ -979,7 +980,7 @@
                                 <span class="flaticon-technology"></span>
                             </div>
                             <div class="text-holder">
-                                <h5>Phone: (123) 0200 12345</h5>
+                                <h5>Phone: <%= PHONE%></h5>
                             </div>
                         </li>
                         <li>
@@ -987,7 +988,7 @@
                                 <span class="flaticon-note"></span>
                             </div>
                             <div class="text-holder">
-                                <h5>Email: Mailus@Dailyspanz.com</h5>
+                                <h5>Email: <%= EMAIL%></h5>
                             </div>
                         </li>
                     </ul>

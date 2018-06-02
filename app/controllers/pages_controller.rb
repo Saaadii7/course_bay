@@ -7,10 +7,10 @@ class PagesController < ApplicationController
 		@video = Video.new
 		@service = Service.new
 
-		@images = Image.all
-		@documents = Document.all
-		@sounds = Sound.all
-		@videos = Video.all
+		@images = Image.all.includes(:service)
+		@documents = Document.all.includes(:service)
+		@sounds = Sound.all.includes(:service)
+		@videos = Video.all.includes(:service)
 		@services = Service.all
 
 		# @favourite_images = current_user.favourite_images

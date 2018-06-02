@@ -3,7 +3,7 @@ class SoundsController < ApplicationController
 	def create
 		if params[:sound][:sound]
 			params[:sound][:sound].each do |sound|
-				Sound.create(sound: sound)
+				Sound.create(sound: sound, service_id: params[:document][:service_id])
 			end 
 		end
 		# @image = Image.create(image_params)

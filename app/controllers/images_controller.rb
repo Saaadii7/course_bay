@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
 	def create
 		if params[:image][:image]
 			params[:image][:image].each do |img|
-				Image.create(image: img)
+				Image.create(image: img, service_id: params[:document][:service_id])
 			end 
 		end
 		# @image = Image.create(image_params)
