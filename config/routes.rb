@@ -27,11 +27,25 @@ Rails.application.routes.draw do
 		collection do
 		end
 	end
+	# resources :pages, only: [] do
+	# 	collection do
+	# 		get 'contact'
+	# 		get 'index'
+	# 		get 'about'
+	# 		get 'pay'
+	# 		get 'therapist'
+	# 		get 'galleryWithGrid'
+	# 		get 'galleryWithOutGrid'
+	# 	end
+	# end
     
     get '/contact', to: 'pages#contact'
     get '/about', to: 'pages#about'
     get '/pay', to: 'pages#pay'
     get '/index', to: 'pages#index'
+    get '/therapists', to: 'pages#therapists'
+    get '/galleryWithGrid', to: 'pages#galleryWithGrid'
+    get '/galleryWithOutGrid', to: 'pages#galleryWithOutGrid'
 
     post '/card_pay', to: 'stripe#card_pay'
     post '/send_email', to: 'email#send_email'

@@ -39,4 +39,16 @@ class PagesController < ApplicationController
 	def pay 
 	end
 
+	def therapists
+		@services = Service.all
+	end
+
+	def galleryWithGrid 
+		@services = Service.all
+	end
+
+	def galleryWithOutGrid 
+		@services = Service.all
+	end
+
 end
