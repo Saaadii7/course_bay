@@ -31,12 +31,15 @@ class PagesController < ApplicationController
 	end
 
 	def contact
+		@services = Service.all
 	end
 
-	def about 
+	def about
+	@services = Service.all 
 	end
 
 	def pay 
+		@services = Service.all
 	end
 
 	def therapists
