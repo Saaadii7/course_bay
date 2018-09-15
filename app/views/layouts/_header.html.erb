@@ -11,6 +11,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="top-right clearfix">
                     <!-- <ul class="location">
@@ -28,7 +29,7 @@
         </div>
     </div>
 </section>
-<!--End top bar area-->       
+<!--End top bar area-->
 
 <!--Start mainmenu area-->
 <section class="mainmenu-area stricky">
@@ -44,7 +45,7 @@
                 <!--End logo-->
                 <!--Start mainmenu-->
                 <nav class="main-menu clearfix">
-                    <div class="navbar-header">     
+                    <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -66,10 +67,10 @@
                                 </li>
                                 <li class="dropdown"><a onclick="scrollToDiv('procedures-area')">Services   </a>
                                     <ul>
-                                        <% @services.each do |service|%>
+                                        <% Service.all.each do |service|%>
                                             <li><a><%= service.name%></a></li>
                                         <%end%>
-<!-- 
+<!--
                                         <li><a href="facial-treatments.html">Facial Treatments</a></li>
                                         <li><a href="pedicure-menicure.html">Pedicure & Menicure</a></li>
                                         <li><a href="salt-oil-bath.html">Salt and Oil Bath</a></li>
@@ -78,7 +79,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="/therapists">Therapists</a></li>
-                            </ul>    
+                            </ul>
                         </div>
                         <!--End nav container nav left-->
                         <!--Start nav container nav right-->
@@ -108,7 +109,7 @@
                                     </ul> -->
                                 </li>
                                 <li><a onclick="scrollToDiv('footer-area')">Contact Us</a></li>
-                            </ul>    
+                            </ul>
                         </div>
                         <!--End nav container nav right-->
                     </div>

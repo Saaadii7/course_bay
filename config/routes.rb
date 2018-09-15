@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
   	devise_for :users, controllers: {
         registrations: 'users/registrations'
-      }
-	
+      }, path: '',path_names: { sign_up: 'sign_up', sign_in: 'sign_in', sign_out: 'logout'}
+
 	resources :images, only: [:new, :create, :destroy] do
 		collection do
-			post 'favourite_toggle' 
+			post 'favourite_toggle'
 		end
 	end
 	resources :documents, only: [:new, :create, :destroy] do
 		collection do
-			post 'favourite_toggle' 
+			post 'favourite_toggle'
 		end
 	end
 	resources :sounds, only: [:new, :create, :destroy] do
 		collection do
-			post 'favourite_toggle' 
+			post 'favourite_toggle'
 		end
 	end
 	resources :videos, only: [:new, :create, :destroy] do
 		collection do
-			post 'favourite_toggle' 
+			post 'favourite_toggle'
 		end
 	end
 	resources :services, only: [:new, :create, :destroy] do
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 	# 		get 'galleryWithOutGrid'
 	# 	end
 	# end
-    
+
     get '/contact', to: 'pages#contact'
     get '/about', to: 'pages#about'
     get '/pay', to: 'pages#pay'
@@ -59,5 +59,5 @@ Rails.application.routes.draw do
 	    # root 'devise/sessions#new', as: :unauthenticated_root
 	  end
 	end
-	
+
 end
