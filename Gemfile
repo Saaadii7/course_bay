@@ -12,6 +12,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave', '~> 1.0'
 # gem 'rails-uploader'
 gem 'ffmpeg'
+gem "rolify"
 gem 'streamio-ffmpeg'
 gem 'mini_magick'
 gem 'carrierwave-video'
@@ -37,6 +38,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'rails-erd', group: :development
+gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

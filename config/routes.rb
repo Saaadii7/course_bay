@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   	devise_for :users, controllers: {
         registrations: 'users/registrations'
-      }, path: '',path_names: { sign_up: 'sign_up', sign_in: 'sign_in', sign_out: 'logout'}
+      }, path: '',path_names: { sign_up: 'sign_up', sign_in: 'sign_in'}
 
 	resources :images, only: [:new, :create, :destroy] do
 		collection do
@@ -39,11 +39,15 @@ Rails.application.routes.draw do
 	# 	end
 	# end
 
-    get '/contact', to: 'pages#contact'
-    get '/about', to: 'pages#about'
-    get '/pay', to: 'pages#pay'
-    get '/index', to: 'pages#index'
-    get '/therapists', to: 'pages#therapists'
+    get '/contact',         to: 'pages#contact'
+    get '/about',           to: 'pages#about'
+    get '/pay',             to: 'pages#pay'
+    get '/index',           to: 'pages#index'
+    get '/dashboard',       to: 'pages#dashboard'
+    get '/home',            to: 'pages#home'
+    get '/adminpanel',      to: 'pages#adminpanel'
+    get '/users',           to: 'pages#users'
+    get '/therapists',      to: 'pages#therapists'
     get '/galleryWithGrid', to: 'pages#galleryWithGrid'
     get '/galleryWithOutGrid', to: 'pages#galleryWithOutGrid'
 
@@ -51,13 +55,23 @@ Rails.application.routes.draw do
     post '/send_email', to: 'email#send_email'
 
   	devise_scope :user do
-	  authenticated :user do
-	    root 'pages#index', as: :authenticated_root
-	  end
-	  unauthenticated do
-	    root 'pages#home', as: :unauthenticated_root
-	    # root 'devise/sessions#new', as: :unauthenticated_root
-	  end
-	end
+  	  authenticated :user do
+  	    root 'pages#dashboard', as: :authenticated_root
+  	  end
+  	  unauthenticated do
+  	    root 'pages#home', as: :unauthenticated_root
+  	    # root 'devise/sessions#new', as: :unauthenticated_root
+  	  end
+    end
+    resources :posts
+    resources :categories do
+    	member do
+    		get 'get_sub_categories' 
+    	end
+    end
+    resources :sub_categories
+    resources :brands
+    resources :types
+    resources :tags
 
 end

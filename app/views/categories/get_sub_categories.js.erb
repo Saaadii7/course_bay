@@ -1,0 +1,5 @@
+$('#subcategories').empty().append("<option value = ''>Choose a Sub category</option>");
+$('#subcategories').append("<%= escape_javascript options_from_collection_for_select(@sub_categories, :id, :name) %>");
+
+$('#brands').empty().append("<option value = ''>Choose a Brand</option>");
+$('#brands').append("<%= escape_javascript options_from_collection_for_select(@brands, :id, :name) %>");

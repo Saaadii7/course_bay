@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+	before_action :check_roles, only: :dashboard
 	def index
 		@image = Image.new
 		@document = Document.new
@@ -12,6 +12,8 @@ class PagesController < ApplicationController
 		@sounds = Sound.all.includes(:service)
 		@videos = Video.all.includes(:service)
 		@services = Service.all
+		@posts = Post.all
+		
 
 		# @favourite_images = current_user.favourite_images
 		# @favourite_documents = current_user.favourite_documents
@@ -22,8 +24,8 @@ class PagesController < ApplicationController
 		@favourite_documents = []
 		@favourite_sounds = []
 		@favourite_videos = []
-		
-	end 
+
+	end
 
 	def home
 		@documents  = Document.all
@@ -35,10 +37,10 @@ class PagesController < ApplicationController
 	end
 
 	def about
-	@services = Service.all 
+		@posts= Post.all
 	end
 
-	def pay 
+	def pay
 		@services = Service.all
 	end
 
@@ -46,12 +48,38 @@ class PagesController < ApplicationController
 		@services = Service.all
 	end
 
-	def galleryWithGrid 
+	def galleryWithGrid
 		@services = Service.all
 	end
 
-	def galleryWithOutGrid 
+	def galleryWithOutGrid
 		@services = Service.all
+	end
+
+	def adminpanel
+	end
+
+	def check_roles
+		if current_user.has_role? :admin
+			redirect_to adminpanel_path
+		end
+		if current_user.has_role? :user
+			redirect_to home_path
+		end
+	end
+
+	def users
+		 @users=Role.find_by_name('user').users
+	end
+
+	def posts
+	
+	end
+
+	def categories
+	end
+
+	def subcategories
 	end
 
 end

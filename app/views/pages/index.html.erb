@@ -1,9 +1,13 @@
 
 <%#= link_to "log out!",destroy_user_session_path, method: 'DELETE', class: "btn btn-large btn-primary" %>
+<div class="row" align="center">
+  <%= link_to('Logout', destroy_user_session_path, method: :get, class: "btn btn-large btn-primary")  %>
+</div>
+
 <div class="arrow">
     <img src="assets/resources/arrow.png" alt="">
 </div>
-        
+
 <ul class="nav nav-tabs nav-justified">
   <li class="active"><a data-toggle="tab" href="#images">All Images</a></li>
   <li><a data-toggle="tab" href="#documents">All Documents</a></li>
@@ -15,7 +19,7 @@
 
 <div class="tab-content">
 	<div id="images" class="tab-pane fade in active">
-	  	<div class="table-responsive">
+	  	<div class="-responsive">
 		    <table class="table table-bordered table-hover">
 			  <thead>
 			    <tr>
@@ -46,7 +50,7 @@
 
 	<div id="documents" class="tab-pane">
 	  	<div class="table-responsive">
-		    <table class="table table-bordered table-hover">
+		    <table class="table table-striped table-hover">
 			  <thead>
 			    <tr>
 			      <th>Documents</th>
@@ -66,7 +70,7 @@
 			        		<embed src="<%=document.document_url%>"></embed>
 			        	</object> -->
 			        </td>
-			        <td> 
+			        <td>
 			        	<%if @favourite_documents.include?(document)%>
 			        		<input type="checkbox" id="documents_<%=document.id%>" onclick="favourite_toggle(<%=document.id%>,'documents')" data-on="Yes" data-off="No" checked></td>
 			        	<%else%>
@@ -86,7 +90,7 @@
 		    <%= f.file_field :document , multiple: true, accept: 'application/pdf, application/docx'%>
 		    <%= f.submit :Save %>
 		  </p>
-		<% end %>	
+		<% end %>
 
 	</div>
 
@@ -108,7 +112,7 @@
 						 <source src='<%=sound.sound_url%>' type="audio/mpeg">
 						</audio>
 					</td>
-			        <td> 
+			        <td>
 			        	<%if @favourite_sounds.include?(sound)%>
 			        		<input type="checkbox" id="sounds_<%=sound.id%>" onclick="favourite_toggle(<%=sound.id%>,'sounds')" data-on="Yes" data-off="No" checked></td>
 			        	<%else%>
@@ -146,7 +150,7 @@
 			        <td>
 			        	<%= video_tag video.video_url, :controls =>true %>
 					</td>
-			        <td> 
+			        <td>
 			        	<%if @favourite_videos.include?(video)%>
 			        		<input type="checkbox" id="videos_<%=video.id%>" onclick="favourite_toggle(<%=video.id%>,'videos')" data-on="Yes" data-off="No" checked></td>
 			        	<%else%>
@@ -170,14 +174,14 @@
 	</div>
 	<div id="services" class="tab-pane">
 	  	<div class="table-responsive">
-		    <table class="table table-bordered table-hover">
+		    <table class="table table-striped table-hover">
 			  <thead>
 			    <tr>
 			      <th>Name</th>
 			      <th>Hover Name</th>
 			      <th>Description</th>
 			      <th>Minilogo</th>
-			      <th>Picture</th>
+			      <th>Picture</th>7
 			    </tr>
 			  </thead>
 

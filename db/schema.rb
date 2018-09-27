@@ -10,16 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216072216) do
+ActiveRecord::Schema.define(version: 20180926195750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bids", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands_categories", force: :cascade do |t|
+    t.integer "brand_id"
+    t.integer "category_id"
+  end
+
+  create_table "brands_tags", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "brand_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_sub_categories", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "sub_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_tags", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "category_id"
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string "document"
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_id"
   end
 
   create_table "documents_users", force: :cascade do |t|
@@ -43,6 +85,7 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "approved", default: false
+    t.integer "service_id"
   end
 
   create_table "images_users", force: :cascade do |t|
@@ -52,11 +95,50 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "price"
+    t.integer "ptype"
+    t.integer "category_id"
+    t.integer "sub_category_id"
+    t.integer "brand_id"
+    t.integer "user_id"
+    t.string "photo"
+    t.integer "starting_bid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
+    t.integer "current_bid"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.string "hover_name"
+    t.string "description"
+    t.string "picture"
+    t.string "minilogo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sounds", force: :cascade do |t|
     t.string "sound"
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_id"
   end
 
   create_table "sounds_users", force: :cascade do |t|
@@ -66,9 +148,34 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sub_categories_tags", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "sub_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.string "stripe_customer_id"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,6 +208,14 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
   create_table "users_videos", force: :cascade do |t|
     t.integer "video_id"
     t.integer "user_id"
@@ -113,6 +228,7 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_id"
   end
 
 end

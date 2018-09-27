@@ -1,0 +1,21 @@
+<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
+			<h1 id="colorlib-logo"><a href="adminpanel.html">Bid2Buy</a></h1>
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+					<li class="colorlib-active"><a href="index.html">Home</a></li>
+					<li><%= link_to 'Users', users_path %></li>
+					<li><%= link_to 'Posts', posts_path %></li>
+					<li><%= link_to 'Categories', categories_path %></li>
+					<li><%= link_to 'Subcategories', sub_categories_path %></li>
+					<li><%= link_to 'Brands', brands_path %></li>
+					<li><%= link_to 'Types', types_path %></li>
+					<li><%= link_to 'Tags', tags_path %></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+
+			<div class="colorlib-footer">
+				<%= link_to('Logout', destroy_user_session_path, method: :get, class: "btn btn-large btn-primary")  %>
+			</div>
+
+		</aside>

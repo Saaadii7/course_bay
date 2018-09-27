@@ -11,25 +11,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Favicon -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../../assets/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../../assets/favicon/favicon-16x16.png" sizes="16x16">
 
-    <link rel="stylesheet" href="assets/custom.css">
-    <link rel="stylesheet" href="assets/Basic-Header.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/chosen.min.css">
+    <link rel="stylesheet" href="../../assets/custom.css">
+
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+
     <!-- master stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- Responsive stylesheet -->
-    <link rel="stylesheet" href="assets/css/responsive.css">
-     
-    <script src="assets/custom.js"></script>
-    <script src="assets/jquery.min.js"></script>
-    <script src="assets/bootstrap.min.js"></script>
-    <script src="assets/bootstrap-toggle.min.js"></script>
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+
     
-    <%#= javascript_include_tag 'application' %>
 
   </head>
 
@@ -39,70 +37,86 @@
 
       <!--Start Preloader -->
       <div class="preloader"></div>
-      <!--End Preloader --> 
+      <!--End Preloader -->
       <%= render 'layouts/header' %>
-      <%= yield %>
+      <%#byebug%>
+      <%if !current_user  || current_user.isUser%>
+        <%= yield %>
+      <%else%>
+        <%if current_user.isAdmin%>
+        <div id="colorlib-main" class="main_admin_container">
+          <br>
+          <%= yield %>
+        </div>
+        <%end%>
+      <%end%>
       <%= render 'layouts/footer' %>
     </div>
-    
-    <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+    <!-- <script src="../../assets/chosen.jquery.min.js"></script> -->
+    <%= javascript_include_tag 'application' %>
+    <script src="../../assets/jquery.min.js"></script>
+    <script src="../../assets/bootstrap.min.js"></script>
+    <script src="../../assets/bootstrap-toggle.min.js"></script>
+
+    <!-- <script src="../../assets/custom.js"></script> -->
+    <!--Scroll to top-->
 
     <!-- main jQuery -->
-    <script src="assets/js/jquery-latest.js"></script>
+    <script src="../../assets/js/jquery-latest.js"></script>
     <!-- Wow Script -->
-    <script src="assets/js/wow.js"></script>
+    <script src="../../assets/js/wow.js"></script>
     <!-- bootstrap -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
     <!-- bx slider -->
-    <script src="assets/js/jquery.bxslider.min.js"></script>
+    <script src="../../assets/js/jquery.bxslider.min.js"></script>
     <!-- count to -->
-    <script src="assets/js/jquery.countTo.js"></script>
+    <script src="../../assets/js/jquery.countTo.js"></script>
     <!-- owl carousel -->
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="../../assets/js/owl.carousel.min.js"></script>
     <!-- validate -->
-    <script src="assets/js/validation.js"></script>
+    <script src="../../assets/js/validation.js"></script>
     <!-- mixit up -->
-    <script src="assets/js/jquery.mixitup.min.js"></script>
+    <script src="../../assets/js/jquery.mixitup.min.js"></script>
     <!-- easing -->
-    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="../../assets/js/jquery.easing.min.js"></script>
     <!-- gmap helper -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A&sensor=true"></script>
     <!--gmap script-->
-    <script src="assets/js/gmaps.js"></script>
-    <script src="assets/js/map-helper.js"></script>
+    <script src="../../assets/js/gmaps.js"></script>
+    <script src="../../assets/js/map-helper.js"></script>
     <!-- fancy box -->
-    <script src="assets/js/jquery.fancybox.pack.js"></script>
-    <script src="assets/js/jquery.appear.js"></script>
+    <script src="../../assets/js/jquery.fancybox.pack.js"></script>
+    <script src="../../assets/js/jquery.appear.js"></script>
     <!-- isotope script-->
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/jquery.prettyPhoto.js"></script> 
-    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+    <script src="../../assets/js/isotope.js"></script>
+    <script src="../../assets/js/jquery.prettyPhoto.js"></script>
+    <script src="../../assets/js/jquery.bootstrap-touchspin.js"></script>
     <!-- jQuery timepicker js -->
-    <script src="assets/timePicker.js"></script>
+    <script src="../../assets/timePicker.js"></script>
     <!-- Bootstrap select picker js -->
-    <script src="assets/bootstrap-select.js"></script>                               
+    <script src="../../assets/bootstrap-select.js"></script>
     <!-- Bootstrap bootstrap touchspin js -->
     <!-- jQuery ui js -->
-    <script src="assets/jquery-ui.js"></script>
+    <script src="../../assets/jquery-ui.js"></script>
     <!-- Language Switche  -->
-    <script src="assets/jquery.polyglot.language.switcher.js"></script>
+    <script src="../../assets/jquery.polyglot.language.switcher.js"></script>
     <!-- Html 5 light box script-->
-    <script src="assets/html5lightbox.js"></script>
+    <script src="../../assets/html5lightbox.js"></script>
 
     <!-- revolution slider js -->
-    <script src="assets/js/jquery.themepunch.tools.min.js"></script>
-    <script src="assets/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.migration.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="assets/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="../../assets/js/jquery.themepunch.tools.min.js"></script>
+    <script src="../../assets/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="../../assets/js/extensions/revolution.extension.video.min.js"></script>
     <!-- thm custom script -->
-    <script src="assets/js/custom.js"></script>
+    <script src="../../assets/js/custom.js"></script>
   </body>
 </html>
