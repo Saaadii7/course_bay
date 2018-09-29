@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     get '/about',           to: 'pages#about'
     get '/pay',             to: 'pages#pay'
     get '/index',           to: 'pages#index'
+    get 'profile',          to: 'pages#profile'
     get '/dashboard',       to: 'pages#dashboard'
     get '/home',            to: 'pages#home'
     get '/adminpanel',      to: 'pages#adminpanel'

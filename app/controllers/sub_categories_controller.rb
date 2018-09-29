@@ -20,7 +20,7 @@ class SubCategoriesController < ApplicationController
   end
 
   def show
-
+    @subcategory = SubCategory.find(params[:id])
   end
 
   def edit

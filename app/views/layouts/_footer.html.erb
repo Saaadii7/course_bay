@@ -1,171 +1,128 @@
 <%if !current_user  || current_user.isUser%>
   <!--Start footer area-->
-  <footer class="footer-area" id="footer-area">
-      <div class="arrow">
-          <img src="assets/resources/arrow.png" alt="">
-      </div>
-      <div class="footer-image-box">
-          <img src="assets/footer/footer-image.png" alt="">
-      </div>
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12">
-                  <div class="footer-logo text-center">
-                      <span>
-                          <!-- <img src="assets/footer/bid2buy.png" alt="Awesome Footer Logo"> -->
-                      </span>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <!--Start single footer widget-->
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                  <div class="single-footer-widget pd-bottom50">
-                      <div class="title">
-                          <h3>Quick Contact</h3>
-                          <span class="border"></span>
-                      </div>
-                      <div class="our-info">
-                          <p>Bid2Buy is Pakistan First ecommerce webstie that will also provide you bidding functionality </p>
-                      </div>
-                      <ul class="footer-contact-info">
-                          <li>
-                              <div class="icon-holder">
-                                  <span class="flaticon-location"></span>
-                              </div>
-                              <div class="text-holder">
-                                  <h5>Address: <%= ADDRESS%></h5>
-                              </div>
-                          </li>
-                          <li>
-                              <div class="icon-holder">
-                                  <span class="flaticon-technology"></span>
-                              </div>
-                              <div class="text-holder">
-                                  <h5>Phone: <%= PHONE%></h5>
-                              </div>
-                          </li>
-                          <li>
-                              <div class="icon-holder">
-                                  <span class="flaticon-note"></span>
-                              </div>
-                              <div class="text-holder">
-                                  <h5>Email: <%= EMAIL%></h5>
-                              </div>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-              <!--End single footer widget-->
-              <!--Start single footer widget-->
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                  <div class="single-footer-widget pd-bottom50">
-                      <div class="title">
-                          <h3>Usefull Links</h3>
-                          <span class="border"></span>
-                      </div>
-                      <ul class="usefull-links fl-lft">
-                          <li><a href="#">About Us</a></li>
-                          <!-- <li><a href="#">Procedures</a></li> -->
-                          <li><a href="#">News & Tips</a></li>
-                          <!-- <li><a href="#">Threrapists</a></li> -->
-                          <li><a href="#">Our Shop</a></li>
-                          <li><a href="#">Stories</a></li>
-                          <li><a href="#">FAQ’s</a></li>
-                          <li><a href="#">Contact Us</a></li>
-                      </ul>
-                      <ul class="usefull-links">
-                          <li><a href="#">Pricing Plans</a></li>
-                          <li><a href="#">Healthy Foods</a></li>
-                          <li><a href="#">Get Offers</a></li>
-                          <li><a href="#">Appointment</a></li>
-                          <li><a href="#">Certificates</a></li>
-                          <li><a href="#">Qualifications</a></li>
-                          <li><a href="#">Private Policy</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <!--End single footer widget-->
-              <!--Start single footer widget-->
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                  <div class="single-footer-widget mar-bottom">
-                      <div class="title">
-                          <h3>Popular Post</h3>
-                      </div>
-                      <ul class="latest-post">
-                          <li class="single-post">
-                              <div class="img-holder">
-                                  <img src="assets/footer/latest-news-1.png" alt="Awesome Image">
-                              </div>
-                              <div class="text-holder">
-                                  <a class="post-title" href="#">Spas & the psychology of<br>well-being...</a>
-                                  <div class="post-info">
-                                      <span>August 24, 2017</span>
-                                  </div>
-                              </div>
-                          </li>
-                          <li class="single-post">
-                              <div class="img-holder">
-                                  <img src="assets/footer/latest-news-2.png" alt="Awesome Image">
-                              </div>
-                              <div class="text-holder">
-                                  <a class="post-title" href="#">Two massages are better<br>than one...</a>
-                                  <div class="post-info">
-                                      <span>February 05, 2018</span>
-                                  </div>
-                              </div>
-                          </li>
-                      </ul>
-                      <div class="more-news">
-                          <a href="blog-default.html">More News <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                      </div>
-                  </div>
-              </div>
-              <!--Start single footer widget-->
-              <!--Start single footer widget-->
-              <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                  <div class="single-footer-widget clearfix">
-                      <div class="title">
-                          <h3>Subscribe Us</h3>
-                      </div>
-                      <div class="newsletter-box">
-                          <p>Subscribe to our newsletter!</p>
-                          <form class="newsletter-form" action="#">
-                              <input placeholder="Email Address" type="text">
-                              <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                              <div class="envelope">
-                                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-                  <div class="single-footer-widget clearfix">
-                      <div class="title">
-                          <h3>Opening Hours</h3>
-                      </div>
-                      <ul class="working-hours">
-                          <li>Mon-FriDay: <span>9.00 to 18.00</span></li>
-                          <li>Saturday: <span>9.00 to 18.00</span></li>
-                          <li>Sunday: <span class="closed">Closed</span></li>
-                      </ul>
-                  </div>
-              </div>
-              <!--End single footer widget-->
-          </div>
-      </div>
-  </footer>
-  <!--End footer area-->
 
   <!--Start footer bottom area-->
-  <section class="footer-bottom-area">
+  
+  <!--End footer bottom area-->
+  <div class="footer">
+  <div class="footer_agile_inner_info_w3l">
+    <div class="col-md-3 footer-left">
+      <h2><a href="index.html"><span>E</span>lite Shoppy </a></h2>
+      <p>Lorem ipsum quia dolor
+      sit amet, consectetur, adipisci velit, sed quia non 
+      numquam eius modi tempora.</p>
+      <ul class="social-nav model-3d-0 footer-social w3_agile_social two">
+                              <li><a href="#" class="facebook">
+                                  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="twitter"> 
+                                  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="instagram">
+                                  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+                              <li><a href="#" class="pinterest">
+                                  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+                            </ul>
+    </div>
+    <div class="col-md-9 footer-right">
+      <div class="sign-grds">
+        <div class="col-md-4 sign-gd">
+          <h4>Our <span>Information</span> </h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mens.html">Men's Wear</a></li>
+            <li><a href="womens.html">Women's wear</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="typography.html">Short Codes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-md-5 sign-gd-two">
+          <h4>Store <span>Information</span></h4>
+          <div class="w3-address">
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Phone Number</h6>
+                <p>+1 234 567 8901</p>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Email Address</h6>
+                <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+            <div class="w3-address-grid">
+              <div class="w3-address-left">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </div>
+              <div class="w3-address-right">
+                <h6>Location</h6>
+                <p>Broome St, NY 10002,California, USA. 
+                
+                </p>
+              </div>
+              <div class="clearfix"> </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 sign-gd flickr-post">
+          <h4>Flickr <span>Posts</span></h4>
+          <ul>
+            <li><a href="single.html"><img src="images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+            <li><a href="single.html"><img src="images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+      <div class="agile_newsletter_footer">
+          <div class="col-sm-6 newsleft">
+        <h3>SIGN UP FOR NEWSLETTER !</h3>
+      </div>
+      <div class="col-sm-6 newsright">
+        <form action="#" method="post">
+          <input type="email" placeholder="Enter your email..." name="email" required="">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+
+    <div class="clearfix"></div>
+    <div class="row">
+ <div class="copyright-text">
+                      <p>Copyrights © 2018 All Rights Reserved, Powered by <a href="#">Bid2Buy</a></p>
+                  </div>
+                 
+</div>
+<%else%>
+  <%if current_user.isAdmin%>
+
+  <%end%>
+
+  <!-- <section class="footer-bottom-area">
       <div class="container">
           <div class="row">
               <div class="col-md-8">
-                  <div class="copyright-text">
-                      <p>Copyrights © 2018 All Rights Reserved, Powered by <a href="#">Bid2Buy</a></p>
-                  </div>
-              </div>
-              <div class="col-md-4">
+                   <div class="col-md-4">
                   <ul class="footer-social-links">
                       <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                       <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -173,12 +130,10 @@
                       <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                   </ul>
               </div>
+            </div>
+              </div>
+              
           </div>
       </div>
-  </section>
-  <!--End footer bottom area-->
-<%else%>
-  <%if current_user.isAdmin%>
-
-  <%end%>
+  </section> -->
 <%end%>

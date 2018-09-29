@@ -1,150 +1,218 @@
 <%#byebug%>
 <%if !current_user  || current_user.isUser%>
-   <!--Start top bar area-->
-  <section class="top-bar-area">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <div class="top-left">
-                      <ul>
-                          <li><span class="flaticon-technology"></span>Phone: <%= PHONE%></li>
-                          <li><span class="flaticon-note"></span>Email: <%= EMAIL%></li>
-                      </ul>
-                  </div>
-              </div>
+	 <!--Start top bar area-->
+	<section class="top-bar-area">
+			<div class="container">
+					<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<div class="top-left">
+											<ul>
+													<li><span class="flaticon-technology"></span>Phone: <%= PHONE%></li>
+													<li><span class="flaticon-note"></span>Email: <%= EMAIL%></li>
+											</ul>
+									</div>
+							</div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                  <div class="top-right clearfix">
-                      <!-- <ul class="location">
-                          <li><span class="flaticon-location"></span> <%= ADDRESS%></li>
-                      </ul> -->
-                      <ul class="social-links">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                         <%if current_user%>
-                          <%= link_to('Logout', destroy_user_session_path, method: :get, class: "btn btn-large btn-primary")  %>
-                      <%else %>
-                          <%= link_to "Sign In", new_user_session_path, class: "btn btn-default action-button" %>
-                      <%end %>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!--End top bar area-->
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+									<div class="top-right clearfix">
+											<!-- <ul class="location">
+													<li><span class="flaticon-location"></span> <%= ADDRESS%></li>
+											</ul> -->
+											<ul class="social-links">
+													<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+													<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+													<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+												 <%if current_user%>
+													<%= link_to('Logout', destroy_user_session_path, method: :get, class: "btn btn-large btn-primary")  %>
+											<%else %>
+													<%= link_to "Sign In", new_user_session_path, class: "btn btn-default action-button" %>
+											<%end %>
+											</ul>
+									</div>
+							</div>
+					</div>
+			</div>
+	</section>
+	<!--End top bar area-->
 
-  <!--Start mainmenu area-->
-  <section class="mainmenu-area stricky">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-14 col-md-14 col-sm-12 col-xs-12">
-                  <!--Start logo-->
-                  <div class="logo">
-                      <a href="/">
-                         <img class="logo-image" src="assets/resources/bid2buy.png" alt="">
-                      </a>
-                  </div>
-                  <!--End logo-->
-                  <!--Start mainmenu-->
-                  <nav class="main-menu clearfix">
-                      <div class="navbar-header">
-                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                          </button>
-                      </div>
-                      <div class="navbar-collapse collapse clearfix">
-                          <!--Start nav container nav left-->
-                          <div class="nav-container nav-left">
-                              <ul class="navigation clearfix">
-                                  <li class="current"><a href="/">Home</a></li>
-                                  <li class="dropdown"><a href="/about">About Us</a>
-                                      <ul>
-                                          <li><a onclick="scrollToDiv('choosing-area')">About Daily Spanz</a></li>
-                                          <li><a onclick="scrollToDiv('testimonial-area')">Testimonials</a></li>
-                                          <li><a onclick="scrollToDiv('latest-blog-area')">FAQ’s</a></li>
-                                          <li><a onclick="scrollToDiv('appointment-area')" >Make an Appointment</a></li>
-                                      </ul>
-                                  </li>
-                                  <li class="dropdown"><a onclick="scrollToDiv('procedures-area')">Catagories   </a>
-                                      <ul>
-                                          <% Category.all.each do |category|%>
-                                              <li><a><%= category.name%></a></li>
-                                          <%end%>
-  <!--
-                                          <li><a href="facial-treatments.html">Facial Treatments</a></li>
-                                          <li><a href="pedicure-menicure.html">Pedicure & Menicure</a></li>
-                                          <li><a href="salt-oil-bath.html">Salt and Oil Bath</a></li>
-                                          <li><a href="perfect-makeup.html">Perfect Makeup</a></li>
-                                          <li><a href="hair-treatments.html">Hair Treatments</a></li> -->
-                                      </ul>
-                                  </li>
-                                  <!-- <li><a href="/therapists">Therapists</a></li> -->
-                              </ul>
-                          </div>
-                          <!--End nav container nav left-->
-                          <!--Start nav container nav right-->
-                          <div class="nav-container nav-right">
-                              <ul class="navigation clearfix">
-                                  <li class="dropdown"><a onclick="scrollToDiv('latest-blog-area')">Blog</a>
-                                      <!-- <ul>
-                                          <li><a href="blog-default.html">Blog Default</a></li>
-                                          <li><a href="blog-large.html">Blog Large</a></li>
-                                          <li><a href="blog-single.html">Blog Single Post</a></li>
-                                      </ul> -->
-                                  </li>
-                                  <li class="dropdown"><a href="gallery-grid.html">Gallery</a>
-                                      <ul>
-                                          <li><a href="/galleryWithGrid">Gallery Grid View</a></li>
-                                          <li><a href="/galleryWithOutGrid">Gallery Without Grid</a></li>
-                                          <!-- <li><a href="gallery-single.html">Gallery Single</a></li> -->
-                                      </ul>
-                                  </li>
-                                  <li class="dropdown"><a href="/index">Profile</a>
-                                      <!-- <ul>
-                                          <li><a href="shop.html">Shop Products</a></li>
-                                          <li><a href="shop-single.html">Products Single</a></li>
-                                          <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                          <li><a href="checkout.html">Checkout</a></li>
-                                          <li><a href="account.html">My Account</a></li>
-                                      </ul> -->
-                                  </li>
-                                  <li><a onclick="scrollToDiv('footer-area')">Contact Us</a></li>
-                              </ul>
-                          </div>
-                          <!--End nav container nav right-->
-                      </div>
-                  </nav>
-                  <!--End mainmenu-->
-                  <!--Start outer serach box-->
-                  <div class="outer-search-box">
-                      <div class="seach-toggle"><i class="fa fa-search"></i></div>
-                      <ul class="search-box">
-                          <li>
-                              <form method="post" action="index.html">
-                                  <div class="form-group">
-                                      <input type="search" name="search" placeholder="Search Here" required>
-                                      <button type="submit"><i class="fa fa-search"></i></button>
-                                  </div>
-                              </form>
-                          </li>
-                      </ul>
-                  </div>
+ <div class="header" id="home">
+	<div class="container">
+		<ul>
+				<li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
+			<li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+			<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01234567898</li>
+			<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+		</ul>
+	</div>
+</div>
+<!-- //header -->
+<!-- header-bot -->
+<div class="header-bot">
+	<div class="header-bot_inner_wthreeinfo_header_mid">
+		<div class="col-md-4 header-middle">
+			<form action="#" method="post">
+					<input type="search" name="search" placeholder="Search here..." required="">
+					<input type="submit" value=" ">
+				<div class="clearfix"></div>
+			</form>
+		</div>
+		<!-- header-bot -->
+			<div class="col-md-4 logo_agile">
+				<h1><a href="index.html"><span>E</span>lite Shoppy <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+			</div>
+				<!-- header-bot -->
+		<div class="col-md-4 agileits-social top_content">
+			<ul class="social-nav model-3d-0 footer-social w3_agile_social">
+				<li class="share">Share On : </li>
+				<li><a href="#" class="facebook">
+						<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
+				<li><a href="#" class="twitter"> 
+						<div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
+				<li><a href="#" class="instagram">
+						<div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
+				<li><a href="#" class="pinterest">
+						<div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
+			</ul>
 
-                  <!--End outer serach box-->
-                  <div class="arrow">
-                      <img src="assets/resources/arrow.png" alt="">
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!--End mainmenu area-->
-  <%else%>
-    <%if current_user.isAdmin%>
-      <%= render 'layouts/sidebar' %>
-    <%end%>
+
+
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //header-bot -->
+<!-- banner -->
+<div class="ban-top">
+	<div class="container">
+		<div class="top_nav_left">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav menu__list">
+					<li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
+					<li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
+					
+					<li class="dropdown menu__item">
+						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+							<ul class="dropdown-menu multi-column columns-3">
+								<div class="agile_inner_drop_nav_info">
+									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
+										<a href="mens.html"><img src="images/top2.jpg" alt=" "/></a>
+									</div>
+									<div class="col-sm-3 multi-gd-img">
+										<ul class="multi-column-dropdown">
+											<%Category.all.each do |category|%>
+												<li><a href="mens.html"><%= category.name%></a></li>
+											<%end%>
+										</ul>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</ul>
+					</li>
+					<%Category.first(3).each do |category|%>
+						<li class="dropdown menu__item">
+							<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= category.name%> <span class="caret"></span></a>
+								<ul class="dropdown-menu multi-column columns-3">
+									<div class="agile_inner_drop_nav_info">
+										<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
+											<a href="mens.html"><img src="images/top2.jpg" alt=" "/></a>
+										</div>
+										<div class="col-sm-3 multi-gd-img">
+											<ul class="multi-column-dropdown">
+												<%category.sub_categories.each do |category|%>
+													<li><a href="sub_categories/<%=category.id%>"><%= category.name%></a></li>
+												<%end%>
+											</ul>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</ul>
+						</li>
+					<%end%>
+					<li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+				</div>
+			</nav>  
+		</div>
+		<div class="top_nav_right">
+			<div class="wthreecartaits wthreecartaits2 cart cart box_1"> 
+						<form action="#" method="post" class="last"> 
+						<input type="hidden" name="cmd" value="_cart">
+						<input type="hidden" name="display" value="1">
+						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+					</form>  
+	
+						</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+	<!--End mainmenu area-->
+	<%else%>
+		<%if current_user.isAdmin%>
+			<%= render 'layouts/sidebar' %>
+		<%end%>
+
 <%end%>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+						<div class="modal-body modal-body-sub_agile">
+						<div class="col-md-8 modal_body_left modal_body_left1">
+						<h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
+						<%= form_tag url_for(:controller => 'devise/sessions', :action => 'create'), :method => 'post' do %>
+  <%= label :session, :email %>
+  <%= text_field :session, :email %>
+
+  <%= label :session, :password %>
+  <%= password_field :session, :password %>
+
+  <%= submit_tag("Sign in", class: "btn btn-large btn-primary") %>
+<% end %>
+
+						<%= form_tag user_session_path, :method => 'post'  do %>
+								<div class="styled-input agile-styled-input-top">
+											<%= label_tag :email, 'Email: ' %><br>
+											<%= text_field_tag :email %><br>
+								</div>
+								<div class="styled-input">
+											<%= label_tag :password, 'Password: ' %><br>
+											<%= password_field_tag :password %><br>
+								</div> 
+							<%= submit_tag 'Login' %>
+				 		<% end %>
+
+						<div class="clearfix"></div>
+						<p><a href="#" data-toggle="modal" data-target="#myModal2" > Don't have an account?</a></p>
+
+						</div>
+						<div class="col-md-4 modal_body_right modal_body_right1">
+							<img src="images/log_pic.jpg" alt=" "/>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<!-- //Modal content-->
+			</div>
+		</div>
+

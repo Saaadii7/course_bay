@@ -1,6 +1,6 @@
 
 $( document ).ready(function() {
-	$('#to_hide').hide();
+	$('.to_hide').hide();
 });
 $(".chosen").chosen();
 
@@ -17,11 +17,11 @@ function favourite_toggle(element_id,controller){
 function change_post_type(element,arr) {
 	var text = $(element).find('option').filter(':selected').text()
 	if (text == "New")
-	{
-		$('#to_hide').hide();
+	{ 	
+		$('.to_hide').hide();
 	}
 	else{
-		$('#to_hide').show();
+		$('.to_hide').show();
 	}
 		// body...
 	}

@@ -12,7 +12,9 @@ class PagesController < ApplicationController
 		@sounds = Sound.all.includes(:service)
 		@videos = Video.all.includes(:service)
 		@services = Service.all
+		@subcategories = SubCategory.all
 		@posts = Post.all
+		@brands =Brand.all
 		
 
 		# @favourite_images = current_user.favourite_images
@@ -28,8 +30,9 @@ class PagesController < ApplicationController
 	end
 
 	def home
-		@documents  = Document.all
-		@services = Service.all
+		@subcategories = SubCategory.all
+		@posts = Post.all
+		@brands = Brand.all
 	end
 
 	def contact
@@ -81,5 +84,8 @@ class PagesController < ApplicationController
 
 	def subcategories
 	end
-
+	def profile
+		@posts= Post.all
+		
+	end
 end
