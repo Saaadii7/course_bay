@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     end
 
     def posts_params
-      	params.require(:post).permit(:name, :description, :price, :photo, :ptype, :brand_id, :category_id, :sub_category_id, :starting_bid, :start_datetime, :end_datetime)
+      	params.require(:post).permit(:name, :description, :price, :photo, :ptype, :brand_id, :category_id, :sub_category_id, :starting_bid, :start_datetime, :end_datetime, :quantity, :percentage_off)
     end
 
 end

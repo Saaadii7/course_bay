@@ -45,7 +45,7 @@ class BrandsController < ApplicationController
     @brands = Brand.all
   end
   def brand_params
-    	params.require(:brand).permit(:name)
+    	params.require(:brand).permit(:name, :photo)
   end
 
 end

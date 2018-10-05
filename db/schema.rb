@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180929090102) do
+ActiveRecord::Schema.define(version: 20181005204148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "address"
+    t.string "province"
+    t.string "city"
+    t.integer "postal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bids", force: :cascade do |t|
     t.integer "post_id"
@@ -37,6 +47,12 @@ ActiveRecord::Schema.define(version: 20180929090102) do
   create_table "brands_tags", force: :cascade do |t|
     t.integer "tag_id"
     t.integer "brand_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -112,6 +128,8 @@ ActiveRecord::Schema.define(version: 20180929090102) do
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.integer "current_bid"
+    t.integer "quantity", default: 1
+    t.integer "percentage_off", default: 0
   end
 
   create_table "roles", force: :cascade do |t|
@@ -200,9 +218,6 @@ ActiveRecord::Schema.define(version: 20180929090102) do
     t.datetime "dob"
     t.string "gender"
     t.string "phone_number"
-    t.string "address"
-    t.string "country"
-    t.string "postal_code"
     t.string "cnic"
     t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true

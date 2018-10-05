@@ -3,6 +3,7 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
       }, path: '',path_names: { sign_up: 'sign_up', sign_in: 'sign_in'}
 
+    resources :users, only: [:show, :update ]
 	resources :images, only: [:new, :create, :destroy] do
 		collection do
 			post 'favourite_toggle'
@@ -74,5 +75,7 @@ Rails.application.routes.draw do
     resources :brands
     resources :types
     resources :tags
+    resources :addresses
+
 
 end

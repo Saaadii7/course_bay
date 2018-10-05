@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :emails
   has_many :posts
   has_many :bids
+  has_one  :address
+  has_one  :cart
 
   # has_and_belongs_to_many :images
   has_and_belongs_to_many :favourite_images, :class_name => "Image"

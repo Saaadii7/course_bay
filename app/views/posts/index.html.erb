@@ -12,6 +12,8 @@
           <th>Name</th>
           <th>Description</th>
           <th>Price</th>
+          <th>Quantity</th>
+          <th>Percentage Off</th>
           <th>Image</th>
           <th>Actions</th>
         </tr>
@@ -24,6 +26,8 @@
             <td><%= post.name %></td>
             <td><%= post.description %></td>
             <td><%= post.price %></td>
+            <td><%= post.quantity %></td>
+            <td><%= post.percentage_off %></td>
             <td><%= image_tag post.photo_url, class: "image_table_display"%></td>
             <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->
             <td><%= link_to('Update', edit_post_path(post.id), class: "btn btn-large btn-primary")%></td>

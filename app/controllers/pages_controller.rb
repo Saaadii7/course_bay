@@ -15,6 +15,8 @@ class PagesController < ApplicationController
 		@subcategories = SubCategory.all
 		@posts = Post.all
 		@brands =Brand.all
+		#@user = User.find_by_id(params[:id])
+		#@user= User.all
 		
 
 		# @favourite_images = current_user.favourite_images
@@ -86,6 +88,14 @@ class PagesController < ApplicationController
 	end
 	def profile
 		@posts= Post.all
+		@user = current_user
+		if current_user.address
+			@address = current_user.address
+		else
+			@address = current_user.build_address
+		end
+	end
+	def update
 		
 	end
 end

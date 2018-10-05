@@ -17,7 +17,7 @@
                 data-responsive_offset="on"
                 data-start="700">
                 <div class="slide-content-box mar-lft">
-                    <h2>Welcome to Life Care</h2>
+                    <h2>Welcome to Bid2Buy</h2>
                 </div>
             </div>
             <div class="tp-caption  tp-resizeme" 
@@ -168,16 +168,17 @@ data-start="2300">
 </ul>
 </div>
 </section>
-<!--End rev slider wrapper-->
 
+<!--Top Brands Section-->
 <section>
     <div class="new_arrivals_agile_w3ls_info"> 
         <div class="container">
             <h3 class="wthree_text_info">Top <span>Brands</span></h3>     
             <div id="horizontalTab">
                 <ul class="resp-tabs-list">
-                    <li> Smartphone Brands</li>
+                    <li> Tech Brands</li>
                     <li> Fashion Brands </li>
+                    <li> Grocery Brands </li>
                 </ul>
                 <div class="resp-tabs-container">
                     <div class="tab1">
@@ -276,123 +277,150 @@ data-start="2300">
         </div>
     </div> 
 </section>
-
-<!--End Docs area-->
-
-
-
-<!--Start appointment area-->
-<section class="appointment-area" id="appointment-area">
-    <div class="icon-holder leap">
-        <img src="assets/icon/appointment-bg.png" alt="Icon">
-    </div>
-    <div class="container">
-        <div class="sec-title text-center">
-            <h1>Make an appointment</h1>
-            <div class="border mar0auto">
-                <span class="flaticon-shape"></span>    
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-9">
-                <div class="appointment-box">
-                    <div class="experince text-center">
-                        <h3><span>Since 1991,</span> we provide best<br>service for our clients.</h3>
-                        <div class="inner-content">
-                            <span class="flaticon-laurel"></span>
-                            <h1>26</h1>
-                            <h3>Years of experince</h3>
-                        </div>
-                        <p>Must explain to you how all this mistaken denouncing pleasure & praising </p>    
-                    </div> 
-                    <div class="form">
-                        <form id="appointment-form" name="appointment-form" action="inc/sendmail.php" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="input-box">
-                                        <input type="text" name="form_name" value="" placeholder="Your Name" required="">
+<!--Smartphones And Tablets Section-->
+<section>
+    <div class="new_arrivals_agile_w3ls_info"> 
+        <div class="container">
+            <h3 class="wthree_text_info"><span>Phones & Tablets</span></h3>     
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li> Smartphone </li>
+                    <li> Tablets </li>
+                    <li> Accessories </li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <div class="tab1">
+                        <% @posts[1..8].each_with_index do |post,brand_index|%>
+                        <div class="col-md-3 product-men">
+                            <div class="men-pro-item simpleCart_shelfItem">
+                                <div class="men-thumb-item">
+                                    <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                    <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                    <div class="men-cart-pro">
+                                        <div class="inner-men-cart-pro">
+                                            <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                        </div>
                                     </div>
+                                    <span class="product-new-top">New</span>
+
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="input-box">
-                                        <input type="email" name="form_email" value="" placeholder="Your Email" required="">
+                                <div class="item-info-product ">
+                                    <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                    <div class="info-product-price">
+                                        <span class="item_price">$45.99</span>
+                                        <del>$69.71</del>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="input-box">
-                                        <select class="selectmenu">
-                                            <option selected="selected">Select Service</option>
-                                            <option>Massage Therapy</option>
-                                            <option>Facial Treatments</option>
-                                            <option>Pedicure & Menicure</option>
-                                            <option>Salt and Oil Bath</option>
-                                            <option>Perfect Makeup</option>
-                                            <option>Hair Treatments</option>
-                                        </select>
+                                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart" />
+                                                <input type="hidden" name="add" value="1" />
+                                                <input type="hidden" name="business" value=" " />
+                                                <input type="hidden" name="item_name" value="Formal Blue Shirt" />
+                                                <input type="hidden" name="amount" value="30.99" />
+                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                <input type="hidden" name="currency_code" value="USD" />
+                                                <input type="hidden" name="return" value=" " />
+                                                <input type="hidden" name="cancel_return" value=" " />
+                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                            </fieldset>
+                                        </form>
                                     </div>
+
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <textarea name="form_message" placeholder="Your Message.." required=""></textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button class="thm-btn bgclr-1" type="submit">submit</button>   
-                                </div>
-                            </div>
-                        </form>  
+
+                        </div> 
+                         <%end%>   
                     </div>
-
+                    <div class="tab2">
+                        
+                    </div>
+                   
+                   
+                    <div class="clearfix"></div>
                 </div>
             </div>
-            
-            <div class="col-md-3">
-                <div class="quick-contact">
-                    <div class="title">
-                        <h2>Contact Details</h2>
+        </div>
+    </div> 
+</section>
+<!--Men's clothing Section-->
+<section>
+    <div class="new_arrivals_agile_w3ls_info"> 
+        <div class="container">
+            <h3 class="wthree_text_info"><span>Men's Clothing</span></h3>     
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li> Top</li>
+                    <li> Bottom </li>
+                    <li> Shoes </li>
+                    <li> Accessories </li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <div class="tab1">
+                         
                     </div>
-                    <ul class="contact-info">
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-location"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Address:</span> <%= ADDRESS%></h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-technology"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Phone:</span> <%= PHONE%></h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-note"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Email:</span> <%= EMAIL%></h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-clock"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Email:</span> Weekdays: 9.00am to 18.00pm</h5>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                </div>    
+                    <div class="tab2">
+                       
+                    </div>
+                   
+                   
+                    <div class="clearfix"></div>
+                </div>
             </div>
         </div>
-    </div>
+    </div> 
 </section>
-<!--End appointment area-->
+<!--Women's clothing Section-->
+<section>
+    <div class="new_arrivals_agile_w3ls_info"> 
+        <div class="container">
+            <h3 class="wthree_text_info"><span>Women's Clothing</span></h3>     
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li> Top</li>
+                    <li> Bottom </li>
+                    <li> Shoes </li>
+                    <li> Accessories </li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <div class="tab1">
+                         
+                    </div>
+                    <div class="tab2">
+                       
+                    </div>
+                   
+                   
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
+<!--Grocer's shop Section-->
+<section>
+    <div class="new_arrivals_agile_w3ls_info"> 
+        <div class="container">
+            <h3 class="wthree_text_info"><span>Grocer's Shop</span></h3>     
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li> Beverages </li>
+                    <li> Breakfast, Choco & Snacks</li>
+                </ul>
+                <div class="resp-tabs-container">
+                    <div class="tab1">
+                         
+                    </div>
+                    <div class="tab2">
+                       
+                    </div>
+                   
+                   
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
+
