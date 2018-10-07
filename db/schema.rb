@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181005204148) do
+ActiveRecord::Schema.define(version: 20181007213050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 20181005204148) do
     t.integer "category_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "city_name"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "document"
     t.boolean "approved", default: false
@@ -132,6 +139,12 @@ ActiveRecord::Schema.define(version: 20181005204148) do
     t.integer "percentage_off", default: 0
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "province_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -148,6 +161,14 @@ ActiveRecord::Schema.define(version: 20181005204148) do
     t.string "description"
     t.string "picture"
     t.string "minilogo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "cart_id"
+    t.integer "quantity", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

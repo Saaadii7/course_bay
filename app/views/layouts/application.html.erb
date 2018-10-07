@@ -14,8 +14,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="../../assets/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="../../assets/favicon/favicon-16x16.png" sizes="16x16">
-
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="../../assets/css/chosen.min.css">
     <link rel="stylesheet" href="../../assets/custom.css">
 
@@ -46,6 +46,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 
 <body>
+
     <div class="boxed_wrapper">
 
       <!--Start Preloader -->
@@ -66,10 +67,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
       <%= render 'layouts/footer' %>
       
   </div>
+
   <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
   <!-- <script src="../../assets/chosen.jquery.min.js"></script> -->
   <%= javascript_include_tag 'application' %>
+  
   <script src="../../assets/bootstrap.min.js"></script>
+  
   <script src="../../assets/bootstrap-toggle.min.js"></script>
   <script src="../../assets/bootstrap-select.js"></script>
 
@@ -118,14 +122,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
     <script src="../../assets/js/modernizr.custom.js"></script>
     <script src="../../assets/js/minicart.min.js"></script>
-    <script>
-        // Mini Cart
-        paypal.minicart.render({action: '#'});
-
-        if (~window.location.search.indexOf('reset=true')) {
-            paypal.minicart.reset();
-        }
-    </script>
+  
 
     <!-- //cart-js --> 
 <!-- script for responsive tabs -->                     
@@ -189,5 +186,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- for bootstrap working -->
   <!-- thm custom script -->
   <script src="../../assets/js/custom.js"></script>
+  
 </body>
 </html>

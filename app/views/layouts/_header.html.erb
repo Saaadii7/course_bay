@@ -126,19 +126,12 @@
 					<%end%>
 					<li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
 					</ul>
-				</div>
+				</div>2
 				</div>
 			</nav>  
 		</div>
 		<div class="top_nav_right">
-			<div class="wthreecartaits wthreecartaits2 cart cart box_1"> 
-						<form action="#" method="post" class="last"> 
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="display" value="1">
-						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-					</form>  
-	
-						</div>
+				<button data-toggle="modal" data-target="#myModal3"><i class="fa fa-shopping-cart fa-2x custom" aria-hidden="true"></i></button>
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -150,88 +143,133 @@
 		<%end%>
 
 <%end%>
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-						<div class="modal-body modal-body-sub_agile">
-						<div class="col-md-8 modal_body_left modal_body_left1">
-						<h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
-		
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+				<div class="modal-body modal-body-sub_agile">
+				<div class="col-md-8 modal_body_left modal_body_left1">
+				<h3 class="agileinfo_sign">Sign In <span>Now</span></h3>
 
-						<%= form_for(:user, :url => session_path(:user)) do |f| %>
-						<%= f.label :email %>
-  						<%= f.email_field :email, :required => 'required' %>
-  						<%= f.label :password %>
-  						<%= f.password_field :password, :required => 'required' %>
-				   	    <%= f.check_box :remember_me %>
-					    <%= f.label :remember_me %>
-					    <div class="actions">
-					    <%= f.submit 'Sign in' %>
-					    <%= link_to "Forgot your password?", new_password_path(:user) %>
-					    </div>
-					    <% end %>
 
-						<div class="clearfix"></div>
+				<%= form_for(:user, :url => session_path(:user)) do |f| %>
+				<%= f.label :email %>
+					<%= f.email_field :email, :required => 'required' %>
+					<%= f.label :password %>
+					<%= f.password_field :password, :required => 'required' %>
+		   	    <%= f.check_box :remember_me %>
+			    <%= f.label :remember_me %>
+			    <div class="actions">
+			    <%= f.submit 'Sign in' %>
+			    <%= link_to "Forgot your password?", new_password_path(:user) %>
+			    </div>
+			    <% end %>
 
-						</div>
-						<div class="clearfix"></div>
-					</div>
+				<div class="clearfix"></div>
+
 				</div>
-				<!-- //Modal content-->
+				<div class="clearfix"></div>
 			</div>
 		</div>
+		<!-- //Modal content-->
+	</div>
+</div>
 
 
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-						<div class="modal-body modal-body-sub_agile">
-						<div class="col-md-8 modal_body_left modal_body_left1">
-						<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
-		
-
-						<%= form_for(:user, :url => registration_path(:user)) do |f| %>
-						<%= f.label :first_name %>
-  						<%= f.text_field :first_name, autofocus: true, :required => 'required'%>
-  						<%= f.label :last_name %> 
-    					<%= f.text_field :last_name, autofocus: true,:required => 'required' %>
-    					<%= f.label :username %>
-    					<%= f.text_field :username, autofocus: true, :required => 'required' %>
-						<%= f.label :gender,:required => 'required' %>	
-						<%= f.radio_button :gender, 'Male', :checked => true %> Male
-						<%= f.radio_button :gender, 'Female' %> Female
-						<div>
-						<%= f.label :email %>
-  						<%= f.email_field :email, :required => 'required' %>
-  					    </div>
-  					     <%= f.label :password %>
-    					 <% if @minimum_password_length %>
-    					 <em>(<%= @minimum_password_length %> characters minimum)</em>
-    					 <% end %><br />
-    					 <%= f.password_field :password, autocomplete: "off",:required => 'required' %>
-
-    					 <%= f.label :password_confirmation %>
-   						<%= f.password_field :password_confirmation, autocomplete: "off",:required => 'required' %>
-					    <div class="actions">
-					    <%= f.submit 'Sign up' %>
-					    </div>
-					    <% end %>
-
-						<div class="clearfix"></div>
-
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-				<!-- //Modal content-->
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
 			</div>
-		</div>		
+				<div class="modal-body modal-body-sub_agile">
+				<div class="col-md-8 modal_body_left modal_body_left1">
+				<h3 class="agileinfo_sign">Sign Up <span>Now</span></h3>
 
+
+				<%= form_for(:user, :url => registration_path(:user)) do |f| %>
+				<%= f.label :first_name %>
+					<%= f.text_field :first_name, autofocus: true, :required => 'required'%>
+					<%= f.label :last_name %> 
+				<%= f.text_field :last_name, autofocus: true,:required => 'required' %>
+				<%= f.label :username %>
+				<%= f.text_field :username, autofocus: true, :required => 'required' %>
+				<%= f.label :gender,:required => 'required' %>	
+				<%= f.radio_button :gender, 'Male', :checked => true %> Male
+				<%= f.radio_button :gender, 'Female' %> Female
+				<div>
+				<%= f.label :email %>
+					<%= f.email_field :email, :required => 'required' %>
+				    </div>
+				     <%= f.label :password %>
+				 <% if @minimum_password_length %>
+				 <em>(<%= @minimum_password_length %> characters minimum)</em>
+				 <% end %><br />
+				 <%= f.password_field :password, autocomplete: "off",:required => 'required' %>
+
+				 <%= f.label :password_confirmation %>
+					<%= f.password_field :password_confirmation, autocomplete: "off",:required => 'required' %>
+			    <div class="actions">
+			    <%= f.submit 'Sign up' %>
+			    </div>
+			    <% end %>
+
+				<div class="clearfix"></div>
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>		
+
+
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body modal-body-sub_agile">
+				<div class="col-md-12 modal_body_left modal_body_left1">
+					<% if current_user.present? %>
+					 	<div class="table-responsive">
+				      		<table class="table table-striped table-hover">
+						      	<thead>
+						        	<tr>
+							            <th>Name</th>
+							            <th>Price</th>
+							            <th>Quantity</th>
+							            <th>Image</th>
+							        </tr>
+						      	</thead>
+
+						      	<tbody>
+							        <% Cart.find_or_create_by(user_id: current_user.id).shopping_carts.each do |sc,index| %>
+							            <tr>
+								            <td><%= sc.post.name %></td>
+								            <td><%= sc.post.price %></td>
+								            <td><%= sc.quantity %></td>
+								            <td><%= image_tag sc.post.photo_url, class: "image_table_display"%></td>
+								        </tr>
+							        <% end %>
+						      	</tbody>
+					    	</table>
+							<%= link_to('Checkout' , class: "btn btn-large btn-primary")%>
+				 		</div>
+			 		<% end %>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- //Modal content-->
+	</div>
+</div>

@@ -513,7 +513,7 @@ letter-spacing: 2px;
 /*-- //left nav --*/
 .top_nav_right {
     float: right;
-    width: 21%;
+    width: 5%;
 }
 .box_1 {
     background: #2fdab8;
@@ -1397,7 +1397,7 @@ position:relative;
     margin: .35em 0 0;
     background: url(../images/cart.png) no-repeat 116px 9px;
 }
-#PPMiniCart form {
+/*#PPMiniCart form {
     width: 590px !important;
 	padding: 10px 20px 40px !important;
 	max-height:450px !important;
@@ -1445,7 +1445,7 @@ position:relative;
 #PPMiniCart .minicart-footer {
     position: relative;
 	width: 80%;
-}
+}*/
 .product-men {
     margin: top;
     margin-top: 2em;
@@ -2354,6 +2354,11 @@ li.list-group-item1 {
 .show-grid [class*="col-"]:hover {
 	background: #e0e0e0;
 }
+.custom
+{
+    color :#2ddbb9;
+    padding-top: 20px;
+}
 .grid_3{
 	margin-bottom:2em;
 }
@@ -2421,6 +2426,7 @@ color: #545454;
 section#tables  p {
 	margin-top: 1em;
 }
+.container{ width :90%; }
 .tab-container .tab-content {
 	border-radius: 0 2px 2px 2px;
 	border: 1px solid #e0e0e0;

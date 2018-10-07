@@ -247,20 +247,7 @@ data-start="2300">
                                         <del>$69.71</del>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="business" value=" " />
-                                                <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                <input type="hidden" name="amount" value="30.99" />
-                                                <input type="hidden" name="discount_amount" value="1.00" />
-                                                <input type="hidden" name="currency_code" value="USD" />
-                                                <input type="hidden" name="return" value=" " />
-                                                <input type="hidden" name="cancel_return" value=" " />
-                                                <input type="submit" name="submit" value="Add to cart" class="button" />
-                                            </fieldset>
-                                        </form>
+                                        
                                     </div>
 
                                 </div>
@@ -282,7 +269,7 @@ data-start="2300">
     <div class="new_arrivals_agile_w3ls_info"> 
         <div class="container">
             <h3 class="wthree_text_info"><span>Phones & Tablets</span></h3>     
-            <div id="horizontalTab">
+            <div id="horizontalTab2">
                 <ul class="resp-tabs-list">
                     <li> Smartphone </li>
                     <li> Tablets </li>
@@ -296,9 +283,9 @@ data-start="2300">
                                 <div class="men-thumb-item">
                                     <%= image_tag post.photo_url, class: "pro-image-front"%>
                                     <%= image_tag post.photo_url, class: "pro-image-back"%>
-                                    <div class="men-cart-pro">
-                                        <div class="inner-men-cart-pro">
-                                            <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                    <div class="men-cart-pro link-product-add-cart"">
+                                        <div class="inner-men-cart-pro link-product-add-cart"">
+                                            <%= link_to "Quick View", post_path(post) %>
                                         </div>
                                     </div>
                                     <span class="product-new-top">New</span>
@@ -307,22 +294,15 @@ data-start="2300">
                                 <div class="item-info-product ">
                                     <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
                                     <div class="info-product-price">
-                                        <span class="item_price">$45.99</span>
-                                        <del>$69.71</del>
+                                        <span class="item_price"><%= post.price%></span>
                                     </div>
                                     <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                        <form action="#" method="post">
+                                        <form action="/carts/add_products" method="post">
                                             <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="business" value=" " />
-                                                <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                <input type="hidden" name="amount" value="30.99" />
-                                                <input type="hidden" name="discount_amount" value="1.00" />
-                                                <input type="hidden" name="currency_code" value="USD" />
-                                                <input type="hidden" name="return" value=" " />
-                                                <input type="hidden" name="cancel_return" value=" " />
+                                                <input type="hidden" name="amount" value="1" />
+                                                <input type="hidden" name="post_id" value="<%=post.id%>" />
                                                 <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                
                                             </fieldset>
                                         </form>
                                     </div>

@@ -1,0 +1,32 @@
+<h1 align="center"> Welcome to Provinces Page</h1><br>
+
+  <div class="row" align="center" >
+    <td><%= link_to('Add a New Province', new_province_path , method: :get, class: "btn btn-large btn-primary")%></td>
+
+  </div>
+
+<div id="categories" class="tab-pane">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @provinces.each_with_index do |province,index| %>
+          <tr>
+            <td><%= province.id %></td>
+            <td><%= province.province_name %></td>
+            <td><%= link_to('Edit', edit_province_path(province), class: "btn btn-large btn-primary")%></td>
+            <td><%= link_to('Delete', province_path(province), method: :delete, class: "btn btn-large btn-primary")%></td>
+            <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->
+            <%#= render :partial => 'images/image', :locals => {:image => image} %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

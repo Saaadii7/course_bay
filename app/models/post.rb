@@ -7,4 +7,8 @@ class Post < ApplicationRecord
 	belongs_to :type, foreign_key: "ptype", class_name: "Type"
 	has_many   :bids
 
+ 	has_many :shopping_carts
+	has_many :carts, through: :shopping_carts
+
+
 end

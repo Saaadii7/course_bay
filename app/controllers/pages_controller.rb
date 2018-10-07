@@ -95,7 +95,15 @@ class PagesController < ApplicationController
 			@address = current_user.build_address
 		end
 	end
-	def update
+
+	def checkout
+		@posts=Post.all
+		@user = current_user
+		if current_user.address
+			@address = current_user.address
+		else
+			@address = current_user.build_address
+		end
 		
 	end
 end
