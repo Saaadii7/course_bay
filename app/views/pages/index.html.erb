@@ -34,7 +34,9 @@
 
 		<%= form_for @image do |f| %>
 		  <p>
-		    <label>For Images</label>
+		    <label>For Images</label><br>
+		    <%= f.label :service %><br>
+		    <%= f.collection_select :service_id, @services, :id, :name  %>
 		    <%= f.file_field :image , multiple: true, accept: 'image/png,image/gif,image/jpeg'%>
 		    <%= f.submit :Save %>
 		  </p>
@@ -78,7 +80,9 @@
 
 		<%= form_for @document do |f| %>
 		  <p>
-		    <label>For Documents</label>
+		    <label>For Documents</label><br>
+		    <%= f.label :service %><br>
+		    <%= f.collection_select :service_id, @services, :id, :name  %>
 		    <%= f.file_field :document , multiple: true, accept: 'application/pdf, application/docx'%>
 		    <%= f.submit :Save %>
 		  </p>
@@ -117,7 +121,9 @@
 		</div>
 		<%= form_for @sound do |f| %>
 		  <p>
-		    <label>For Sounds</label>
+		    <label>For Sounds</label><br>
+		    <%= f.label :service %><br>
+		    <%= f.collection_select :service_id, @services, :id, :name  %>
 		    <%= f.file_field :sound , multiple: true, accept: 'audio/3gp, audio/mp3'%>
 		    <%= f.submit :Save %>
 		  </p>
@@ -153,7 +159,9 @@
 		</div>
 		<%= form_for @video do |f| %>
 		  <p>
-		    <label>For Videos</label>
+		    <label>For Videos</label><br>
+		    <%= f.label :service %><br>
+		    <%= f.collection_select :service_id, @services, :id, :name  %>
 		    <%= f.file_field :video , multiple: true, accept: 'video/mp4'%>
 		    <%= f.submit :Save %>
 		  </p>

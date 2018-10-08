@@ -7,10 +7,10 @@ class PagesController < ApplicationController
 		@video = Video.new
 		@service = Service.new
 
-		@images = Image.all
-		@documents = Document.all
-		@sounds = Sound.all
-		@videos = Video.all
+		@images = Image.all.includes(:service)
+		@documents = Document.all.includes(:service)
+		@sounds = Sound.all.includes(:service)
+		@videos = Video.all.includes(:service)
 		@services = Service.all
 
 		# @favourite_images = current_user.favourite_images
@@ -31,12 +31,27 @@ class PagesController < ApplicationController
 	end
 
 	def contact
+		@services = Service.all
 	end
 
-	def about 
+	def about
+	@services = Service.all 
 	end
 
 	def pay 
+		@services = Service.all
+	end
+
+	def therapists
+		@services = Service.all
+	end
+
+	def galleryWithGrid 
+		@services = Service.all
+	end
+
+	def galleryWithOutGrid 
+		@services = Service.all
 	end
 
 end

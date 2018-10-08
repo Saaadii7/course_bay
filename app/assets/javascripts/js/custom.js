@@ -100,13 +100,20 @@ function scrollToTop() {
         });
     }
 }
+function scrollToDiv(name) {
+    var target = $('#'+name).attr('data-target');
+    // animate
+    $('html, body').animate({
+        scrollTop: $('#'+name).offset().top - 100
+    }, 1000);
+}
 
 
 
 //=== Prealoder===
 function prealoader() {
     if($('.preloader').length){
-        $('.preloader').delay(2000).fadeOut(500);
+        $('.preloader').delay(1000).fadeOut(500);
     }
 }
 

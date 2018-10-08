@@ -3,7 +3,7 @@
 <section class="top-bar-area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="top-left">
                     <ul>
                         <li><span class="flaticon-technology"></span>Phone: <%= PHONE%></li>
@@ -11,11 +11,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="top-right clearfix">
-                    <ul class="location">
+                    <!-- <ul class="location">
                         <li><span class="flaticon-location"></span> <%= ADDRESS%></li>
-                    </ul>
+                    </ul> -->
                     <ul class="social-links">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -58,53 +58,56 @@
                                 <li class="current"><a href="/">Home</a></li>
                                 <li class="dropdown"><a href="/about">About Us</a>
                                     <ul>
-                                        <li><a href="about">About Daily Spanz</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="faq.html">FAQ’s</a></li>
-                                        <li><a href="appointment.html">Make an Appointment</a></li>
+                                        <li><a onclick="scrollToDiv('choosing-area')">About Daily Spanz</a></li>
+                                        <li><a onclick="scrollToDiv('testimonial-area')">Testimonials</a></li>
+                                        <li><a onclick="scrollToDiv('latest-blog-area')">FAQ’s</a></li>
+                                        <li><a onclick="scrollToDiv('appointment-area')" >Make an Appointment</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="procedures.html">Procedures</a>
+                                <li class="dropdown"><a onclick="scrollToDiv('procedures-area')">Services   </a>
                                     <ul>
-                                        <li><a href="massage-therapy.html">Massage Therapy</a></li>
+                                        <% @services.each do |service|%>
+                                            <li><a><%= service.name%></a></li>
+                                        <%end%>
+<!-- 
                                         <li><a href="facial-treatments.html">Facial Treatments</a></li>
                                         <li><a href="pedicure-menicure.html">Pedicure & Menicure</a></li>
                                         <li><a href="salt-oil-bath.html">Salt and Oil Bath</a></li>
                                         <li><a href="perfect-makeup.html">Perfect Makeup</a></li>
-                                        <li><a href="hair-treatments.html">Hair Treatments</a></li>
+                                        <li><a href="hair-treatments.html">Hair Treatments</a></li> -->
                                     </ul>
                                 </li>
-                                <li><a href="therapists.html">Therapists</a></li>
+                                <li><a href="/therapists">Therapists</a></li>
                             </ul>    
                         </div>
                         <!--End nav container nav left-->
                         <!--Start nav container nav right-->
                         <div class="nav-container nav-right">
                             <ul class="navigation clearfix">
-                                <li class="dropdown"><a href="blog-default.html">Blog</a>
-                                    <ul>
+                                <li class="dropdown"><a onclick="scrollToDiv('latest-blog-area')">Blog</a>
+                                    <!-- <ul>
                                         <li><a href="blog-default.html">Blog Default</a></li>
                                         <li><a href="blog-large.html">Blog Large</a></li>
                                         <li><a href="blog-single.html">Blog Single Post</a></li>
-                                    </ul>
+                                    </ul> -->
                                 </li>
                                 <li class="dropdown"><a href="gallery-grid.html">Gallery</a>
                                     <ul>
-                                        <li><a href="gallery-grid.html">Gallery Grid View</a></li>
-                                        <li><a href="gallery-without-grid.html">Gallery Without Grid</a></li>
-                                        <li><a href="gallery-single.html">Gallery Single</a></li>
+                                        <li><a href="/galleryWithGrid">Gallery Grid View</a></li>
+                                        <li><a href="/galleryWithOutGrid">Gallery Without Grid</a></li>
+                                        <!-- <li><a href="gallery-single.html">Gallery Single</a></li> -->
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="/index">Shop</a>
-                                    <ul>
+                                    <!-- <ul>
                                         <li><a href="shop.html">Shop Products</a></li>
                                         <li><a href="shop-single.html">Products Single</a></li>
                                         <li><a href="shopping-cart.html">Shopping Cart</a></li>
                                         <li><a href="checkout.html">Checkout</a></li>
                                         <li><a href="account.html">My Account</a></li>
-                                    </ul>
+                                    </ul> -->
                                 </li>
-                                <li><a href="/contact">Contact Us</a></li>
+                                <li><a onclick="scrollToDiv('footer-area')">Contact Us</a></li>
                             </ul>    
                         </div>
                         <!--End nav container nav right-->

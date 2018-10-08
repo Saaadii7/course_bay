@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 	def create
 		if params[:video][:video]
 			params[:video][:video].each do |vid|
-				Video.create(video: vid)
+				Video.create(video: vid, service_id: params[:document][:service_id])
 			end 
 		end
 		# @image = Image.create(image_params)

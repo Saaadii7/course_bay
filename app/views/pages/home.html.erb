@@ -47,7 +47,7 @@
                     data-responsive_offset="on"
                     data-start="2000">
                     <div class="slide-content-box mar-lft">
-                        <p>Life Care is an Elegant, good looking Beauty Spa Website. With the help of <br>shortcodes you can create a website.</p>
+                        <p>Life Care is an Elegant, good looking Beauty Spa Website.</p>
                     </div>
                 </div>
                 <div class="tp-caption tp-resizeme" 
@@ -127,7 +127,7 @@
                     data-responsive_offset="on"
                     data-start="2500">
                     <div class="slide-content-box middle-slide">
-                        <p>Life Care is an Elegant, good looking Beauty Spa Website. With the help<br> of shortcodes you can create a website.</p>
+                        <h3>Life need care and we provide. </h3>
                     </div>
                 </div>
                 <div class="tp-caption tp-resizeme" 
@@ -165,7 +165,7 @@
                     <div class="slide-content-box lastslide">
                         <h2>Welcome to Life Care</h2>
                         <h1>Experience the<br>secrets of relaxation</h1>
-                        <p>Life Care is an Elegant, good looking Beauty Spa Website. With<br>the help of shortcodes you can create a website.</p>
+                        <p>We deal in alternative therapies, yoga, counsling, pranayama, meditation, dowsing,<br> reiki, 4th dimension, chromotherapy and energy transformation.</p>
                         <div class="button">
                             <a class="thm-btn bgclr-1" href="#">Our Solutions</a> 
                             <a class="thm-btn bgclr-1 contact" href="#">Contact Us</a>      
@@ -190,12 +190,12 @@
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                 <div class="text-holder">
-                    <h4>Life Care is an Elegant, good looking beauty spa website. With the help of shortcodes you can create a website.</h4>
+                    <h4>Life Care is an Elegant, good looking beauty spa website. We deal in <br>alternative therapies, yoga, counsling, pranayama, meditation, dowsing, reiki,<br> 4th dimension, chromotherapy and energy transformation.</h4>
                     <div class="inner-content">
                         <!--Start single item-->
                         <div class="single-item">
                             <h3>Our Mission</h3>
-                            <p>Explain to you how all this mistaken idea of denouncing ut pleasure work praising pain was born and will give.</p>
+                            <p>To make the best combination out of our Soul and Body with help of alternative therapies.</p>
                         </div>
                         <!--End single item-->
                         <!--Start single item-->
@@ -217,7 +217,7 @@
             </div>
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                 <div class="img-holder wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
-                    <img src="assets/resources/welcome.jpg" alt="Awesome Image">    
+                    <img src="assets/footer/footer-image.png" alt="Awesome Image">    
                 </div>   
             </div>     
         </div>
@@ -226,7 +226,7 @@
 <!--End welcome area-->
   
 <!--Start Procedures area-->
-<section class="procedures-area">
+<section class="procedures-area" id="procedures-area">
     <div class="arrow">
         <img src="assets/resources/arrow.png" alt="">
     </div>
@@ -255,7 +255,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="single-item">
                         <div class="img-holder">
-                            <%= image_tag service.picture_url, class: "image_table_display"%>
+                            <%= image_tag service.picture.service_thumb.url, class: "image_table_display"%>
                             <div class="overlay-style-one">
                                 <div class="box">
                                     <div class="content">
@@ -384,7 +384,7 @@
 
 
 <!--Start Docs area-->
-    <section class="procedures-area">
+    <section class="procedures-area" >
         <div class="iconbox-left-top">
             <span class="flaticon-light"></span>
         </div>
@@ -412,6 +412,9 @@
                                 <i class="fa fa-file"></i>
                             </div>
                             <p><%= link_to document.document.file.filename, document.document_url, :target => "_blank" ,:class => "doc-text-color"%></p>
+                            <% if document.service%>
+                                <p class = "doc-text-color"><%= document.service.name%></p>
+                            <% end%>
                         </div>
                     </div>
                 <%end%>
@@ -463,7 +466,7 @@
                     <h1>Treat Yourself for Rejuvenating Your Body & Soul</h1>
                     <p>Life Care is an Elegant, good looking Beauty Spa Website. With the help of shortcodes you can create a</p>
                     <p>website with Feature rich presentation.</p>
-                    <a class="thm-btn bgclr-1" href="#">Make an Appointment</a>
+                    <a class="thm-btn bgclr-1" onclick="scrollToDiv('choosing-area')">Make an Appointment</a>
                 </div>
             </div>
         </div>
@@ -472,7 +475,7 @@
 <!--End slogan area-->
 
 <!--Start choosing area-->
-<div class="choosing-area">
+<div class="choosing-area" id="choosing-area">
     <div class="container">
         <div class="sec-title text-center">
             <h1>Why Choosing Us?</h1>
@@ -559,7 +562,7 @@
 <!--End choosing area-->
 
 <!--Start testimonial area-->
-<section class="testimonial-area" style="background-image:url(assets/testimonial/testimonial-bg.jpg);">
+<section class="testimonial-area" id="testimonial-area" style="background-image:url(assets/testimonial/testimonial-bg.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -631,216 +634,8 @@
 </section>
 <!--End testimonial area--> 
 
-<!--Start appointment area-->
-<section class="appointment-area">
-    <div class="icon-holder leap">
-        <img src="assets/icon/appointment-bg.png" alt="Icon">
-    </div>
-    <div class="container">
-        <div class="sec-title text-center">
-            <h1>Make an appointment</h1>
-            <div class="border mar0auto">
-                <span class="flaticon-shape"></span>    
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-9">
-                <div class="appointment-box">
-                    <div class="experince text-center">
-                        <h3><span>Since 1991,</span> we provide best<br>service for our clients.</h3>
-                        <div class="inner-content">
-                            <span class="flaticon-laurel"></span>
-                            <h1>26</h1>
-                            <h3>Years of experince</h3>
-                        </div>
-                        <p>Must explain to you how all this mistaken denouncing pleasure & praising </p>    
-                    </div> 
-                    <div class="form">
-                        <form id="appointment-form" name="appointment-form" action="inc/sendmail.php" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="input-box">
-                                        <input type="text" name="form_name" value="" placeholder="Your Name" required="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="input-box">
-                                        <input type="email" name="form_email" value="" placeholder="Your Email" required="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="input-box">
-                                        <select class="selectmenu">
-                                            <option selected="selected">Select Service</option>
-                                            <option>Massage Therapy</option>
-                                            <option>Facial Treatments</option>
-                                            <option>Pedicure & Menicure</option>
-                                            <option>Salt and Oil Bath</option>
-                                            <option>Perfect Makeup</option>
-                                            <option>Hair Treatments</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <textarea name="form_message" placeholder="Your Message.." required=""></textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button class="thm-btn bgclr-1" type="submit">submit</button>   
-                                </div>
-                            </div>
-                        </form>  
-                    </div>
-                       
-                </div>
-            </div>
-            
-            <div class="col-md-3">
-                <div class="quick-contact">
-                    <div class="title">
-                        <h2>Contact Details</h2>
-                    </div>
-                    <ul class="contact-info">
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-location"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Address:</span> 121, Park Drive, Varick<br> Str New York, NY 10012, USA</h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-technology"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Phone:</span> (123) 0200 12345 &<br>1800-45-678-9012</h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-note"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Email:</span> Mailus@dailySpanz.com</h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon-holder">
-                                <span class="flaticon-clock"></span>
-                            </div>
-                            <div class="text-holder">
-                                <h5><span>Email:</span> Weekdays: 9.00am to 18.00pm</h5>
-                            </div>
-                        </li>
-                        
-                    </ul>
-                </div>    
-            </div>
-            
-            
-        </div>
-    </div>
-</section>
-<!--End appointment area-->
-
-<!--Start pricing plan area-->
-<section class="pricing-plan-area" style="background-image:url(assets/resources/pricing-bg.jpg);">
-    <div class="container">
-        <div class="sec-title text-center">
-            <h1>Our Pricing Plan</h1>
-            <div class="border mar0auto">
-                <span class="flaticon-shape"></span>    
-            </div>
-        </div>
-        <div class="row">
-            <!--Start single price box-->
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
-                <div class="single-price-box">
-                    <div class="table-header">
-                        <div class="package">
-                            <h1><span>$</span>49<b>/Mo</b></h1>
-                        </div>
-                    </div>
-                    <div class="price-list">
-                        <div class="pack-name">
-                            <h3>Family Pack</h3>
-                        </div>
-                        <ul>
-                            <li>Nail Cutting and styling</li>
-                            <li>Spa Therapy with manicure</li>
-                            <li>Foot massage</li>
-                            <li>Hair Coloring & Styling</li>
-                        </ul>
-                    </div>
-                    <div class="table-footer">
-                        <a class="thm-btn" href="#">BUY NOW</a>
-                    </div>
-                </div>
-            </div>
-            <!--End single price box-->
-            <!--Start single price box-->
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
-                <div class="single-price-box">
-                    <div class="table-header">
-                        <div class="package">
-                            <h1><span>$</span>79<b>/Mo</b></h1>
-                        </div>
-                    </div>
-                    <div class="price-list">
-                        <div class="pack-name">
-                            <h3>Premium Pack</h3>
-                        </div>
-                        <ul>
-                            <li>Spa Therapy with manicure</li>
-                            <li>Foot massage</li>
-                            <li>Hair Coloring & Styling</li>
-                            <li>Body Hand and Foot massage</li>
-                        </ul>
-                    </div>
-                    <div class="table-footer">
-                        <a class="thm-btn" href="#">BUY NOW</a>
-                    </div>
-                </div>
-            </div>
-            <!--End single price box-->
-            <!--Start single price box-->
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
-                <div class="single-price-box">
-                    <div class="table-header">
-                        <div class="package">
-                            <h1><span>$</span>99<b>/Mo</b></h1>
-                        </div>
-                    </div>
-                    <div class="price-list">
-                        <div class="pack-name">
-                            <h3>Ultimate Pack</h3>
-                        </div>
-                        <ul>
-                            <li>Nail Cutting and styling</li>
-                            <li>Spa Therapy with manicure</li>
-                            <li>Foot massage</li>
-                            <li>Hair Coloring & Styling</li>
-                        </ul>
-                    </div>
-                    <div class="table-footer">
-                        <a class="thm-btn" href="#">BUY NOW</a>
-                    </div>
-                </div>
-            </div>
-            <!--End single price box-->
-        </div>
-    </div>    
-</section>
-<!--End pricing plan area-->
-
 <!--Start latest blog area-->  
-<section class="latest-blog-area sec-padding">
+<section class="latest-blog-area sec-padding" id="latest-blog-area">
     <div class="container">
         <div class="row">
             <div class="col-md-12 top">
@@ -936,42 +731,180 @@
 </section>
 <!--End latest blog area-->
 
-<!--Start footer area-->  
-<footer class="footer-area">
-    <div class="arrow">
-        <img src="assets/resources/arrow.png" alt="">
-    </div>
-    <div class="footer-image-box">
-        <img src="assets/footer/footer-image.png" alt="">
-    </div>
+
+
+
+<!--Start pricing plan area-->
+<section class="pricing-plan-area" style="background-image:url(assets/resources/pricing-bg.jpg);">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="footer-logo text-center">
-                    <a href="index.html">
-                        <img src="assets/footer/footer-logo.png" alt="Awesome Footer Logo">
-                    </a>
-                </div>
+        <div class="sec-title text-center">
+            <h1>Our Pricing Plan</h1>
+            <div class="border mar0auto">
+                <span class="flaticon-shape"></span>    
             </div>
         </div>
         <div class="row">
-            <!--Start single footer widget-->
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                <div class="single-footer-widget pd-bottom50">
+            <!--Start single price box-->
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
+                <div class="single-price-box">
+                    <div class="table-header">
+                        <div class="package">
+                            <h1><span>$</span>49<b>/Mo</b></h1>
+                        </div>
+                    </div>
+                    <div class="price-list">
+                        <div class="pack-name">
+                            <h3>Family Pack</h3>
+                        </div>
+                        <ul>
+                            <li>Nail Cutting and styling</li>
+                            <li>Spa Therapy with manicure</li>
+                            <li>Foot massage</li>
+                            <li>Hair Coloring & Styling</li>
+                        </ul>
+                    </div>
+                    <div class="table-footer">
+                        <a class="thm-btn" href="#">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+            <!--End single price box-->
+            <!--Start single price box-->
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
+                <div class="single-price-box">
+                    <div class="table-header">
+                        <div class="package">
+                            <h1><span>$</span>79<b>/Mo</b></h1>
+                        </div>
+                    </div>
+                    <div class="price-list">
+                        <div class="pack-name">
+                            <h3>Premium Pack</h3>
+                        </div>
+                        <ul>
+                            <li>Spa Therapy with manicure</li>
+                            <li>Foot massage</li>
+                            <li>Hair Coloring & Styling</li>
+                            <li>Body Hand and Foot massage</li>
+                        </ul>
+                    </div>
+                    <div class="table-footer">
+                        <a class="thm-btn" href="#">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+            <!--End single price box-->
+            <!--Start single price box-->
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
+                <div class="single-price-box">
+                    <div class="table-header">
+                        <div class="package">
+                            <h1><span>$</span>99<b>/Mo</b></h1>
+                        </div>
+                    </div>
+                    <div class="price-list">
+                        <div class="pack-name">
+                            <h3>Ultimate Pack</h3>
+                        </div>
+                        <ul>
+                            <li>Nail Cutting and styling</li>
+                            <li>Spa Therapy with manicure</li>
+                            <li>Foot massage</li>
+                            <li>Hair Coloring & Styling</li>
+                        </ul>
+                    </div>
+                    <div class="table-footer">
+                        <a class="thm-btn" href="#">BUY NOW</a>
+                    </div>
+                </div>
+            </div>
+            <!--End single price box-->
+        </div>
+    </div>    
+</section>
+<!--End pricing plan area-->
+
+<!--Start appointment area-->
+<section class="appointment-area" id="appointment-area">
+    <div class="icon-holder leap">
+        <img src="assets/icon/appointment-bg.png" alt="Icon">
+    </div>
+    <div class="container">
+        <div class="sec-title text-center">
+            <h1>Make an appointment</h1>
+            <div class="border mar0auto">
+                <span class="flaticon-shape"></span>    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="appointment-box">
+                    <div class="experince text-center">
+                        <h3><span>Since 1991,</span> we provide best<br>service for our clients.</h3>
+                        <div class="inner-content">
+                            <span class="flaticon-laurel"></span>
+                            <h1>26</h1>
+                            <h3>Years of experince</h3>
+                        </div>
+                        <p>Must explain to you how all this mistaken denouncing pleasure & praising </p>    
+                    </div> 
+                    <div class="form">
+                        <form id="appointment-form" name="appointment-form" action="inc/sendmail.php" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-box">
+                                        <input type="text" name="form_name" value="" placeholder="Your Name" required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-box">
+                                        <input type="email" name="form_email" value="" placeholder="Your Email" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-box">
+                                        <select class="selectmenu">
+                                            <option selected="selected">Select Service</option>
+                                            <option>Massage Therapy</option>
+                                            <option>Facial Treatments</option>
+                                            <option>Pedicure & Menicure</option>
+                                            <option>Salt and Oil Bath</option>
+                                            <option>Perfect Makeup</option>
+                                            <option>Hair Treatments</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <textarea name="form_message" placeholder="Your Message.." required=""></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="thm-btn bgclr-1" type="submit">submit</button>   
+                                </div>
+                            </div>
+                        </form>  
+                    </div>
+                       
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="quick-contact">
                     <div class="title">
-                        <h3>Quick Contact</h3>
-                        <span class="border"></span>
+                        <h2>Contact Details</h2>
                     </div>
-                    <div class="our-info">
-                        <p>Life Care brings 41 years of interior designs experience right to your home or office. Our design professionals.</p>
-                    </div>
-                    <ul class="footer-contact-info">
+                    <ul class="contact-info">
                         <li>
                             <div class="icon-holder">
                                 <span class="flaticon-location"></span>
                             </div>
                             <div class="text-holder">
-                                <h5>Address: 121, Park Drive, Varick<br>Str, New York, NY 10012, USA</h5>
+                                <h5><span>Address:</span> <%= ADDRESS%></h5>
                             </div>
                         </li>
                         <li>
@@ -979,7 +912,7 @@
                                 <span class="flaticon-technology"></span>
                             </div>
                             <div class="text-holder">
-                                <h5>Phone: (123) 0200 12345</h5>
+                                <h5><span>Phone:</span> <%= PHONE%></h5>
                             </div>
                         </li>
                         <li>
@@ -987,131 +920,22 @@
                                 <span class="flaticon-note"></span>
                             </div>
                             <div class="text-holder">
-                                <h5>Email: Mailus@Dailyspanz.com</h5>
+                                <h5><span>Email:</span> <%= EMAIL%></h5>
                             </div>
                         </li>
-                    </ul>
-                </div>
-            </div>
-            <!--End single footer widget-->
-            <!--Start single footer widget-->
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                <div class="single-footer-widget pd-bottom50">
-                    <div class="title">
-                        <h3>Usefull Links</h3>
-                        <span class="border"></span>
-                    </div>
-                    <ul class="usefull-links fl-lft">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Procedures</a></li>
-                        <li><a href="#">News & Tips</a></li>
-                        <li><a href="#">Threrapists</a></li>
-                        <li><a href="#">Our Shop</a></li>
-                        <li><a href="#">Stories</a></li>
-                        <li><a href="#">FAQ’s</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                    <ul class="usefull-links">
-                        <li><a href="#">Pricing Plans</a></li>
-                        <li><a href="#">Healthy Foods</a></li>
-                        <li><a href="#">Get Offers</a></li>
-                        <li><a href="#">Appointment</a></li>
-                        <li><a href="#">Certificates</a></li>
-                        <li><a href="#">Qualifications</a></li>
-                        <li><a href="#">Private Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!--End single footer widget-->
-            <!--Start single footer widget-->
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                <div class="single-footer-widget mar-bottom">
-                    <div class="title">
-                        <h3>Popular Post</h3>
-                    </div>
-                    <ul class="latest-post">
-                        <li class="single-post">
-                            <div class="img-holder">
-                                <img src="assets/footer/latest-news-1.png" alt="Awesome Image">
+                        <li>
+                            <div class="icon-holder">
+                                <span class="flaticon-clock"></span>
                             </div>
                             <div class="text-holder">
-                                <a class="post-title" href="#">Spas & the psychology of<br>well-being...</a>
-                                <div class="post-info">
-                                    <span>August 24, 2017</span>
-                                </div>
+                                <h5><span>Email:</span> Weekdays: 9.00am to 18.00pm</h5>
                             </div>
                         </li>
-                        <li class="single-post">
-                            <div class="img-holder">
-                                <img src="assets/footer/latest-news-2.png" alt="Awesome Image">
-                            </div>
-                            <div class="text-holder">
-                                <a class="post-title" href="#">Two massages are better<br>than one...</a>
-                                <div class="post-info">
-                                    <span>February 05, 2017</span>
-                                </div>
-                            </div>
-                        </li>
+                        
                     </ul>
-                    <div class="more-news">
-                        <a href="blog-default.html">More News <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!--Start single footer widget-->
-            <!--Start single footer widget-->
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                <div class="single-footer-widget clearfix">
-                    <div class="title">
-                        <h3>Subscribe Us</h3>
-                    </div>
-                    <div class="newsletter-box">
-                        <p>Subscribe to our newsletter!</p>
-                        <form class="newsletter-form" action="#">
-                            <input placeholder="Email Address" type="text">
-                            <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            <div class="envelope">
-                                <i class="fa fa-envelope" aria-hidden="true"></i>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="single-footer-widget clearfix">
-                    <div class="title">
-                        <h3>Opening Hours</h3>
-                    </div>
-                    <ul class="working-hours">
-                        <li>Mon-FriDay: <span>9.00 to 18.00</span></li>
-                        <li>Saturday: <span>9.00 to 18.00</span></li>
-                        <li>Sunday: <span class="closed">Closed</span></li>
-                    </ul>
-                </div>
-            </div>
-            <!--End single footer widget-->
-        </div>
-    </div>
-</footer>   
-<!--End footer area-->
-
-<!--Start footer bottom area-->
-<section class="footer-bottom-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="copyright-text">
-                    <p>Copyrights © 2017 All Rights Reserved, Powered by <a href="#">Life Care.</a></p> 
-                </div>
-            </div>
-            <div class="col-md-4">
-                <ul class="footer-social-links">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
+                </div>    
             </div>
         </div>
     </div>
 </section>
-<!--End footer bottom area-->
-
+<!--End appointment area-->

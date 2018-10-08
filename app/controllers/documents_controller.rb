@@ -1,9 +1,10 @@
 class DocumentsController < ApplicationController
 
 	def create
+
 		if params[:document][:document]
 			params[:document][:document].each do |doc|
-				Document.create(document: doc)
+				Document.create(document: doc, service_id: params[:document][:service_id])
 			end 
 		end
 		# @image = Image.create(image_params)
