@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :emails
   has_many :posts
   has_many :bids
+  has_many :orders
   has_one  :address
   has_one  :cart
 

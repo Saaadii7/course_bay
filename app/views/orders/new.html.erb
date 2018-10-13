@@ -1,0 +1,90 @@
+  <h1 class="my-5 h2 text-center">Checkout form</h1>
+<main class="mt-5 pt-4">
+  	<div class="container wow fadeIn">
+  		<div class= 'row'>
+  			<div class='col-xs-12'>
+  			  <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |f|%>
+                <div class="col-md-6 mb-2">
+                	<div class="field">
+					    <%= f.label :user_id %>
+					    <%= f.select(:user_id, User.find(current_user.id).collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+					 </div>
+
+  					<div class="form-group">
+  						<%#= f.submit "Checkout", class:'btn btn-primary btn-lg'%>
+  					</div>
+		  		</div>
+  			  <% end %>
+  			</div>
+
+  			<div class="col-md-4 mb-4">
+
+  				<!-- Heading -->
+  				<h4 class="d-flex justify-content-between align-items-center mb-3">
+  					<span class="text-muted">Your cart</span>
+  					<span class="badge badge-secondary badge-pill"><%#= @user.cart.shopping_carts.count%></span>
+  				</h4>
+
+  				<!-- Cart -->
+  				<ul class="list-group mb-3 z-depth-1">
+  					<div style="height: 482px;overflow-y: auto;">
+  						<% Cart.find_or_create_by(user_id: current_user.id).shopping_carts.each do |sc,index| %>
+  						<li class="list-group-item d-flex justify-content-between lh-condensed">
+  							<div>
+  								<h6 class="my-0"><%= sc.post.name %></h6>
+  								<del class="text-muted"><%= sc.post.price %></del>
+  							</div>
+  							<span class="text-muted"><%= sc.post.price %></span>
+  							<button class="btn btn-sm pull-right btn-danger"><i class="fa fa-delete"></i>X</button>
+  						</li>
+  						<% end %>
+  						<% Cart.find_or_create_by(user_id: current_user.id).shopping_carts.each do |sc,index| %>
+  						<li class="list-group-item d-flex justify-content-between lh-condensed">
+  							<div>
+  								<h6 class="my-0"><%= sc.post.name %></h6>
+  								<del class="text-muted"><%= sc.post.price %></del>
+  							</div>
+  							<span class="text-muted"><%= sc.post.price %></span>
+  							<button class="btn btn-sm pull-right btn-danger"><i class="fa fa-delete"></i>X</button>
+  						</li>
+  						<% end %><% Cart.find_or_create_by(user_id: current_user.id).shopping_carts.each do |sc,index| %>
+  						<li class="list-group-item d-flex justify-content-between lh-condensed">
+  							<div>
+  								<h6 class="my-0"><%= sc.post.name %></h6>
+  								<del class="text-muted"><%= sc.post.price %></del>
+  							</div>
+  							<span class="text-muted"><%= sc.post.price %></span>
+  							<button class="btn btn-sm pull-right btn-danger"><i class="fa fa-delete"></i>X</button>
+  						</li>
+  						<% end %>
+  					</div>
+
+  					<li class="list-group-item d-flex justify-content-between bg-light">
+  						<div class="text-success">
+  							<h6 class="my-0">Promo code</h6>
+  							<small>EXAMPLECODE</small>
+  						</div>
+  						<span class="text-success">-0</span>
+  					</li>
+  					<li class="list-group-item d-flex justify-content-between">
+  						<span>Total (USD)</span>
+  						<strong><%#=@user.cart.total_price%></strong>
+  					</li>
+  				</ul>
+  				<!-- Cart -->
+
+  				<!-- Promo code -->
+  				<form class="card p-2">
+  					<div class="input-group">
+  						<input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  						<div class="input-group-append">
+  							<button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+  						</div>
+  					</div>
+  				</form>
+  				<!-- Promo code -->
+
+  			</div>
+  		</div>
+  	</div>
+</main>

@@ -38,8 +38,20 @@
  <div class="header" id="home">
 	<div class="container">
 		<ul>
-				<li> <a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a></li>
-			<li> <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+			<li>
+				<% if current_user %> 
+					<a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign out </a>
+				<%else%>
+					<a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Sign In </a>
+				<% end %>
+			</li>
+			<li>
+				<% if !current_user %> 
+			 		<a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a>
+			 	<% else %>
+			 		<a href="<% link_to "Profile",'profile_path' %>">Profile</a>
+			 	<% end %>
+			</li>
 			<li><i class="fa fa-phone" aria-hidden="true"></i> Call : 0313-8889797</li>
 			<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com">tayyabarif50@gmial.com</a></li>
 		</ul>
@@ -50,11 +62,7 @@
 <div class="header-bot">
 	<div class="header-bot_inner_wthreeinfo_header_mid">
 		<div class="col-md-4 header-middle">
-			<form action="#" method="post">
-					<input type="search" name="search" placeholder="Search here..." required="">
-					<input type="submit" value=" ">
-				<div class="clearfix"></div>
-			</form>
+			
 		</div>
 		<!-- header-bot -->
 			<div class="col-md-4 logo_agile">
@@ -83,8 +91,7 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav menu__list">
-					<li class="active menu__item menu__item--current"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-					<li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
+					<li class="active menu__item menu__item--current"><a class="menu__link" href="home">Home <span class="sr-only">(current)</span></a></li>
 					
 					<li class="dropdown menu__item">
 						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
@@ -125,6 +132,14 @@
 						</li>
 					<%end%>
 					<li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+					<li class=" menu__item"><a class="menu__link">Auction</a></li>
+					<li class=" menu__item">
+						<form action="#" method="post">
+								<input type="search" name="search" placeholder="Search here..." required="">
+								<button><i class="fa fa-search fa-2x custom" aria-hidden="true"></i></button>
+							<div class="clearfix"></div>
+						</form>
+					</li>>
 					</ul>
 				</div>2
 				</div>
@@ -240,7 +255,7 @@
 			<div class="modal-body modal-body-sub_agile">
 				<div class="col-md-12 modal_body_left modal_body_left1">
 					<% if current_user.present? %>
-					 	<div class="table-responsive">
+					 	<div class="table-responsive" style="height: 482px;overflow-y: auto;">
 				      		<table class="table table-striped table-hover">
 						      	<thead>
 						        	<tr>
@@ -262,8 +277,11 @@
 							        <% end %>
 						      	</tbody>
 					    	</table>
-							<%= link_to('Checkout' , class: "btn btn-large btn-primary")%>
 				 		</div>
+				 		<br>
+				 		<div>
+							<%= link_to('Go to Checkout', checkout_path() , class: "btn btn-large btn-primary")%>
+			 			</div>
 			 		<% end %>
 					<div class="clearfix"></div>
 				</div>

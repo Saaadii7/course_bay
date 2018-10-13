@@ -43,4 +43,10 @@ class CartsController < ActionController::Base
 	     params.require(:cart).permit(:user_id, :quantity, :post_id )
 	end
 
+	def delete_products
+		byebug
+			ShoppingCart.find(params[:shopping_cart_id]).destroy
+      		redirect_to checkout_path
+	end
+
 end

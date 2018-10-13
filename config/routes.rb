@@ -79,9 +79,12 @@ Rails.application.routes.draw do
     resources :provinces
     resources :cities
     resources :addresses
+    resources :payment_methods
+    resources :orders
     resources :carts do 
       collection do 
         post 'add_products'
+        delete 'delete_products'
       end
     end
 

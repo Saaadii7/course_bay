@@ -66,14 +66,13 @@
 
                     <div class="field">
                         <%= f.label :province %>   <br />
-                        <%= f.text_field :province, autofocus: true %>
+                        <%= collection_select("address", "province_id", Province.all, "id", "name") %>
                     </div>
 
                     <div class="field">
                         <%= f.label :city %>   <br />
-                        <%= f.text_field :city, autofocus: true %>
+                        <%= collection_select("address", "city_id", City.all, "id", "name") %>
                     </div>
-
                     <div class="field">
                         <%= f.label :address %>   <br />
                         <%= f.text_field :address, autofocus: true %>
@@ -91,12 +90,143 @@
 
         </div>
 
-  <div class="tab3">
+        <div class="tab3">
+                <br>
+            <div class="accordion-panel">
+              <dl class="accordion">
+                <% current_user.orders.each do |order|%>
+                    <dt>Status: <%=order.status%> Total Price:<%=order.total_price%> <i class="plus-icon"></i></dt>
+                    <dd>
+                      <div class="content">
+                        <div class="col-md-12 modal_body_left modal_body_left1">
+                            <% if current_user.present? %>
+                                <div class="table-responsive" style="height: 482px;overflow-y: auto;">
+                                    <table class="table table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Image</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <% order.order_items.each do |orderitem| %>
+                                                    <tr>
+                                                        <td><%= orderitem.post.name %></td>
+                                                        <td><%= orderitem.post.price %></td>
+                                                        <td><%= orderitem.post.quantity %></td>
+                                                        <td><%= image_tag orderitem.post.photo_url, class: "image_table_display"%></td>
+                                                    </tr>
+                                                <% end %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <%= link_to('Cancel Order', order_path(order) , method: :delete, class: "btn btn-large btn-primary")%>
+                                    </div>
+                                    <br>
+                                <% end %>
+                            <div class="clearfix"></div>
+                        </div>
+                      </div>
+                    </dd>
+                <%end%>
+
+              </dl>
+            </div>
+<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script >$(document).ready(function() {
+
+  var bodyEl = $('body'),
+    accordionDT = $('.accordion').find('dt'),
+    accordionDD = accordionDT.next('dd'),
+    parentHeight = accordionDD.height(),
+    childHeight = accordionDD.children('.content').outerHeight(true),
+    newHeight = parentHeight > 0 ? 0 : childHeight,
+    accordionPanel = $('.accordion-panel'),
+    buttonsWrapper = accordionPanel.find('.buttons-wrapper'),
+    openBtn = accordionPanel.find('.open-btn'),
+    closeBtn = accordionPanel.find('.close-btn');
+
+  bodyEl.on('click', function(argument) {
+    var totalItems = $('.accordion').children('dt').length;
+    var totalItemsOpen = $('.accordion').children('dt.is-open').length;
+
+    if (totalItems == totalItemsOpen) {
+      openBtn.addClass('hidden');
+      closeBtn.removeClass('hidden');
+      buttonsWrapper.addClass('is-open');
+    } else {
+      openBtn.removeClass('hidden');
+      closeBtn.addClass('hidden');
+      buttonsWrapper.removeClass('is-open');
+    }
+  });
+
+  function openAll() {
+
+    openBtn.on('click', function(argument) {
+
+      accordionDD.each(function(argument) {
+        var eachNewHeight = $(this).children('.content').outerHeight(true);
+        $(this).css({
+          height: eachNewHeight
+        });
+      });
+      accordionDT.addClass('is-open');
+    });
+  }
+
+  function closeAll() {
+
+    closeBtn.on('click', function(argument) {
+      accordionDD.css({
+        height: 0
+      });
+      accordionDT.removeClass('is-open');
+    });
+  }
+
+  function openCloseItem() {
+    accordionDT.on('click', function() {
+
+      var el = $(this),
+        target = el.next('dd'),
+        parentHeight = target.height(),
+        childHeight = target.children('.content').outerHeight(true),
+        newHeight = parentHeight > 0 ? 0 : childHeight;
+
+      // animate to new height
+      target.css({
+        height: newHeight
+      });
+
+      // remove existing classes & add class to clicked target
+      if (!el.hasClass('is-open')) {
+        el.addClass('is-open');
+      }
+
+      // if we are on clicked target then remove the class
+      else {
+        el.removeClass('is-open');
+      }
+    });
+  }
+
+  openAll();
+  closeAll();
+  openCloseItem();
+});
+//# sourceURL=pen.js
+</script>
 
 
-
-  </div>
+        </div>    
 </div>
 </div>
 </div>
 </section>
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181007213050) do
+ActiveRecord::Schema.define(version: 20181012215005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20181007213050) do
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
     t.string "address"
-    t.string "province"
-    t.string "city"
     t.integer "postal_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "province_id"
+    t.integer "city_id"
   end
 
   create_table "bids", force: :cascade do |t|
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20181007213050) do
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string "city_name"
+    t.string "name"
     t.integer "province_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -119,6 +119,30 @@ ActiveRecord::Schema.define(version: 20181007213050) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cart_id"
+    t.integer "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.integer "payment_method_id"
+  end
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -140,7 +164,7 @@ ActiveRecord::Schema.define(version: 20181007213050) do
   end
 
   create_table "provinces", force: :cascade do |t|
-    t.string "province_name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

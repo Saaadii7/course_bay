@@ -20,7 +20,7 @@
         <% @provinces.each_with_index do |province,index| %>
           <tr>
             <td><%= province.id %></td>
-            <td><%= province.province_name %></td>
+            <td><%= province.name %></td>
             <td><%= link_to('Edit', edit_province_path(province), class: "btn btn-large btn-primary")%></td>
             <td><%= link_to('Delete', province_path(province), method: :delete, class: "btn btn-large btn-primary")%></td>
             <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->

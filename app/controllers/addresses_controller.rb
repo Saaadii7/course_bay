@@ -1,6 +1,5 @@
 class AddressesController < ActionController::Base
   def update
-  	byebug
   	@address = Address.find(params[:id])
     @address.update(address_params)
   	redirect_to profile_url
@@ -19,6 +18,6 @@ class AddressesController < ActionController::Base
   end
 
   def address_params
-      	params.require(:address).permit(:province, :city, :address, :postal_code)
+      	params.require(:address).permit(:province_id, :city_id, :address, :postal_code)
     end
 end

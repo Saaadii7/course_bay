@@ -43,6 +43,6 @@ class ProvincesController < ApplicationController
   end
 
   def province_params
-    	params.require(:province).permit(:province_name)
+    	params.require(:province).permit(:name)
   end
 end

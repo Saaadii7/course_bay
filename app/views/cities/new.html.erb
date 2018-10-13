@@ -3,9 +3,9 @@
 		<%= form_for(@city, :html => {class: "form-horizontal", role: "form"}) do |f|%>
 		<div class= "form-group">
 			<%= f.label :name%>
-			<%= f.text_field :city_name, class: "form-control", autofocus: true %>
+			<%= f.text_field :name, class: "form-control", autofocus: true %>
 			<%= f.label :province%>
-		 <%= collection_select("city", "province_id", Province.all, "id", "province_name") %>
+		 <%= collection_select("city", "province_id", Province.all, "id", "name") %>
 		</div>
 
 
