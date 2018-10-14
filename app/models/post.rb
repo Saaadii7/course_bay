@@ -16,5 +16,11 @@ class Post < ApplicationRecord
  	has_many :shopping_carts
 	has_many :carts, through: :shopping_carts
 
+	def isSimple?
+		return self.type.name=="New"
+	end
+	def isAuction?
+		return self.type.name=="Used"
+	end
 
 end

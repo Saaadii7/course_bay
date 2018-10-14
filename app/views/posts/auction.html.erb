@@ -1,0 +1,75 @@
+
+
+<br><h1 style="text-align:center;">Auction Page</h1>
+
+<!-- banner-bootom-w3-agileits -->
+<div class="banner-bootom-w3-agileits">
+	<div class="container">
+		<!-- mens -->
+		<div class="col-md-4 products-left">
+			
+			<div class="css-treeview col-md-10">
+				<h4>Categories</h4>
+				<ul class="tree-list-pad">
+					<%Category.all.each_with_index do |category,cat_index|%>
+					<li><input type="checkbox" checked="checked" id="item-<%=cat_index%>" /><label for="item-<%=cat_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> <%=category.name%></label>
+						<ul>
+							<%category.sub_categories.each_with_index do |sub_category,sub_index|%>
+							<li><input type="checkbox" id="item-<%=cat_index%>-<%=sub_index%>" /><label for="item-<%=cat_index%>-<%=sub_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i><%=sub_category.name%></label>
+								<ul>
+									<%sub_category.tags.each do |tag|%>
+									<li><a href="mens.html"><%=tag.name%></a></li>
+									<%end%>
+								</ul>
+							</li>
+							<%end%>
+						</ul>
+					</li>
+					<%end%>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-8 products-right">
+			<%Post.auction_posts.each_with_index do |post,post_index|%>
+				<div class="col-md-4 product-men">
+					<div class="men-pro-item simpleCart_shelfItem">
+						<div class="men-thumb-item">
+							<%= image_tag post.photo_url, class: "pro-image-front"%>
+							<%= image_tag post.photo_url, class: "pro-image-back"%>
+							<div class="men-cart-pro">
+								<div class="inner-men-cart-pro link-product-add-cart"">
+									<%= link_to "Quick View", post_path(post) %>
+								</div>
+							</div>
+							<span class="product-new-top">New</span>
+						</div>
+						<div class="item-info-product ">
+							<h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+							<div class="info-product-price">
+								<span class="item_price"><%=post.price%></span>
+							</div>
+							<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+								<form action="#" method="post">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart">
+										<input type="hidden" name="add" value="1">
+										<input type="hidden" name="business" value=" ">
+										<input type="hidden" name="item_name" value="Party Men's Blazer">
+										<input type="hidden" name="amount" value="30.99">
+										<input type="hidden" name="discount_amount" value="1.00">
+										<input type="hidden" name="currency_code" value="USD">
+										<input type="hidden" name="return" value=" ">
+										<input type="hidden" name="cancel_return" value=" ">
+										<input type="submit" name="submit" value="Add to cart" class="button">
+									</fieldset>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			<%end%>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
