@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-			flash[:success] = "Category is successfully updated"
 			redirect_to profile_path
   end
 
@@ -35,6 +34,7 @@ class OrdersController < ApplicationController
 
   
   def create
+    byebug
     @order = Order.new(user_id:params[:user_id], address_id:params[:address_id], cart_id:params[:cart_id], payment_method_id:params[:payment_method_id], status:"processing")
     	if @order.save
         current_user.cart.shopping_carts.each do |shopping_cart|
@@ -46,5 +46,25 @@ class OrdersController < ApplicationController
     	else
     		render 'new'
     	end
+  end
+
+  def buy_auction_product
+    user = current_user
+    pay_method = PaymentMethod.find_by_name "Cash On Delivery"
+    address = Address.find(params[:address_id])
+    cart = Cart.find_or_create_by(user_id: current_user.id)
+    post=Post.auction_posts.find(params[:post_id])
+    if post.status == true 
+      @order = Order.new(user_id:user.id, address_id:user.address.id, cart_id:cart.id, payment_method_id: pay_method.id, status:"processing")
+      if @order.save
+          OrderItem.create(order_id:@order.id, post_id:params[:post_id], quantity: 1)
+          #do available false of post_id in params
+          post.status= false
+          post.save
+          redirect_to home_path
+      else
+          render 'new'
+      end
+    end 
   end
 end

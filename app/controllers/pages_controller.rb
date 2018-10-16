@@ -92,6 +92,7 @@ class PagesController < ApplicationController
 	end
 
 	def checkout
+		@post= Post.all
 		@paymentmethod = PaymentMethod.all
 		@orders= Order.all
 		@provinces = Province.all

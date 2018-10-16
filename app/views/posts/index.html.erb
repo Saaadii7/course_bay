@@ -13,7 +13,9 @@
           <th>Description</th>
           <th>Price</th>
           <th>Quantity</th>
+          <th>Status</th>
           <th>Percentage Off</th>
+          <th>Type</th>
           <th>Image</th>
           <th>Actions</th>
         </tr>
@@ -27,7 +29,9 @@
             <td><%= post.description %></td>
             <td><%= post.price %></td>
             <td><%= post.quantity %></td>
+            <td><%= post.status%></td>
             <td><%= post.percentage_off %></td>
+            <td><%= post.ptype%>
             <td><%= image_tag post.photo_url, class: "image_table_display"%></td>
             <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->
             <td><%= link_to('Update', edit_post_path(post.id), class: "btn btn-large btn-primary")%></td>

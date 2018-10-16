@@ -241,7 +241,7 @@ data-start="2300">
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu1" class="tab-pane fade in active">
-                        <% @posts[1..8].each_with_index do |post,post_index|%>
+                        <% Post.mobile_and_tablets_posts[1..8].each do |post|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
@@ -311,12 +311,12 @@ data-start="2300">
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu7" class="tab-pane fade in active">
-                        <% @brands[1..8].each_with_index do |brand,brand_index|%>
+                        <% Post.men_posts[1..8].each do |post|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
-                                        <%#= image_tag post.photo_url, class: "pro-image-front"%>
-                                        <%#= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
                                                 <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -326,9 +326,9 @@ data-start="2300">
 
                                     </div>
                                     <div class="item-info-product ">
-                                        <h4><a href="single.html"><%=brand.name.first(20)%></a></h4>
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
                                         <div class="info-product-price">
-                                            <span class="item_price">$45.99</span>
+                                            <span class="item_price"><%= post.price%></span>
                                             <del>$69.71</del>
                                         </div>
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
@@ -382,12 +382,12 @@ data-start="2300">
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu10" class="tab-pane fade in active">
-                        <% @brands[1..8].each_with_index do |brand,brand_index|%>
+                        <% Post.women_posts[1..8].each do |post|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
-                                        <%#= image_tag post.photo_url, class: "pro-image-front"%>
-                                        <%#= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
                                                 <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -397,9 +397,9 @@ data-start="2300">
 
                                     </div>
                                     <div class="item-info-product ">
-                                        <h4><a href="single.html"><%=brand.name.first(20)%></a></h4>
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
                                         <div class="info-product-price">
-                                            <span class="item_price">$45.99</span>
+                                            <span class="item_price"><%= post.price%></span>
                                             <del>$69.71</del>
                                         </div>
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
@@ -453,12 +453,12 @@ data-start="2300">
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu13" class="tab-pane fade in active">
-                        <% @brands[1..8].each_with_index do |brand,brand_index|%>
+                        <% Post.simple_posts[1..8].each_with_index do |post,brand_index|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
-                                        <%#= image_tag post.photo_url, class: "pro-image-front"%>
-                                        <%#= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
                                                 <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -468,28 +468,21 @@ data-start="2300">
 
                                     </div>
                                     <div class="item-info-product ">
-                                        <h4><a href="single.html"><%=brand.name.first(20)%></a></h4>
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
                                         <div class="info-product-price">
-                                            <span class="item_price">$45.99</span>
+                                            <span class="item_price"><%= post.price%></span>
                                             <del>$69.71</del>
                                         </div>
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="#" method="post">
+                                            <form action="/carts/add_products" method="post">
                                                 <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                    <input type="hidden" name="amount" value="30.99" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
                                                     <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    
                                                 </fieldset>
                                             </form>
                                         </div>
-
                                     </div>
                                 </div>
                             </div> 

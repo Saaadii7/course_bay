@@ -36,8 +36,8 @@ class User < ApplicationRecord
     self.has_role? (:admin)
   end
 
-  def show
-  @user = User.find params[:id]
+  def name
+    return self.first_name + ' ' + self.last_name  
   end
   # before_action :authenticate_user!
 

@@ -81,11 +81,17 @@ Rails.application.routes.draw do
     resources :cities
     resources :addresses
     resources :payment_methods
-    resources :orders
+    resources :orders do
+    collection do 
+      post 'buy_auction_product'
+      end
+    end
+    resources :bids
     resources :carts do 
       collection do 
         post 'add_products'
         delete 'delete_products'
+
       end
     end
 
