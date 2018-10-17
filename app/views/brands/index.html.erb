@@ -1,4 +1,4 @@
-<h1 align="center"> Welcome To Brands Page </h1>
+<h1 align="center"> Welcome To Brands Page </h1><br><br>
 
 
   <div class="row" align="center" >
@@ -24,10 +24,10 @@
             <td><%= brand.id %></td>
             <td><%= brand.name %></td>
             <td><%= image_tag brand.photo_url, class: "image_table_display"%></td>
-            <td><%= link_to('Edit', edit_brand_path(brand), class: "btn btn-large btn-primary")%></td>
-            <td><%= link_to('Delete', brand_path(brand), method: :delete, class: "btn btn-large btn-primary")%></td>
-            <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->
-            <%#= render :partial => 'images/image', :locals => {:image => image} %>
+            <td>
+              <%= link_to('Edit', edit_brand_path(brand), class: "btn btn-large btn-primary")%>
+              <%= link_to('Delete', brand_path(brand), method: :delete, class: "btn btn-large btn-primary")%>
+            </td>
           </tr>
         <% end %>
       </tbody>

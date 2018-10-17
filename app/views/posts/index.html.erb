@@ -1,4 +1,4 @@
-<h1 align="center"> Welcome to Post Page </h1>
+<h1 align="center"> Welcome to Post Page </h1><br><br>
 
 <div id="posts" class="tab-pane">
     <div class="row" align="center">
@@ -34,9 +34,10 @@
             <td><%= post.ptype%>
             <td><%= image_tag post.photo_url, class: "image_table_display"%></td>
             <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->
-            <td><%= link_to('Update', edit_post_path(post.id), class: "btn btn-large btn-primary")%></td>
-            <td><%= link_to('Delete', post_path(post.id), method: :delete, class: "btn btn-large btn-primary")%></td>
-              <%#= render :partial => 'images/image', :locals => {:image => image} %>
+            <td>
+              <%= link_to('Update', edit_post_path(post.id), class: "btn btn-large btn-primary")%>
+              <%= link_to('Delete', post_path(post.id), method: :delete, class: "btn btn-large btn-primary")%>
+            </td>
           </tr>
         <% end %>
       </tbody>

@@ -12,6 +12,12 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     if @order.present?
+      @order.order_items.each do |item|
+        if item.post.isSimple?
+          item.post.quantity = item.post.quantity + item.quantity
+          item.post.save
+        end
+      end
       @order.order_items.destroy_all
       @order.destroy
     end
@@ -21,8 +27,10 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(status:"confirm" )
-			redirect_to orders_path
+		redirect_to orders_path
   end
+
+
 
   def index
     @orders = Order.all
@@ -34,14 +42,14 @@ class OrdersController < ApplicationController
 
   
   def create
-    byebug
+   #loop on shopping cart and check 1 must shopping cart quantity must less then shopping_cart.post.quantity
+   
     @order = Order.new(user_id:params[:user_id], address_id:params[:address_id], cart_id:params[:cart_id], payment_method_id:params[:payment_method_id], status:"processing")
     	if @order.save
         current_user.cart.shopping_carts.each do |shopping_cart|
           OrderItem.create(order_id:@order.id, post_id:shopping_cart.post_id, quantity:shopping_cart.quantity)
         end
         current_user.cart.shopping_carts.destroy_all
-    		flash[:success] = "Category is successfully created"
     	    redirect_to home_path
     	else
     		render 'new'

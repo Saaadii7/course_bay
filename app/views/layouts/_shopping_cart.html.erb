@@ -1,0 +1,3 @@
+<button data-toggle="modal" data-target="#myModal3">
+<span>Cart items (<%=Cart.find_or_create_by(user_id: current_user.id).shopping_carts.count%>)</span><i class="fa fa-shopping-cart fa-2x custom" aria-hidden="true"></i>
+</button>

@@ -260,19 +260,14 @@ data-start="2300">
                                         <div class="info-product-price">
                                             <span class="item_price"><%= post.price %></span>
                                         </div>
-                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="#" method="post">
+                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
                                                 <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                    <input type="hidden" name="amount" value="30.99" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="RS" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -332,18 +327,12 @@ data-start="2300">
                                             <del>$69.71</del>
                                         </div>
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="#" method="post">
+                                            <form action="/carts/add_products" method="post">
                                                 <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                    <input type="hidden" name="amount" value="30.99" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
                                                     <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -402,19 +391,13 @@ data-start="2300">
                                             <span class="item_price"><%= post.price%></span>
                                             <del>$69.71</del>
                                         </div>
-                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="#" method="post">
+                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form action="/carts/add_products" method="post">
                                                 <fieldset>
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="item_name" value="Formal Blue Shirt" />
-                                                    <input type="hidden" name="amount" value="30.99" />
-                                                    <input type="hidden" name="discount_amount" value="1.00" />
-                                                    <input type="hidden" name="currency_code" value="USD" />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
                                                     <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    
                                                 </fieldset>
                                             </form>
                                         </div>

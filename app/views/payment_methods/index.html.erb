@@ -21,8 +21,10 @@
           <tr>
             <td><%= paymentmethod.id %></td>
             <td><%= paymentmethod.name %></td>
-            <td><%= link_to('Edit', edit_payment_method_path(paymentmethod), class: "btn btn-large btn-primary")%></td>
-            <td><%= link_to('Delete', payment_method_path(paymentmethod), method: :delete, class: "btn btn-large btn-primary")%></td>
+            <td>
+              <%= link_to('Edit', edit_payment_method_path(paymentmethod), class: "btn btn-large btn-primary")%>
+              <%= link_to('Delete', payment_method_path(paymentmethod), method: :delete, class: "btn btn-large btn-primary")%>
+            </td>
           </tr>
         <% end %>
       </tbody>

@@ -1,8 +1,8 @@
 <aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<h1 id="colorlib-logo"><a href="adminpanel.html">Bid2Buy</a></h1>
+			<h1 id="colorlib-logo"><%= link_to 'Bid2buy', adminpanel_path%></a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-					<li class="colorlib-active"><a href="index.html">Home</a></li>
+					<li class="colorlib-active"><%= link_to 'Home', adminpanel_path%></a></li>
 					<li><%= link_to 'Users', users_path %></li>
 					<li><%= link_to 'Orders', orders_path %></li>
 					<li><%= link_to 'Posts', posts_path %></li>
@@ -14,7 +14,6 @@
 					<li><%= link_to 'Provinces', provinces_path %></li>
 					<li><%= link_to 'Cities', cities_path %></li>
 					<li><%= link_to 'Payment Methods', payment_methods_path %></li>
-					<li><a href="contact.html">Contact</a></li>
 				</ul>
 			</nav>
 

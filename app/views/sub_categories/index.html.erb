@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to SubCategory Page</h1>
+<h1 align="center">Welcome to SubCategory Page</h1><br><br>
 
 
   <div class="row" align="center" >
@@ -22,10 +22,10 @@
           <tr>
             <td><%= subcategory.id %></td>
             <td><%= subcategory.name %></td>
-          <td><%= link_to('Edit', edit_sub_category_path(subcategory), class: "btn btn-large btn-primary")%></td>
-          <td><%= link_to('Delete', sub_category_path(subcategory), method: :delete, class: "btn btn-large btn-primary")%></td> 
-
-            <%#= render :partial => 'images/image', :locals => {:image => image} %>
+          <td>
+            <%= link_to('Edit', edit_sub_category_path(subcategory), class: "btn btn-large btn-primary")%>
+            <%= link_to('Delete', sub_category_path(subcategory), method: :delete, class: "btn btn-large btn-primary")%>
+          </td> 
           </tr>
         <% end %>
       </tbody>

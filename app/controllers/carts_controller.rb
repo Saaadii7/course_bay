@@ -1,7 +1,7 @@
 class CartsController < ActionController::Base
 	
 	def create
-		 @cart = Cart.new(cart_params)
+		@cart = Cart.new(cart_params)
         @cart.user= current_user
         @cart.save
 	end
@@ -10,7 +10,9 @@ class CartsController < ActionController::Base
 			cart = Cart.find_or_create_by(user_id: current_user.id)
 			shop = ShoppingCart.find_or_create_by(cart_id: cart.id,post_id: params[:post_id])
 			shop.quantity = shop.quantity + params[:amount].to_i
-			shop.save
+			if shop.quantity <= shop.post.quantity
+				shop.save
+			end
 			# flash[:success] = t('.successfully_created')
 			# toastr.success('Product is seccessfully added to cart')
 		else
@@ -44,9 +46,8 @@ class CartsController < ActionController::Base
 	end
 
 	def delete_products
-		byebug
-			ShoppingCart.find(params[:shopping_cart_id]).destroy
-      		redirect_to checkout_path
+		ShoppingCart.find(params[:shopping_cart_id]).destroy
+  		redirect_to checkout_path
 	end
 
 end

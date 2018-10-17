@@ -7,8 +7,8 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-every 1.minute do
-   runner "Post.check_post_expire"
+every 5.minute do
+   runner "Post.check_post_expiry"
  end
 #
 # every 4.days do

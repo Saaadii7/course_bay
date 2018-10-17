@@ -1,4 +1,4 @@
-<h1 align="center"> Welcome to Categories Page </h1>
+<h1 align="center"> Welcome to Categories Page </h1><br><br><br>
 
   <div class="row" align="center" >
     <td><%= link_to('Create New Category', new_category_path , method: :get, class: "btn btn-large btn-primary")%></td>
@@ -21,10 +21,10 @@
           <tr>
             <td><%= category.id %></td>
             <td><%= category.name %></td>
-            <td><%= link_to('Edit', edit_category_path(category), class: "btn btn-large btn-primary")%></td>
-            <td><%= link_to('Delete', category_path(category), method: :delete, class: "btn btn-large btn-primary")%></td>
-            <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->
-            <%#= render :partial => 'images/image', :locals => {:image => image} %>
+            <td>
+              <%= link_to('Edit', edit_category_path(category), class: "btn btn-large btn-primary")%>
+              <%= link_to('Delete', category_path(category), method: :delete, class: "btn btn-large btn-primary")%>
+            </td>
           </tr>
         <% end %>
       </tbody>

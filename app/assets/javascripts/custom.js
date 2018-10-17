@@ -23,15 +23,25 @@ function change_post_type(element,arr) {
 		$('.to_hide').show();
 	}
 		// body...
+}
+
+
+function change_sub_category_type(element,arr) {
+	console.log($(element).val())
+	var id = $(element).val()
+	$.ajax({
+		type:'GET', 
+		url:  "/categories/"+id+"/get_sub_categories" 
+	}); 
+}
+
+function add_to_cart(id,price){
+	if(price == 0){
+		price = $('#quantity_for_post').val();
 	}
-
-
-	function change_sub_category_type(element,arr) {
-		console.log($(element).val())
-		var id = $(element).val()
-		$.ajax({
-			type:'GET', 
-			url:  "/categories/"+id+"/get_sub_categories" 
-		}); 
-	}
-
+	$.ajax({
+		type:'POST', 
+		url: "/carts/add_products", 
+		data: { post_id: id,amount: price}
+	}); 
+}

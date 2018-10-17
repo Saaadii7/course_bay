@@ -41,29 +41,21 @@
 				<br>
 				<br>
 
-				<div class="color-quality col-md-4 mb-2">
-					<div class="color-quality-right">
-						<div class="md-form">
-							<form action="#" method="post">
-							<fieldset>
+			    <form >
+					<div class="color-quality col-md-4 mb-2">
+						<div class="color-quality-right">
+							<div class="md-form">
 								<p><label> Enter Quantity:</label><span></span><p>
-								<input type="text" class="form-control" value="" name = "quantity">
-							</fieldset>
-							</form>
-						</div>						
+							</div>						
+						</div>
 					</div>
-
-				</div>
-				<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-			        <form action="/carts/add_products" method="post">
-			            <fieldset>
-			                <input type="hidden" name="amount" value="1" />
-			                <input type="hidden" name="post_id" value="<%=@post.id%>" />
-			                <input type="submit" name="submit" value="Add to cart" class="button" />
-			                
-			            </fieldset>
-			        </form>
-			    </div>
+					<input type="number" id ="quantity_for_post" class="form-control" value="1" name = "amount" min="1" max="<%=@post.quantity%>">
+					<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+		                <input type="hidden" name="post_id" value="<%=@post.id%>" />
+		                <input type="button" name="submit" value="Add to cart" class="button" onclick="add_to_cart(<%=@post.id%>,0)" />
+				                
+				    </div>
+			    </form>
 
 				<ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
 					<li class="share">Share On : </li>
@@ -387,9 +379,8 @@
                                                 
                         <div>
                              <%=form_tag({:controller => "orders", :action => "buy_auction_product"}, :method => "POST") do -%>
-                             <%byebug%>
                                 <%= hidden_field_tag(:user_id, current_user.id) %>
-                                <%#= hidden_field_tag(:address_id, current_user.address.id) %>
+                                <%= hidden_field_tag(:address_id, current_user.address.id) %>
                                 <%= hidden_field_tag(:post_id, @post.id) %>
                                 <%= hidden_field_tag(:payment_method_id, @paymentmethod.first.id) %>
                                 <div>
