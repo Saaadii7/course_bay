@@ -52,7 +52,8 @@ Rails.application.routes.draw do
     get '/therapists',      to: 'pages#therapists'
     get '/galleryWithGrid', to: 'pages#galleryWithGrid'
     get '/galleryWithOutGrid', to: 'pages#galleryWithOutGrid'
-    get '/checkout',         to: 'pages#checkout'
+    get '/checkout',        to: 'pages#checkout'
+    get '/auction',         to: 'posts#auction'
 
     post '/card_pay', to: 'stripe#card_pay'
     post '/send_email', to: 'email#send_email'
@@ -79,9 +80,18 @@ Rails.application.routes.draw do
     resources :provinces
     resources :cities
     resources :addresses
+    resources :payment_methods
+    resources :orders do
+    collection do 
+      post 'buy_auction_product'
+      end
+    end
+    resources :bids
     resources :carts do 
       collection do 
         post 'add_products'
+        delete 'delete_products'
+
       end
     end
 

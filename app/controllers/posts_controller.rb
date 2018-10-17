@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
 
+before_action :require_addrress, only:[:show]
+
     def create
+      byebug
         @post = Post.new(posts_params)
         @post.user= current_user
         if @post.type && @post.type.name == "New"
@@ -19,6 +22,19 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find(params[:id])
+        @total_bids = @post.bids.sort_by(&:created_at)
+        @bids = @post.bids.where(user_id: current_user.id).sort_by(&:created_at)
+        @paymentmethod = PaymentMethod.all
+          @orders= Order.all
+          @provinces = Province.all
+          @cities = City.all
+          @cart = Cart.all
+          @user = current_user
+          if current_user.address
+            @address = current_user.address
+          else
+            @address = current_user.build_address
+        end
     end
 
     def update
@@ -47,4 +63,12 @@ class PostsController < ApplicationController
       	params.require(:post).permit(:name, :description, :price, :photo, :ptype, :brand_id, :category_id, :sub_category_id, :starting_bid, :start_datetime, :end_datetime, :quantity, :percentage_off)
     end
 
+    def require_addrress
+      user = current_user
+      if user.address.present? == true
+      else
+        redirect_to profile_path(@user)
+      end
+      
+    end
 end

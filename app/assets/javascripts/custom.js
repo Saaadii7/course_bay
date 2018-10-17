@@ -1,4 +1,3 @@
-
 $( document ).ready(function() {
 	$('.to_hide').hide();
 });
@@ -35,3 +34,4 @@ function change_post_type(element,arr) {
 			url:  "/categories/"+id+"/get_sub_categories" 
 		}); 
 	}
+

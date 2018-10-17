@@ -1,0 +1,30 @@
+<h1 align="center"> Welcome to Payment Methods Page</h1><br>
+
+  <div class="row" align="center" >
+    <td><%= link_to('Add a New Payment Method', new_payment_method_path , method: :get, class: "btn btn-large btn-primary")%></td>
+
+  </div>
+
+<div id="categories" class="tab-pane">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @paymentmethods.each_with_index do |paymentmethod,index| %>
+          <tr>
+            <td><%= paymentmethod.id %></td>
+            <td><%= paymentmethod.name %></td>
+            <td><%= link_to('Edit', edit_payment_method_path(paymentmethod), class: "btn btn-large btn-primary")%></td>
+            <td><%= link_to('Delete', payment_method_path(paymentmethod), method: :delete, class: "btn btn-large btn-primary")%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

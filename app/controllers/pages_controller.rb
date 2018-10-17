@@ -13,9 +13,6 @@ class PagesController < ApplicationController
 		@videos = Video.all.includes(:service)
 		@services = Service.all
 		@subcategories = SubCategory.all
-		@posts = Post.all
-		@brands =Brand.all
-		#@user = User.find_by_id(params[:id])
 		#@user= User.all
 		
 
@@ -33,7 +30,7 @@ class PagesController < ApplicationController
 
 	def home
 		@subcategories = SubCategory.all
-		@posts = Post.all
+		@posts = Post.simple_posts
 		@brands = Brand.all
 	end
 
@@ -42,7 +39,6 @@ class PagesController < ApplicationController
 	end
 
 	def about
-		@posts= Post.all
 	end
 
 	def pay
@@ -87,7 +83,6 @@ class PagesController < ApplicationController
 	def subcategories
 	end
 	def profile
-		@posts= Post.all
 		@user = current_user
 		if current_user.address
 			@address = current_user.address
@@ -97,7 +92,12 @@ class PagesController < ApplicationController
 	end
 
 	def checkout
-		@posts=Post.all
+		@post= Post.all
+		@paymentmethod = PaymentMethod.all
+		@orders= Order.all
+		@provinces = Province.all
+		@cities = City.all
+		@cart = Cart.all
 		@user = current_user
 		if current_user.address
 			@address = current_user.address
@@ -106,4 +106,5 @@ class PagesController < ApplicationController
 		end
 		
 	end
+	
 end

@@ -20,7 +20,7 @@
         <% @cities.each_with_index do |city,index| %>
           <tr>
             <td><%= city.id %></td>
-            <td><%= city.city_name %></td>
+            <td><%= city.name %></td>
             <td><%= link_to('Edit', edit_city_path(city), class: "btn btn-large btn-primary")%></td>
             <td><%= link_to('Delete', city_path(city), method: :delete, class: "btn btn-large btn-primary")%></td>
             <!-- <td><%#= image_tag user.image_url, class: "image_table_display"%></td> -->

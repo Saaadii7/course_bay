@@ -1,9 +1,9 @@
 <div class="banner-bootom-w3-agileits">
 	<div class="container">
-	     <div class="col-md-4 single-right-left ">
+		<div class="col-md-4 single-right-left ">
 			<div class="grid images_3_of_2">
 				<div class="flexslider">
-						<div class="thumb-image"> <%= image_tag @post.photo_url, class: "img-responsive", data: { action: 'zoom' }%> </div>
+					<div class="thumb-image"> <%= image_tag @post.photo_url, class: "img-responsive", data: { action: 'zoom' }%> </div>
 					<!-- <ul class="slides">
 						<li data-thumb="/assets/new/d1.jpg">
 							<div class="thumb-image"> <%= image_tag "/assets/new/d1.jpg", class: "img-responsive", data: { action: 'zoom' }%> </div>
@@ -19,245 +19,391 @@
 			</div>
 		</div>
 		<div class="col-md-8 single-right-left simpleCart_shelfItem">
-					<h3><%= @post.name %></h3>
-					<p><span class="item_price"><%= @post.price %></span></p>
-					<div class="rating1">
-						<span class="starRating">
-							<input id="rating5" type="radio" name="rating" value="5">
-							<label for="rating5">5</label>
-							<input id="rating4" type="radio" name="rating" value="4">
-							<label for="rating4">4</label>
-							<input id="rating3" type="radio" name="rating" value="3" checked="">
-							<label for="rating3">3</label>
-							<input id="rating2" type="radio" name="rating" value="2">
-							<label for="rating2">2</label>
-							<input id="rating1" type="radio" name="rating" value="1">
-							<label for="rating1">1</label>
-						</span>
+			<p><label>Name:</label><span class="item_price"><%= @post.name %></span></p>
+
+			<%if @post.isSimple?%>
+				<p><label>Price:</label><span class="item_price"><%= @post.price %></span></p>
+				<p><label>Available: </label><span class="item_price"><%= @post.quantity %></span></p>
+				<p>
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+						<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+						<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+						<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+						<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+						<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+						<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+						<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+						<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+						<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+					</fieldset>
+				</p>
+				<br>
+				<br>
+
+				<div class="color-quality col-md-4 mb-2">
+					<div class="color-quality-right">
+						<div class="md-form">
+							<form action="#" method="post">
+							<fieldset>
+								<p><label> Enter Quantity:</label><span></span><p>
+								<input type="text" class="form-control" value="" name = "quantity">
+							</fieldset>
+							</form>
+						</div>						
 					</div>
-					<div class="description">
-						<h5>Check delivery, payment options and charges at your location</h5>
-						 <form action="#" method="post">
-						<input type="text" value="Enter pincode" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter pincode';}" required="">
-						<input type="submit" value="Check">
-						</form>
-					</div>
-					<div class="color-quality">
-						<div class="color-quality-right">
-							<h4>Quantity :</h4>
-							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null">5 Qty</option>
-								<option value="null">6 Qty</option> 
-								<option value="null">7 Qty</option>					
-								<option value="null">10 Qty</option>								
-							</select>
-						</div>
-					</div>
-					<div class="occasional">
-						<!-- <h5>Types :</h5>
-						<div class="colr ert">
-							<label class="radio"><input type="radio" name="radio" checked=""><i></i>Casual Shoes</label>
-						</div>
-						<div class="colr">
-							<label class="radio"><input type="radio" name="radio"><i></i>Sneakers </label>
-						</div>
-						<div class="colr">
-							<label class="radio"><input type="radio" name="radio"><i></i>Formal Shoes</label>
-						</div>
-						<div class="clearfix"> </div> -->
-					</div>
-					<div class="occasion-cart">
+
+				</div>
+				<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+			        <form action="/carts/add_products" method="post">
+			            <fieldset>
+			                <input type="hidden" name="amount" value="1" />
+			                <input type="hidden" name="post_id" value="<%=@post.id%>" />
+			                <input type="submit" name="submit" value="Add to cart" class="button" />
+			                
+			            </fieldset>
+			        </form>
+			    </div>
+
+				<ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
+					<li class="share">Share On : </li>
+					<li><a href="#" class="facebook">
+						<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
+					</li>
+					<li><a href="#" class="twitter"> 
+						<div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+					</li>
+					<li><a href="#" class="instagram">
+						<div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a>
+					</li>
+					<li><a href="#" class="pinterest">
+						<div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a>
+					</li>
+				</ul>
+			<%else%>
+				<p><label>Buy Now Price:</label><span class="item_price"><%= @post.price %></span></p>
+				<p><label>Starting Bid: </label><span class="item_price">Rs <%= @post.starting_bid %></span></p>
+				<p><label>Current Bid: </label><span class="item_price"><%= @post.current_bid.price %>(Rs)</span></p>
+				<p>
+					<fieldset class="rating">
+						<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+						<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+						<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+						<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+						<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+						<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+						<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+						<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+						<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+						<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+					</fieldset>
+				</p>
+				<br>
+				<br>
+				<%=form_tag({:controller => "bids", :action => "create"}, :method => "POST") do -%>
+                    <%= hidden_field_tag(:user_id, current_user.id) %>
+                    <%= hidden_field_tag(:post_id, @post.id) %>
+                    <%= text_field_tag(:price) %>
+                    <div><%= submit_tag 'Confirm Bid',  :class => "btn btn-primary btn-lg btn-block" %></div>
+                <% end -%>
+
+				<!-- <div class="color-quality col-md-4 mb-2">
+					<div class="color-quality-right">
 						<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart">
-																	<input type="hidden" name="add" value="1">
-																	<input type="hidden" name="business" value=" ">
-																	<input type="hidden" name="item_name" value="Wing Sneakers">
-																	<input type="hidden" name="amount" value="650.00">
-																	<input type="hidden" name="discount_amount" value="1.00">
-																	<input type="hidden" name="currency_code" value="USD">
-																	<input type="hidden" name="return" value=" ">
-																	<input type="hidden" name="cancel_return" value=" ">
-																	<input type="submit" name="submit" value="Add to cart" class="button">
-																</fieldset>
-															</form>
-														</div>
-																			
+					        <form action="/carts/add_products" method="post">
+					            <fieldset>
+					                <input type="hidden" name="amount" value="1" />
+					                <input type="hidden" name="post_id" value="<%=@post.id%>" />
+					                <input type="submit" name="submit" value="Order Now" class="button" />
+					            </fieldset>
+					        </form>
+					    </div>						
 					</div>
-					<ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
-						                                   <li class="share">Share On : </li>
-															<li><a href="#" class="facebook">
-																  <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a></li>
-															<li><a href="#" class="twitter"> 
-																  <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a></li>
-															<li><a href="#" class="instagram">
-																  <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a></li>
-															<li><a href="#" class="pinterest">
-																  <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
-																  <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a></li>
-														</ul>
-					
-		      </div>
-	 			<div class="clearfix"> </div>
-				<!-- /new_arrivals --> 
-	<div class="responsive_tabs_agileits"> 
-				<div id="horizontalTab">
-						<ul class="resp-tabs-list">
-							<li>Description</li>
-							<li>Reviews</li>
-							<li>Information</li>
-						</ul>
-					<div class="resp-tabs-container">
+				</div> -->
+				<div class="col-md-2 btn btn-primary btn-lg btn-block">
+					<div>
+					 	<a href="#" data-toggle="modal" data-target="#myModal4">Order Now</a>
+					</div>
+				</div>
+				<br>
+				<br>
+				<!-- <div>
+	                <%=#form_tag({:controller => "orders", :action => "buy_auction_product"}, :method => "POST") do -%>
+	                    <%#= hidden_field_tag(:user_id, current_user.id) %>
+	                    <%#= hidden_field_tag(:address_id, current_user.address.id) %>
+	                    <%#= hidden_field_tag(:post_id, @post.id) %>
+	                    <%#= hidden_field_tag(:payment_method_id, @paymentmethod.first.id) %>
+	                    <div><%#= submit_tag 'Confirm Order',  :class => "btn btn-primary btn-lg btn-block" %></div>
+	                <%# end -%>
+        	  </div> -->
+				
+				<ul class="social-nav model-3d-0 footer-social w3_agile_social single_page_w3ls">
+					<li class="share">Share On : </li>
+					<li><a href="#" class="facebook">
+						<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
+					</li>
+					<li><a href="#" class="twitter"> 
+						<div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+					</li>
+					<li><a href="#" class="instagram">
+						<div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div></a>
+					</li>
+					<li><a href="#" class="pinterest">
+						<div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+						<div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a>
+					</li>
+				</ul>
+
+			<%end%>
+		</div>
+		<div class="clearfix"> </div>
+		<!-- /new_arrivals --> 
+		<div class="responsive_tabs_agileits"> 
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					<li>Description</li>
+					<li>Reviews</li>
+					<li>Information</li>
+				</ul>
+				<div class="resp-tabs-container">
 					<!--/tab_one-->
-					   <div class="tab1">
+					<div class="tab1">
 
-							<div class="single_page_agile_its_w3ls">
-							  <%= @post.description %>
-							</div>
-						</div>
-						<!--//tab_one-->
-						<div class="tab2">
-							
-							<div class="single_page_agile_its_w3ls">
-								<div class="bootstrap-tab-text-grids">
-									<div class="bootstrap-tab-text-grid">
-										<div class="bootstrap-tab-text-grid-left">
-											<img src="images/t1.jpg" alt=" " class="img-responsive">
-										</div>
-										<div class="bootstrap-tab-text-grid-right">
-											<ul>
-												<li><a href="#">Admin</a></li>
-												<li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
-											</ul>
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-												suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-												vel eum iure reprehenderit.</p>
-										</div>
-										<div class="clearfix"> </div>
-						             </div>
-									 <div class="add-review">
-										<h4>add a review</h4>
-										<form action="#" method="post">
-												<input type="text" name="Name" required="Name">
-												<input type="email" name="Email" required="Email"> 
-												<textarea name="Message" required=""></textarea>
-											<input type="submit" value="SEND">
-										</form>
-									</div>
-								 </div>
-								 
-							 </div>
-						 </div>
-						   <div class="tab3">
-
-							<div class="single_page_agile_its_w3ls">
-							  <h6>Big Wing Sneakers (Navy)</h6>
-							   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
-							   <p class="w3ls_para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore magna aliqua.</p>
-							</div>
+						<div class="single_page_agile_its_w3ls">
+							<%= @post.description %>
 						</div>
 					</div>
-				</div>	
-			</div>
-	<!-- //new_arrivals --> 
-	  	<!--/slider_owl-->
-	
-			<div class="w3_agile_latest_arrivals">
-			<h3 class="wthree_text_info">Featured <span>Arrivals</span></h3>
-			<%@post.sub_category.posts.each do |fpost|%>	
-			    <div class="col-md-3 product-men single">
-					<div class="men-pro-item simpleCart_shelfItem">
-						<div class="men-thumb-item">
-							<%= image_tag fpost.photo_url, class: "pro-image-front", data: { action: 'zoom' }%>
-							<%= image_tag fpost.photo_url, class: "pro-image-back", data: { action: 'zoom' }%>
-							<div class="men-cart-pro">
-								<div class="inner-men-cart-pro">
-									<a href="single.html" class="link-product-add-cart">Quick View</a>
+					<!--//tab_one-->
+					<div class="tab2">
+
+						<div class="single_page_agile_its_w3ls">
+							<div class="bootstrap-tab-text-grids">
+								<div class="bootstrap-tab-text-grid">
+									<div class="bootstrap-tab-text-grid-left">
+										<img src="images/t1.jpg" alt=" " class="img-responsive">
+									</div>
+									<div class="bootstrap-tab-text-grid-right">
+										<ul>
+											<li><a href="#">Admin</a></li>
+											<li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
+										</ul>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
+											suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
+										vel eum iure reprehenderit.</p>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+								<div class="add-review">
+									<h4>add a review</h4>
+									<form action="#" method="post">
+										<input type="text" name="Name" required="Name">
+										<input type="email" name="Email" required="Email"> 
+										<textarea name="Message" required=""></textarea>
+										<input type="submit" value="SEND">
+									</form>
 								</div>
 							</div>
-							<span class="product-new-top">New</span>
-								
-						</div>
-						<div class="item-info-product ">
-							<h4><a href="single.html"><%=fpost.name%></a></h4>
-							<div class="info-product-price">
-								<span class="item_price">$<%=fpost.price%></span>
-								<del><%=fpost.price%></del>
-							</div>
-							<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-								<form action="#" method="post">
-									<fieldset>
-										<input type="hidden" name="cmd" value="_cart">
-										<input type="hidden" name="add" value="1">
-										<input type="hidden" name="business" value=" ">
-										<input type="hidden" name="item_name" value="Sleeveless Solid Blue Top">
-										<input type="hidden" name="amount" value="30.99">
-										<input type="hidden" name="discount_amount" value="1.00">
-										<input type="hidden" name="currency_code" value="USD">
-										<input type="hidden" name="return" value=" ">
-										<input type="hidden" name="cancel_return" value=" ">
-										<input type="submit" name="submit" value="Add to cart" class="button">
-									</fieldset>
-								</form>
-							</div>
-																
-						</div>
-					</div>
-				</div>
-			<%end%>
-     
-					<div class="clearfix"> </div>
-			<!--//slider_owl-->
-         </div>
-    </div>
- </div>
-<!--//single_page-->
-<!--/grids-->
-<div class="coupons">
-		<div class="coupons-grids text-center">
-			<div class="w3layouts_mail_grid">
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-truck" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE SHIPPING</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-headphones" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>24/7 SUPPORT</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-				<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-shopping-bag" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>MONEY BACK GUARANTEE</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-					<div class="col-md-3 w3layouts_mail_grid_left">
-					<div class="w3layouts_mail_grid_left1 hvr-radial-out">
-						<i class="fa fa-gift" aria-hidden="true"></i>
-					</div>
-					<div class="w3layouts_mail_grid_left2">
-						<h3>FREE GIFT COUPONS</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur</p>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
 
+						</div>
+					</div>
+					<div class="tab3">
+
+						<div class="single_page_agile_its_w3ls">
+							<div class="row">
+								<div class="col-md-6" style="height: 482px;overflow-y: auto;">
+									Bid History
+									<%if @total_bids.present? && @total_bids.count > 0%>
+						                <% @total_bids.each do |bid,index| %>
+							                <li class="list-group-item d-flex justify-content-between lh-condensed">
+							                  <div>
+							                    <h6 class="my-0"><%= bid.user.name %></h6>
+							                    <del class="text-muted"><%= bid.post.name %></del>
+							                  </div>
+							                  <span class="text-muted"><%= bid.price %></span>
+							                   
+							                </li>
+						                <% end %>
+									<%end%>
+								</div>
+								<div class="col-md-6" style="height: 482px;overflow-y: auto;">
+									My bids
+									<%if @bids.present? && @bids.count > 0%>
+						                <% @bids.each do |bid,index| %>
+							                <li class="list-group-item d-flex justify-content-between lh-condensed">
+							                  <div>
+							                    <h6 class="my-0"><%= bid.post.name %></h6>
+							                    <del class="text-muted"><%= bid.created_at %></del>
+							                  </div>
+							                  <span class="text-muted"><%= bid.price %></span>
+							                   <%=form_tag({:controller => "bids", :action => "destroy"}, :method => "delete") do -%>
+							                  	<%= hidden_field_tag(:bid_id, bid.id )%>
+							                  	<div><%= submit_tag 'Remove Bid',  :class => "btn btn-primary btn-lg btn-block" %></div>
+							                  <%end%>
+							                </li>
+						                <% end %>
+									<%end%>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
 		</div>
+		<!-- //new_arrivals --> 
+		<!--/slider_owl-->
+
+		<div class="w3_agile_latest_arrivals">
+			<h3 class="wthree_text_info">Featured <span>Arrivals</span></h3>
+			<%@post.sub_category.posts.each do |fpost|%>	
+			<div class="col-md-3 product-men single">
+				<div class="men-pro-item simpleCart_shelfItem">
+					<div class="men-thumb-item">
+						<%= image_tag fpost.photo_url, class: "pro-image-front", data: { action: 'zoom' }%>
+						<%= image_tag fpost.photo_url, class: "pro-image-back", data: { action: 'zoom' }%>
+						<div class="men-cart-pro">
+							<div class="inner-men-cart-pro">
+								<a href="single.html" class="link-product-add-cart">Quick View</a>
+							</div>
+						</div>
+						<span class="product-new-top">New</span>
+
+					</div>
+					<div class="item-info-product ">
+						<h4><a href="single.html"><%=fpost.name%></a></h4>
+						<div class="info-product-price">
+							<span class="item_price">$<%=fpost.price%></span>
+							<del><%=fpost.price%></del>
+						</div>
+						 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+					        <form action="/carts/add_products" method="post">
+					            <fieldset>
+					                <input type="hidden" name="amount" value="1" />
+					                <input type="hidden" name="post_id" value="<%=fpost.id%>" />
+					                <input type="submit" name="submit" value="Add to cart" class="button" />
+					            </fieldset>
+					        </form>
+					    </div>
+					</div>
+				</div>
+			</div>
+			<%end%>
+
+			<div class="clearfix"> </div>
+								<!--//slider_owl-->
+		</div>
+	</div>
+</div>
+
+<div class="coupons">
+	<div class="coupons-grids text-center">
+		<div class="w3layouts_mail_grid">
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-truck" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE SHIPPING</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur</p>
+				</div>
+			</div>
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-headphones" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>24/7 SUPPORT</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur</p>
+				</div>
+			</div>
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-shopping-bag" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>MONEY BACK GUARANTEE</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur</p>
+				</div>
+			</div>
+			<div class="col-md-3 w3layouts_mail_grid_left">
+				<div class="w3layouts_mail_grid_left1 hvr-radial-out">
+					<i class="fa fa-gift" aria-hidden="true"></i>
+				</div>
+				<div class="w3layouts_mail_grid_left2">
+					<h3>FREE GIFT COUPONS</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur</p>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- modal -->
+
+
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+            <div class="modal-body modal-body-sub_agile">
+                <div class="col-md-12 modal_body_left modal_body_left1">
+                    <% if current_user.present? %>
+                        <div class="col-md-6 mb-2">
+                          <div class="md-form ">
+                            <label for="firstName" class="">First Name</label>
+                            <input type="text" id="firstName" class="form-control" value="<%= current_user.first_name%>" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                          <div class="md-form">
+                            <label for="lastName" class="">Last name</label>
+                            <input type="text" id="firstName" class="form-control" value="<%= current_user.last_name%>" disabled>
+                          </div>
+                        </div>
+                        <div class="md-form mb-5">
+                            <label for="address" class="">Address</label>
+                            <input type="text" id="firstName" class="form-control" value="<%= current_user.address.address %>" disabled>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <label for="address" class="">Province </label>
+                            <input type="text" id="firstName" class="form-control" value="<%= current_user.address.province.name %>" disabled>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <label for="address" class="">City </label>
+                            <input type="text" id="firstName" class="form-control" value="<%= current_user.address.city.name %>" disabled>
+                        </div>
+                                                
+                        <div>
+                             <%=form_tag({:controller => "orders", :action => "buy_auction_product"}, :method => "POST") do -%>
+                             <%byebug%>
+                                <%= hidden_field_tag(:user_id, current_user.id) %>
+                                <%= hidden_field_tag(:address_id, current_user.address.id) %>
+                                <%= hidden_field_tag(:post_id, @post.id) %>
+                                <%= hidden_field_tag(:payment_method_id, @paymentmethod.first.id) %>
+                                <div>
+                                    <%= submit_tag 'Confirm Order', class: "btn btn-large btn-primary"%>
+                                </div>
+                            <% end -%>
+                        </div>
+                        <%else%>
+                    <% end %>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+        <!-- //Modal content-->
 </div>

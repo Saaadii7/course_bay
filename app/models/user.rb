@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :emails
   has_many :posts
   has_many :bids
+  has_many :orders
   has_one  :address
   has_one  :cart
 
@@ -35,8 +36,8 @@ class User < ApplicationRecord
     self.has_role? (:admin)
   end
 
-  def show
-  @user = User.find params[:id]
+  def name
+    return self.first_name + ' ' + self.last_name  
   end
   # before_action :authenticate_user!
 
