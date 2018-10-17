@@ -82,8 +82,10 @@
    Base Css
 ===============================================*/
 html,
-body { height: 100% }
+body { height: 100%; }
+
 body {
+    padding: 0px !important;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: #888888;
