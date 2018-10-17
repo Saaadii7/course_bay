@@ -31,11 +31,22 @@
 <div class="header-bot">
 	<div class="header-bot_inner_wthreeinfo_header_mid">
 		<div class="col-md-4 header-middle">
-			
+			<form action="#" method="post" class="search-form">
+					<input type="search" name="search" class="fld" placeholder="Search here..." required="">
+					<button class="search-btn"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
+					<div class="clearfix"></div>
+				</form>
 		</div>
 		<!-- header-bot -->
 			<div class="col-md-4 logo_agile">
 				<h1><a href="index.html">Bid<span>2</span>Buy<!-- <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i> --></a></h1>
+			</div>
+			<div class="col-md-4 ">
+				<div class="top_nav_right">
+					<button data-toggle="modal" data-target="#myModal3">
+						<span>Cart items (0)</span><i class="fa fa-shopping-cart fa-2x custom" aria-hidden="true"></i>
+					</button>
+				</div>
 			</div>
 				<!-- header-bot -->
 		<div class="clearfix"></div>
@@ -104,23 +115,18 @@
 						</li>
 					<%end%>
 					<li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
-			    		<%= link_to "Auctions", auction_path, :class => "menu__link" %>
-					<li class=" menu__item"></li>
-					<li class=" menu__item">
-						<form action="#" method="post">
-								<input type="search" name="search" placeholder="Search here..." required="">
-								<button><i class="fa fa-search fa-2x custom" aria-hidden="true"></i></button>
-							<div class="clearfix"></div>
-						</form>
-					</li>>
+			    		<li class=" menu__item">
+			    			<%= link_to "Auctions", auction_path, :class => "menu__link" %>
+			    				
+			    			</li>
+					
+					
 					</ul>
 				</div>2
 				</div>
 			</nav>  
 		</div>
-		<div class="top_nav_right">
-				<button data-toggle="modal" data-target="#myModal3"><i class="fa fa-shopping-cart fa-2x custom" aria-hidden="true"></i></button>
-		</div>
+		
 		<div class="clearfix"></div>
 	</div>
 </div>

@@ -65,10 +65,13 @@ before_action :require_addrress, only:[:show]
 
     def require_addrress
       user = current_user
-      if user.address.present? == true
+      if user 
+        if user.address.present?
+        else
+          redirect_to profile_path
+        end
       else
-        redirect_to profile_path(@user)
+        redirect_to new_user_session_path
       end
-      
     end
 end

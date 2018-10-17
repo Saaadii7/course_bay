@@ -176,3 +176,65 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+.search-form{
+  position: relative;
+    width: 315px;
+}
+
+.search-form .fld{
+  width: 100% !important;
+}
+
+.search-form .search-btn{
+  position: absolute;
+    margin: 0px;
+    padding: 0px;
+    right: 14px;
+    font-size: 10px;
+    top: 17px;
+    color: #84e6d2;
+}
+
+.top_nav_right{
+  width: 100% !important;
+  text-align: right;
+  margin-top: 8px;
+}
+
+.top_nav_right .custom{
+      color: #2ddbb9;
+    font-size: 20px;
+    padding-top: 4px;
+    margin-left: 5px;
+}
+
+.navbar-nav > li {
+    margin: 0px 10px 0px 0px !important ;
+}
+
+.navbar-nav > li > a {
+    padding: 26px 7px !important;
+    text-align: center;
+}
+
+.top_nav_left{
+  float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar-default{
+  float: none !important;
+    display: inline-block !important;
+}
+
+
+
+.nav>li>a:focus, .nav>li>a:hover{
+  background-color: transparent !important;
+}
+
+.resp-tab-active a{
+  color: #fff !important
+}
