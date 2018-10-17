@@ -389,7 +389,7 @@
                              <%=form_tag({:controller => "orders", :action => "buy_auction_product"}, :method => "POST") do -%>
                              <%byebug%>
                                 <%= hidden_field_tag(:user_id, current_user.id) %>
-                                <%= hidden_field_tag(:address_id, current_user.address.id) %>
+                                <%#= hidden_field_tag(:address_id, current_user.address.id) %>
                                 <%= hidden_field_tag(:post_id, @post.id) %>
                                 <%= hidden_field_tag(:payment_method_id, @paymentmethod.first.id) %>
                                 <div>

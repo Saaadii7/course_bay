@@ -15,13 +15,13 @@ class OrdersController < ApplicationController
       @order.order_items.destroy_all
       @order.destroy
     end
-    redirect_to profile_path
+    redirect_to order_path
   end
 
   def update
     @order = Order.find(params[:id])
-    @order.update(order_params)
-			redirect_to profile_path
+    @order.update(status:"confirm" )
+			redirect_to orders_path
   end
 
   def index

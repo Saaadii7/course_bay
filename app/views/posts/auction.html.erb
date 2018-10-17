@@ -38,7 +38,10 @@
 							<%= image_tag post.photo_url, class: "pro-image-back"%>
 							<div class="men-cart-pro">
 								<div class="inner-men-cart-pro link-product-add-cart"">
-									<%= link_to "Quick View", post_path(post) %>
+										<%= link_to "Quick View", post_path(post) %>
+										<div>
+								 			<a href="#" data-toggle="modal" data-target="#myModal5">Quick View</a>
+										</div>
 								</div>
 							</div>
 							<span class="product-new-top">New</span>
@@ -67,3 +70,9 @@
 		<div class="clearfix"></div>
 	</div>
 </div>
+
+
+
+
+
+
