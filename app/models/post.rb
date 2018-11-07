@@ -2,12 +2,28 @@ class Post < ApplicationRecord
 
 	scope :simple_posts, ->{ joins(:type).where(["types.name = (?) ", "New"] )}
 	scope :mobile_and_tablets_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?)", "New", "4"] )}
+	scope :smartphone_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "4", "14"] )}
+	scope :tablets_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id =(?)", "New", "4", "20"] )}
+	scope :accessories_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "4", "19"] )}
+
 	scope :men_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?)", "New", "2"] )}
+	scope :men_western_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "2", "15"] )}
+	scope :men_pakistani_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id =(?)", "New", "2", "16"] )}
+	scope :men_watches_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "2", "17"] )}
+
 	scope :women_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?)", "New", "3"] )}
+	scope :women_western_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "3", "15"] )}
+	scope :women_pakistani_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id =(?)", "New", "3", "16"] )}
+	scope :women_watches_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "3", "17"] )}
+
+	scope :grocers_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?)", "New", "6"] )}
+	scope :beverages_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "6", "21"] )}
+	scope :breakfast_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id =(?)", "New", "6", "22"] )}
+	scope :food_posts, ->{ joins(:type).where(["types.name = (?) AND category_id = (?) AND sub_category_id = (?)", "New", "6", "25"] )}
+
+
 	scope :available, ->{ where(status: true) }
 	scope :not_available, ->{ where(status: false) }
-
-
 	scope :simple_hidden_posts, ->{ joins(:type).where(["types.name = (?) AND status = (?)", "New", "false"] )}
 
 	scope :auction_posts, ->{ joins(:type).where(["types.name = (?) ", "Used"] )}

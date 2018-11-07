@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 before_action :require_addrress, only:[:show]
 
     def create
-      byebug
         @post = Post.new(posts_params)
         @post.user= current_user
         if @post.type && @post.type.name == "New"

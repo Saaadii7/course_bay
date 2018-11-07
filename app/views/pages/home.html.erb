@@ -3,7 +3,7 @@
     <div id="slider1" class="rev_slider"  data-version="5.0">
         <ul>
             <li data-transition="random">
-                <img src="assets/slides/1.jpg"  alt="" width="1920" height="600" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+                <img src="assets/slides/banner01.jpg"  alt="" width="1920" height="600" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
                 
                 <div class="tp-caption  tp-resizeme" 
                 data-x="left" data-hoffset="0" 
@@ -17,7 +17,7 @@
                 data-responsive_offset="on"
                 data-start="700">
                 <div class="slide-content-box mar-lft">
-                    <h2>Welcome to Bid2Buy</h2>
+                    <h1>Welcome to Bid2Buy</h1>
                 </div>
             </div>
             <div class="tp-caption  tp-resizeme" 
@@ -32,7 +32,10 @@
             data-responsive_offset="on"
             data-start="1500">
             <div class="slide-content-box mar-lft">
-                <h1>Give you unique<br>relaxation experience</h1>
+                <h2>Now you can Bid and Buy Products</h2>
+            </div>
+            <div class="btn">  
+                <%= link_to "Contact Us", contact_path %>    
             </div>
         </div>
         <div class="tp-caption  tp-resizeme" 
@@ -46,9 +49,7 @@
         data-splitout="none"
         data-responsive_offset="on"
         data-start="2000">
-        <div class="slide-content-box mar-lft">
-            <p>Life Care is an Elegant, good looking Beauty Spa Website.</p>
-        </div>
+        
     </div>
     <div class="tp-caption tp-resizeme" 
     data-x="left" data-hoffset="0" 
@@ -61,9 +62,7 @@
     data-responsive_offset="on"
     data-start="2900">
     <div class="slide-content-box mar-lft">
-        <div class="button">
-            <a class="thm-btn bgclr-1" href="#">Know More</a>       
-        </div>
+        
     </div>
 </div>
 <div class="tp-caption tp-resizeme" 
@@ -77,14 +76,12 @@ data-splitout="none"
 data-responsive_offset="on"
 data-start="2900">
 <div class="slide-content-box mar-lft">
-    <div class="button">  
-        <a class="thm-btn bgclr-1 contact" href="#">Contact Us</a>     
-    </div>
+    
 </div>
 </div>
 </li>
 <li data-transition="random">
-    <img src="assets/slides/2.jpg" alt="" width="1920" height="600" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+    <img src="assets/slides/banner02.jpg" alt="" width="1920" height="600" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
 
     <div class="tp-caption tp-resizeme slogan"
     data-x="center" data-hoffset="0" 
@@ -96,9 +93,7 @@ data-start="2900">
     data-splitin="none" 
     data-splitout="none"  
     data-start="500">
-    <div class="slide-content-box middle-slide">
-        <h2>Referesh, Renew, Rejuvenate...</h2>
-    </div>
+   
 </div>
 <div class="tp-caption tp-resizeme"
 data-x="center" data-hoffset="0" 
@@ -112,7 +107,6 @@ data-splitout="none"
 data-responsive_offset="on"
 data-start="1500">
 <div class="slide-content-box middle-slide">
-    <h1>Get a therapy of your choice</h1>
 </div>
 </div>
 <div class="tp-caption tp-resizeme"
@@ -127,7 +121,6 @@ data-splitout="none"
 data-responsive_offset="on"
 data-start="2500">
 <div class="slide-content-box middle-slide">
-    <h3>Life need care and we provide. </h3>
 </div>
 </div>
 <div class="tp-caption tp-resizeme" 
@@ -141,15 +134,12 @@ data-splitout="none"
 data-responsive_offset="on"
 data-start="2300">
 <div class="slide-content-box middle-slide">
-    <div class="button">
-        <a class="thm-btn bgclr-1" href="#">Know More</a>   
-        <a class="thm-btn bgclr-1 contact" href="#">Contact Us</a>      
-    </div>    
+       
 </div>
 </div>
 </li>
 <li data-transition="random">
-    <img src="assets/slides/3.jpg"  alt="" width="1920" height="600" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+    <img src="assets/slides/banner03.jpg"  alt="" width="1920" height="600" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
 
     <div class="tp-caption  tp-resizeme" 
     data-x="right" data-hoffset="0" 
@@ -170,69 +160,13 @@ data-start="2300">
 </section>
 
 <!--Top Brands Section-->
-<section>
-    <div class="new_arrivals_agile_w3ls_info"> 
-        <div class="container">
-            <h3 class="wthree_text_info">Top <span>Brands</span></h3>     
-            <div id="horizontalTab">
-                <ul class="nav nav-justified resp-tabs-list">
-                    <li class="active"><a data-toggle="pill" data-target="#menu4">Tech Brands</a></li>
-                    <li><a data-toggle="pill" data-target="#menu5">Fashion Brands</a></li>
-                    <li><a data-toggle="pill" data-target="#menu6">Grocesory Brands </a></li>
-                </ul>
-                  
-                <div class="tab-content resp-tabs-container">
-                    <div id="menu4" class="tab-pane fade in active">
-                        <% @brands[1..8].each_with_index do |brand,brand_index|%>
-                            <div class="col-md-3 product-men">
-                                <div class="men-pro-item simpleCart_shelfItem">
-                                    <div class="men-thumb-item">
-                                        <%= image_tag brand.photo_url, class: "pro-image-front"%>
-                                        <%= image_tag brand.photo_url, class: "pro-image-back"%>
-                                        <span class="product-new-top">New</span>
 
-                                    </div>
-                                    <div class="item-info-product ">
-                                        <h4><a href="single.html"><%=brand.name.first(20)%></a></h4>
-                                        <div class="info-product-price">
-                                        </div>
-                                        <div class="snipcart-details top_brand_home_details item_add single-item button2">
-                                            <form action="#" method="post">
-                                                <fieldset>
-                                                    <input type="hidden" name="add" value="1" />
-                                                    <input type="hidden" name="business" value=" " />
-                                                    <input type="hidden" name="return" value=" " />
-                                                    <input type="hidden" name="cancel_return" value=" " />
-                                                </fieldset>
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div> 
-                        <%end%> 
-                    </div>
-                    <div id="menu5" class="tab-pane fade">
-                      <h3>Menu 1</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <div id="menu6" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                    </div>
-                    
-                </div>
-
-            </div>
-        </div>
-    </div> 
-</section>
 <!--Smartphones And Tablets Section-->
 <section>
     <div class="new_arrivals_agile_w3ls_info"> 
         <div class="container">
-            <h3 class="wthree_text_info"><span>Phones & Tablets</span></h3>     
-            <div id="horizontalTab">
+            <h3 class="wthree_text_info">Phones &<span> Tablets</span></h3>     
+            <div >
                 <ul class="nav nav-justified resp-tabs-list">
                     <li class="active"><a data-toggle="pill" data-target="#menu1">Smartphones</a></li>
                     <li><a data-toggle="pill" data-target="#menu2">Tablets</a></li>
@@ -241,15 +175,15 @@ data-start="2300">
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu1" class="tab-pane fade in active">
-                        <% Post.mobile_and_tablets_posts[1..8].each do |post|%>
+                        <% Post.simple_posts.available.smartphone_posts.each do |post|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
                                         <%= image_tag post.photo_url, class: "pro-image-front"%>
                                         <%= image_tag post.photo_url, class: "pro-image-back"%>
                                         <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
-                                                <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                           <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
                                             </div>
                                         </div>
                                         <span class="product-new-top">New</span>
@@ -278,12 +212,78 @@ data-start="2300">
                         <%end%> 
                     </div>
                     <div id="menu2" class="tab-pane fade">
-                      <h3>Menu 1</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      <% Post.simple_posts.available.tablets_posts.each do |post|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price %></span>
+                                        </div>
+                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
                     </div>
                     <div id="menu3" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                      <% Post.simple_posts.available.accessories_posts.each do |post|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price %></span>
+                                        </div>
+                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
                     </div>
                     
                 </div>
@@ -296,25 +296,25 @@ data-start="2300">
 <section>
     <div class="new_arrivals_agile_w3ls_info"> 
         <div class="container">
-            <h3 class="wthree_text_info"><span>Men's Clothing</span></h3>     
-            <div id="horizontalTab">
+            <h3 class="wthree_text_info">Men's<span> Clothing</span></h3>     
+            <div >
                 <ul class="nav nav-justified resp-tabs-list">
-                    <li class="active"><a data-toggle="pill" data-target="#menu7">Smartphones</a></li>
-                    <li><a data-toggle="pill" data-target="#menu8">Tablets</a></li>
-                    <li><a data-toggle="pill" data-target="#menu9">Accessories</a></li>
+                    <li class="active"><a data-toggle="pill" data-target="#menu7">Western Clothing</a></li>
+                    <li><a data-toggle="pill" data-target="#menu8">Pakistani Clothing</a></li>
+                    <li><a data-toggle="pill" data-target="#menu9">Watches</a></li>
                 </ul>
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu7" class="tab-pane fade in active">
-                        <% Post.men_posts[1..8].each do |post|%>
+                        <% Post.simple_posts.available.men_western_posts.each do |post|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
                                         <%= image_tag post.photo_url, class: "pro-image-front"%>
                                         <%= image_tag post.photo_url, class: "pro-image-back"%>
                                         <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
-                                                <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                           <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
                                             </div>
                                         </div>
                                         <span class="product-new-top">New</span>
@@ -324,31 +324,97 @@ data-start="2300">
                                         <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
                                         <div class="info-product-price">
                                             <span class="item_price"><%= post.price%></span>
-                                            <del>$69.71</del>
+                                            
                                         </div>
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="/carts/add_products" method="post">
+                                            <form >
                                                 <fieldset>
                                                     <input type="hidden" name="amount" value="1" />
                                                     <input type="hidden" name="post_id" value="<%=post.id%>" />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
                                                     
                                                 </fieldset>
                                             </form>
                                         </div>
-
                                     </div>
                                 </div>
                             </div> 
                         <%end%> 
                     </div>
                     <div id="menu8" class="tab-pane fade">
-                      <h3>Menu 1</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                     <% Post.simple_posts.available.men_pakistani_posts.each do |post|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price%></span>
+                                            
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
                     </div>
                     <div id="menu9" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                     <% Post.simple_posts.available.men_watches_posts.each do |post|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price%></span>
+                                        
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
                     </div>
                     
                 </div>
@@ -361,25 +427,25 @@ data-start="2300">
 <section>
     <div class="new_arrivals_agile_w3ls_info"> 
         <div class="container">
-            <h3 class="wthree_text_info"><span>Women's Clothing</span></h3>     
-            <div id="horizontalTab">
+            <h3 class="wthree_text_info">Women's<span> Fashion</span></h3>     
+            <div >
                 <ul class="nav nav-justified resp-tabs-list">
-                    <li class="active"><a data-toggle="pill" data-target="#menu10">Smartphones</a></li>
-                    <li><a data-toggle="pill" data-target="#menu11">Tablets</a></li>
-                    <li><a data-toggle="pill" data-target="#menu12">Accessories</a></li>
+                    <li class="active"><a data-toggle="pill" data-target="#menu10">Western Clothing</a></li>
+                    <li><a data-toggle="pill" data-target="#menu11">Pakistani Clothing</a></li>
+                    <li><a data-toggle="pill" data-target="#menu12">Watches</a></li>
                 </ul>
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu10" class="tab-pane fade in active">
-                        <% Post.women_posts[1..8].each do |post|%>
+                        <% Post.simple_posts.available.women_western_posts.each do |post|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
                                         <%= image_tag post.photo_url, class: "pro-image-front"%>
                                         <%= image_tag post.photo_url, class: "pro-image-back"%>
                                         <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
-                                                <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
                                             </div>
                                         </div>
                                         <span class="product-new-top">New</span>
@@ -389,14 +455,86 @@ data-start="2300">
                                         <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
                                         <div class="info-product-price">
                                             <span class="item_price"><%= post.price%></span>
-                                            <del>$69.71</del>
                                         </div>
-                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="/carts/add_products" method="post">
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
                                                 <fieldset>
                                                     <input type="hidden" name="amount" value="1" />
                                                     <input type="hidden" name="post_id" value="<%=post.id%>" />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
+                    </div>
+                    <div id="menu11" class="tab-pane fade">
+                       <% Post.simple_posts.available.women_pakistani_posts.each do |post|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price%></span>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
+                    </div>
+                    <div id="menu12" class="tab-pane fade">
+                       <% Post.simple_posts.available.women_watches_posts.each do |post|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price%></span>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
                                                     
                                                 </fieldset>
                                             </form>
@@ -406,14 +544,6 @@ data-start="2300">
                                 </div>
                             </div> 
                         <%end%> 
-                    </div>
-                    <div id="menu11" class="tab-pane fade">
-                      <h3>Menu 1</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <div id="menu12" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                     </div>
                     
                 </div>
@@ -426,25 +556,25 @@ data-start="2300">
 <section>
     <div class="new_arrivals_agile_w3ls_info"> 
         <div class="container">
-            <h3 class="wthree_text_info"><span>Grocer's Shop</span></h3>     
-            <div id="horizontalTab">
+            <h3 class="wthree_text_info">Grocer's<span> Shop</span></h3>     
+            <div >
                 <ul class="nav nav-justified resp-tabs-list">
-                    <li class="active"><a data-toggle="pill" data-target="#menu13">Smartphones</a></li>
-                    <li><a data-toggle="pill" data-target="#menu14">Tablets</a></li>
-                    <li><a data-toggle="pill" data-target="#menu15">Accessories</a></li>
+                    <li class="active"><a data-toggle="pill" data-target="#menu13">Beverages</a></li>
+                    <li><a data-toggle="pill" data-target="#menu14">Breakfast, Choco & Snacks</a></li>
+                    <li><a data-toggle="pill" data-target="#menu15">Food Staple</a></li>
                 </ul>
                   
                 <div class="tab-content resp-tabs-container">
                     <div id="menu13" class="tab-pane fade in active">
-                        <% Post.simple_posts[1..8].each_with_index do |post,brand_index|%>
+                        <% Post.simple_posts.available.beverages_posts.each_with_index do |post,brand_index|%>
                             <div class="col-md-3 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
                                         <%= image_tag post.photo_url, class: "pro-image-front"%>
                                         <%= image_tag post.photo_url, class: "pro-image-back"%>
                                         <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
-                                                <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
                                             </div>
                                         </div>
                                         <span class="product-new-top">New</span>
@@ -454,14 +584,14 @@ data-start="2300">
                                         <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
                                         <div class="info-product-price">
                                             <span class="item_price"><%= post.price%></span>
-                                            <del>$69.71</del>
                                         </div>
-                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-                                            <form action="/carts/add_products" method="post">
+                                       <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
                                                 <fieldset>
                                                     <input type="hidden" name="amount" value="1" />
                                                     <input type="hidden" name="post_id" value="<%=post.id%>" />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
                                                     
                                                 </fieldset>
                                             </form>
@@ -472,12 +602,76 @@ data-start="2300">
                         <%end%> 
                     </div>
                     <div id="menu14" class="tab-pane fade">
-                      <h3>Menu 1</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                      <<% Post.simple_posts.available.breakfast_posts.each_with_index do |post,brand_index|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price%></span>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
                     </div>
                     <div id="menu15" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                     <% Post.simple_posts.available.food_posts.each_with_index do |post,brand_index|%>
+                            <div class="col-md-3 product-men">
+                                <div class="men-pro-item simpleCart_shelfItem">
+                                    <div class="men-thumb-item">
+                                        <%= image_tag post.photo_url, class: "pro-image-front"%>
+                                        <%= image_tag post.photo_url, class: "pro-image-back"%>
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro link-product-add-cart"">
+                                                <%= link_to "Quick View", post_path(post) %>
+                                            </div>
+                                        </div>
+                                        <span class="product-new-top">New</span>
+
+                                    </div>
+                                    <div class="item-info-product ">
+                                        <h4><a href="single.html"><%=post.name.first(20)%></a></h4>
+                                        <div class="info-product-price">
+                                            <span class="item_price"><%= post.price%></span>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        <%end%> 
                     </div>
                     
                 </div>

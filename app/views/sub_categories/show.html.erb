@@ -13,12 +13,9 @@
 					<li><input type="checkbox" checked="checked" id="item-<%=cat_index%>" /><label for="item-<%=cat_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> <%=category.name%></label>
 						<ul>
 							<%category.sub_categories.each_with_index do |sub_category,sub_index|%>
-							<li><input type="checkbox" id="item-<%=cat_index%>-<%=sub_index%>" /><label for="item-<%=cat_index%>-<%=sub_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i><%=sub_category.name%></label>
-								<ul>
-									<%sub_category.tags.each do |tag|%>
-									<li><a href="mens.html"><%=tag.name%></a></li>
-									<%end%>
-								</ul>
+							<li>
+								<input type="checkbox" id="item-<%=cat_index%>-<%=sub_index%>" /><label for="item-<%=cat_index%>-<%=sub_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i><%= link_to sub_category.name, sub_category_path(sub_category.id)%></label>
+							
 							</li>
 							<%end%>
 						</ul>
@@ -46,16 +43,17 @@
 							<div class="info-product-price">
 								<span class="item_price"><%=post.price%></span>
 							</div>
-							<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-						        <form action="/carts/add_products" method="post">
-						            <fieldset>
-						                <input type="hidden" name="amount" value="1" />
-						                <input type="hidden" name="post_id" value="<%=post.id%>" />
-						                <input type="submit" name="submit" value="Add to cart" class="button" />
-						                
-						            </fieldset>
-						        </form>
-						    </div>
+							 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+                                            <form >
+                                                <fieldset>
+                                                    <input type="hidden" name="amount" value="1" />
+                                                    <input type="hidden" name="post_id" value="<%=post.id%>" />
+                                                    <input type="button" name="submit" value="Add to cart" class="button" 
+                                                    onclick="add_to_cart(<%=post.id%>,1)" />
+                                                    
+                                                </fieldset>
+                                            </form>
+                                        </div>
 
 						</div>
 					</div>

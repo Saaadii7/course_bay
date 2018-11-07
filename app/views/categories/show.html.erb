@@ -13,12 +13,9 @@
 					<li><input type="checkbox" checked="checked" id="item-<%=cat_index%>" /><label for="item-<%=cat_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> <%=category.name%></label>
 						<ul>
 							<%category.sub_categories.each_with_index do |sub_category,sub_index|%>
-							<li><input type="checkbox" id="item-<%=cat_index%>-<%=sub_index%>" /><label for="item-<%=cat_index%>-<%=sub_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i><%=sub_category.name%></label>
-								<ul>
-									<%sub_category.tags.each do |tag|%>
-									<li><a href="mens.html"><%=tag.name%></a></li>
-									<%end%>
-								</ul>
+							<li>
+								<input type="checkbox" id="item-<%=cat_index%>-<%=sub_index%>" /><label for="item-<%=cat_index%>-<%=sub_index%>"><i class="fa fa-long-arrow-right" aria-hidden="true"></i><%= link_to sub_category.name, sub_category_path(sub_category.id)%></label>
+							
 							</li>
 							<%end%>
 						</ul>

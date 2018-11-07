@@ -76,10 +76,29 @@
 						<div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a>
 					</li>
 				</ul>
+				<div class="responsive_tabs_agileits"> 
+			<div id="horizontalTab">
+				<ul class="resp-tabs-list">
+					<li>Description</li>
+					
+				</ul>
+				<div class="resp-tabs-container">
+					<!--/tab_one-->
+					<div class="tab1">
+
+						<div class="single_page_agile_its_w3ls">
+							<%= @post.description %>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
 			<%else%>
 				<p><label>Buy Now Price:</label><span class="item_price"><%= @post.price %></span></p>
 				<p><label>Starting Bid: </label><span class="item_price">Rs <%= @post.starting_bid %></span></p>
+				<p><label>Ending Date & Time: </label><span class="item_price"><%= @post.end_datetime %></span></p>
 				<p><label>Current Bid: </label><span class="item_price"><%= @post.current_bid.price %>(Rs)</span></p>
+
 				<p>
 					<fieldset class="rating">
 						<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -100,7 +119,7 @@
                     <%= hidden_field_tag(:user_id, current_user.id) %>
                     <%= hidden_field_tag(:post_id, @post.id) %>
                     <%= text_field_tag(:price) %>
-                    <div><%= submit_tag 'Confirm Bid',  :class => "btn btn-primary btn-lg btn-block" %></div>
+                    <div><%= submit_tag 'Confirm Bid',  :class => "btn btn-primary btn-lg" %></div>
                 <% end -%>
 
 				<!-- <div class="color-quality col-md-4 mb-2">
@@ -116,7 +135,7 @@
 					    </div>						
 					</div>
 				</div> -->
-				<div class="col-md-2 btn btn-primary btn-lg btn-block">
+				<div class="col-md-2 btn ">
 					<div>
 					 	<a href="#" data-toggle="modal" data-target="#myModal4">Order Now</a>
 					</div>
@@ -152,16 +171,10 @@
 						<div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div></a>
 					</li>
 				</ul>
-
-			<%end%>
-		</div>
-		<div class="clearfix"> </div>
-		<!-- /new_arrivals --> 
-		<div class="responsive_tabs_agileits"> 
+				<div class="responsive_tabs_agileits"> 
 			<div id="horizontalTab">
 				<ul class="resp-tabs-list">
 					<li>Description</li>
-					<li>Reviews</li>
 					<li>Information</li>
 				</ul>
 				<div class="resp-tabs-container">
@@ -172,40 +185,7 @@
 							<%= @post.description %>
 						</div>
 					</div>
-					<!--//tab_one-->
 					<div class="tab2">
-
-						<div class="single_page_agile_its_w3ls">
-							<div class="bootstrap-tab-text-grids">
-								<div class="bootstrap-tab-text-grid">
-									<div class="bootstrap-tab-text-grid-left">
-										<img src="images/t1.jpg" alt=" " class="img-responsive">
-									</div>
-									<div class="bootstrap-tab-text-grid-right">
-										<ul>
-											<li><a href="#">Admin</a></li>
-											<li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
-										</ul>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis 
-											suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem 
-										vel eum iure reprehenderit.</p>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="add-review">
-									<h4>add a review</h4>
-									<form action="#" method="post">
-										<input type="text" name="Name" required="Name">
-										<input type="email" name="Email" required="Email"> 
-										<textarea name="Message" required=""></textarea>
-										<input type="submit" value="SEND">
-									</form>
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<div class="tab3">
 
 						<div class="single_page_agile_its_w3ls">
 							<div class="row">
@@ -248,31 +228,38 @@
 				</div>
 			</div>	
 		</div>
+
+			<%end%>
+		</div>
+		<div class="clearfix"> </div>
+		<!-- /new_arrivals --> 
+		
 		<!-- //new_arrivals --> 
 		<!--/slider_owl-->
 
 		<div class="w3_agile_latest_arrivals">
 			<h3 class="wthree_text_info">Featured <span>Arrivals</span></h3>
-			<%@post.sub_category.posts.each do |fpost|%>	
+			<%@post.sub_category.posts[1..4].each do |fpost|%>	
 			<div class="col-md-3 product-men single">
 				<div class="men-pro-item simpleCart_shelfItem">
 					<div class="men-thumb-item">
 						<%= image_tag fpost.photo_url, class: "pro-image-front", data: { action: 'zoom' }%>
 						<%= image_tag fpost.photo_url, class: "pro-image-back", data: { action: 'zoom' }%>
 						<div class="men-cart-pro">
-							<div class="inner-men-cart-pro">
-								<a href="single.html" class="link-product-add-cart">Quick View</a>
-							</div>
+							<<div class="inner-men-cart-pro link-product-add-cart">
+									<%= link_to "Quick View", post_path(fpost) %>
+								</div>
 						</div>
 						<span class="product-new-top">New</span>
 
 					</div>
 					<div class="item-info-product ">
-						<h4><a href="single.html"><%=fpost.name%></a></h4>
+						<h4><%=fpost.name%></a></h4>
 						<div class="info-product-price">
 							<span class="item_price">$<%=fpost.price%></span>
 							<del><%=fpost.price%></del>
 						</div>
+							
 						 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
 					        <form action="/carts/add_products" method="post">
 					            <fieldset>
@@ -302,7 +289,7 @@
 				</div>
 				<div class="w3layouts_mail_grid_left2">
 					<h3>FREE SHIPPING</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur</p>
+					<p>Buy Anything Without Any Shipping Charges</p>
 				</div>
 			</div>
 			<div class="col-md-3 w3layouts_mail_grid_left">
@@ -311,7 +298,7 @@
 				</div>
 				<div class="w3layouts_mail_grid_left2">
 					<h3>24/7 SUPPORT</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur</p>
+					<p>Contact Us 24/7 In Case Of Any Query</p>
 				</div>
 			</div>
 			<div class="col-md-3 w3layouts_mail_grid_left">
@@ -320,7 +307,7 @@
 				</div>
 				<div class="w3layouts_mail_grid_left2">
 					<h3>MONEY BACK GUARANTEE</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur</p>
+					<p>We Provide You With 100% Money Back Gaurantee</p>
 				</div>
 			</div>
 			<div class="col-md-3 w3layouts_mail_grid_left">
@@ -329,7 +316,7 @@
 				</div>
 				<div class="w3layouts_mail_grid_left2">
 					<h3>FREE GIFT COUPONS</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur</p>
+					<p>Wait Free Gift Coupons Are Coming Soon</p>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
