@@ -188,7 +188,10 @@
 				    	<td><%= service.hover_name %></td>
 				    	<td><%= service.description %></td>
 				    	<td><%= service.minilogo %></td>
-				    	<td><%= image_tag service.picture_url, class: "image_table_display"%></td>
+				    	<td><%#= image_tag service.picture_url, class: "image_table_display"%>
+				    		<img src="data:<%= service.image['content_type']%>;base64,<%= service.image['data']%>" class = "image_table_display"/>
+				    	</td>
+
 				      	<%#= render :partial => 'images/image', :locals => {:image => image} %>
 			    	</tr>
 			    <% end %>

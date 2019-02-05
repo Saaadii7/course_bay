@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216072216) do
+ActiveRecord::Schema.define(version: 20190127113654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_id"
   end
 
   create_table "documents_users", force: :cascade do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "approved", default: false
+    t.integer "service_id"
   end
 
   create_table "images_users", force: :cascade do |t|
@@ -52,11 +54,23 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.string "hover_name"
+    t.string "description"
+    t.string "picture"
+    t.string "minilogo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.json "image"
+  end
+
   create_table "sounds", force: :cascade do |t|
     t.string "sound"
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_id"
   end
 
   create_table "sounds_users", force: :cascade do |t|
@@ -106,6 +120,7 @@ ActiveRecord::Schema.define(version: 20180216072216) do
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "service_id"
   end
 
 end

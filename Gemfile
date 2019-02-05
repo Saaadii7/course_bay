@@ -15,6 +15,7 @@ gem 'ffmpeg'
 gem 'streamio-ffmpeg'
 gem 'mini_magick'
 gem 'carrierwave-video'
+gem 'carrierwave-base64'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

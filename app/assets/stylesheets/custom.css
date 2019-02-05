@@ -42,3 +42,9 @@ input[type=submit]:hover {
     padding: 20px;
     margin: 50px;
 }
+.service_img{
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    text-align: center;
+}

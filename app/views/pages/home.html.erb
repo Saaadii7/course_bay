@@ -254,8 +254,9 @@
             <% @services.each_with_index do |service,index| %>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="single-item">
-                        <div class="img-holder">
-                            <%= image_tag service.picture.service_thumb.url, class: "image_table_display"%>
+                        <div class="img-holder service_img">
+                            <img src="data:<%= service.image['content_type']%>;base64,<%= service.image['data']%>" class = "image_table_display"/>
+                            <%#= image_tag service.picture.service_thumb.url, class: "image_table_display"%>
                             <div class="overlay-style-one">
                                 <div class="box">
                                     <div class="content">
